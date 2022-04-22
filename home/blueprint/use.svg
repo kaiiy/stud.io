@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="0.83972969"
-     inkscape:cx="397.15161"
-     inkscape:cy="282.23368"
+     inkscape:zoom="0.88638134"
+     inkscape:cx="354.81343"
+     inkscape:cy="191.79104"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -69,7 +69,7 @@
        inkscape:locked="false"
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="189.51003,134.92512"
+       position="189.51003,138.25"
        orientation="0,1"
        id="guide5534"
        inkscape:label=""
@@ -288,6 +288,14 @@
        d="M 10 0 C 4.4600072 -3.5527137e-15 0 4.4600072 0 10 L 0 90 C 1.1842379e-15 95.539993 4.4600072 100 10 100 L 530 100 C 535.53999 100 540 95.539993 540 90 L 540 10 C 540 4.4600072 535.53999 0 530 0 L 10 0 z M 50 35 L 490 35 C 498.31 35 505 41.69 505 50 C 505 58.31 498.31 65 490 65 L 50 65 C 41.69 65 35 58.31 35 50 C 35 41.69 41.69 35 50 35 z "
        transform="scale(0.26458333)"
        inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\long.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       style="fill:none;stroke:#ac98cd;stroke-width:2.77751;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 150.92111,123.01669 c 0,0 3.35493,3.83708 6.34687,3.83708 2.99193,0 3.35492,-3.83708 6.34687,-3.83708 2.99193,0 3.35491,3.83708 6.34686,3.83708 2.99194,0 3.35493,-3.83708 6.34686,-3.83708 2.99194,0 3.35494,3.83708 6.34687,3.83708 2.99195,0 3.35492,-3.83708 6.34688,-3.83708 2.99193,0 3.35492,3.83708 6.34685,3.83708 2.99195,0 6.34688,-3.83708 6.34688,-3.83708"
+       id="path1623"
+       sodipodi:nodetypes="czzzzzzzc"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\img\men.png"
        inkscape:export-xdpi="200"
        inkscape:export-ydpi="200" />
   </g>
