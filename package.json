@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "normalize.css": "^8.0.1",
-    "nuxt": "3.0.0-rc.1",
+    "nuxt": "3.0.0-rc.2",
     "nuxt-windicss": "^2.3.1"
   }
 }

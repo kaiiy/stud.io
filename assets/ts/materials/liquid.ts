@@ -13,11 +13,11 @@ const correctLiquid4Drawing = (amount: number): number => {
     return amount
 }
 
-// height 
-export const getLiquidHeight = (maxHeight: number, amount: number) => {
+// size
+export const getLiquidSize = (maxAmount: number, amount: number) => {
     const correctedAmount = correctLiquid4Drawing(amount)
 
-    return maxHeight * correctedAmount
+    return maxAmount * correctedAmount
 }
 
 // margin 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { getMiddleModSize } from "assets/ts/materials/get-size"
 import { heightPx, widthPx, leftPx, topPx } from "assets/ts/style/to-px"
-import { getLiquidHeight, getLiquidTop } from "assets/ts/materials/middle/liquid"
+import { getLiquidSize, getLiquidTop } from "assets/ts/materials/liquid"
 
 type Props = {
     baseSize: number,
@@ -17,7 +17,7 @@ const {
 } = getMiddleModSize(props.baseSize)
 
 // liquid 
-const liquidHeight = getLiquidHeight(modInnerHeight, props.liquidRate)
+const liquidHeight = getLiquidSize(modInnerHeight, props.liquidRate)
 const liquidTop = getLiquidTop(modInnerTop, liquidHeight, modInnerHeight)
 </script>
 

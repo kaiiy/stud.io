@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="0.88638134"
-     inkscape:cx="354.81343"
-     inkscape:cy="191.79104"
+     inkscape:zoom="1.2316035"
+     inkscape:cx="299.20344"
+     inkscape:cy="77.135214"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -38,24 +38,22 @@
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:snap-bbox="true"
-     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-bbox-midpoints="false"
      inkscape:snap-nodes="true"
      inkscape:snap-others="false"
      inkscape:bbox-paths="true"
-     inkscape:bbox-nodes="true">
+     inkscape:bbox-nodes="false"
+     inkscape:object-paths="true"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="false"
+     inkscape:snap-object-midpoints="true">
     <sodipodi:guide
        position="177.26513,84.138015"
        orientation="0,-1"
        id="guide2789" />
     <sodipodi:guide
-       position="61.018917,297"
-       orientation="0,1"
-       id="guide4756"
-       inkscape:label=""
-       inkscape:locked="false"
-       inkscape:color="rgb(0,0,255)" />
-    <sodipodi:guide
-       position="0,276.23838"
+       position="-12.313055,303.52965"
        orientation="-1,0"
        id="guide4758"
        inkscape:label=""
@@ -76,9 +74,12 @@
        inkscape:locked="false"
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="142.875,284.0557"
-       orientation="1,0"
-       id="guide1447" />
+       position="148.11899,276.82761"
+       orientation="-1,0"
+       id="guide1447"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
        position="84.666667,212.14286"
        orientation="1,0"
@@ -105,6 +106,36 @@
        position="-92.949055,274.62922"
        orientation="1,0"
        id="guide972" />
+    <sodipodi:guide
+       position="42.333332,225.56251"
+       orientation="0,-1"
+       id="guide957" />
+    <sodipodi:guide
+       position="42.333332,225.56251"
+       orientation="1,0"
+       id="guide959" />
+    <sodipodi:guide
+       position="42.333332,258.63542"
+       orientation="0,-1"
+       id="guide1195" />
+    <sodipodi:guide
+       position="164.31356,302.83048"
+       orientation="-1,0"
+       id="guide1000"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="68.304199,297.00001"
+       orientation="0,-1"
+       id="guide1002" />
+    <sodipodi:guide
+       position="158.48308,283.77083"
+       orientation="0,1"
+       id="guide1805"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
   </sodipodi:namedview>
   <defs
      id="defs2">
@@ -286,16 +317,53 @@
        id="rect961"
        style="fill:#f8dad5;fill-opacity:1;stroke:none;stroke-width:4.15691;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        d="M 10 0 C 4.4600072 -3.5527137e-15 0 4.4600072 0 10 L 0 90 C 1.1842379e-15 95.539993 4.4600072 100 10 100 L 530 100 C 535.53999 100 540 95.539993 540 90 L 540 10 C 540 4.4600072 535.53999 0 530 0 L 10 0 z M 50 35 L 490 35 C 498.31 35 505 41.69 505 50 C 505 58.31 498.31 65 490 65 L 50 65 C 41.69 65 35 58.31 35 50 C 35 41.69 41.69 35 50 35 z "
-       transform="scale(0.26458333)"
        inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\long.png"
        inkscape:export-xdpi="200"
-       inkscape:export-ydpi="200" />
+       inkscape:export-ydpi="200"
+       transform="scale(0.26458333)" />
     <path
-       style="fill:none;stroke:#ac98cd;stroke-width:2.77751;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 150.92111,123.01669 c 0,0 3.35493,3.83708 6.34687,3.83708 2.99193,0 3.35492,-3.83708 6.34687,-3.83708 2.99193,0 3.35491,3.83708 6.34686,3.83708 2.99194,0 3.35493,-3.83708 6.34686,-3.83708 2.99194,0 3.35494,3.83708 6.34687,3.83708 2.99195,0 3.35492,-3.83708 6.34688,-3.83708 2.99193,0 3.35492,3.83708 6.34685,3.83708 2.99195,0 6.34688,-3.83708 6.34688,-3.83708"
+       style="fill:none;stroke:#ac98cd;stroke-width:2.77851;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 150.92149,123.01719 c 0,0 3.35823,3.83608 6.35312,3.83608 2.99487,0 3.35822,-3.83608 6.35312,-3.83608 2.99487,0 3.35821,3.83608 6.35311,3.83608 2.99489,0 3.35823,-3.83608 6.35311,-3.83608 2.99489,0 3.35824,3.83608 6.35312,3.83608 2.9949,0 3.35822,-3.83608 6.35313,-3.83608 2.99488,0 3.35822,3.83608 6.3531,3.83608 2.9949,0 6.35313,-3.83608 6.35313,-3.83608"
        id="path1623"
        sodipodi:nodetypes="czzzzzzzc"
        inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\img\men.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <g
+       id="g2240"
+       transform="translate(-71.469718)"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\g2240.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <circle
+         style="fill:#de7fa6;fill-opacity:1;stroke:none;stroke-width:0.757237;stroke-linecap:round;stroke-opacity:1"
+         id="path983"
+         cx="42.333332"
+         cy="71.437492"
+         r="1.984375" />
+      <circle
+         style="fill:#de7fa6;fill-opacity:1;stroke:none;stroke-width:1.51447;stroke-linecap:round;stroke-opacity:1"
+         id="path983-8"
+         cx="42.333332"
+         cy="42.333332"
+         r="3.96875" />
+      <path
+         style="fill:#de7fa6;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 46.30208,42.33333 -1.984375,29.104161 h -3.96875 L 38.36458,42.33333 Z"
+         id="path2083" />
+    </g>
+    <path
+       style="fill:none;stroke:#de7fa6;stroke-width:1.06766;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 178.22216,-13.357454 c 0,20.0990049 0,20.0990049 0,20.0990049"
+       id="path2104"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\assets\img\materials\long-light-circle.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       style="fill:none;stroke:#ac98cd;stroke-width:1.06766;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 190.9824,-11.982957 c 0,20.0990048 0,20.0990048 0,20.0990048"
+       id="path2104-0"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\assets\img\materials\long-light-middle.png"
        inkscape:export-xdpi="200"
        inkscape:export-ydpi="200" />
   </g>

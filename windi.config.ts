@@ -5,6 +5,7 @@ export default defineConfig({
     backgroundColor: theme => ({
       ...theme('colors'),
       "dark-purple": '#AC98CD',
+      "dark-red": "#EA9586"
     }),
   },
 })

@@ -1,0 +1,3 @@
+.comp-default {
+    @apply absolute object-contain  select-none;
+}
