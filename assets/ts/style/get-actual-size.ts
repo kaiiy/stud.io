@@ -1,1 +1,2 @@
-export const getActualSize = (value: number, baseSize: number) => value * baseSize
+export const getActualSize = (value: number, baseSize: number) =>
+  value * baseSize;

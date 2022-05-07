@@ -1,20 +1,20 @@
-export const toPx = (value: number): string => String(value) + "px"
+export const toPx = (value: number): string => String(value) + "px";
 
-// size 
+// size
 export const heightPx = (value: number) => ({
-    height: toPx(value)
-})
+  height: toPx(value),
+});
 export const widthPx = (value: number) => ({
-    width: toPx(value)
-})
+  width: toPx(value),
+});
 
-// margin 
+// margin
 export const topPx = (value: number) => ({
-    top: toPx(value)
-})
+  top: toPx(value),
+});
 export const bottomPx = (value: number) => ({
-    bottom: toPx(value)
-})
+  bottom: toPx(value),
+});
 export const leftPx = (value: number) => ({
-    left: toPx(value)
-})
+  left: toPx(value),
+});

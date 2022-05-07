@@ -14,6 +14,7 @@ onMounted(() => {
 </script>
 
 <template>
+  <!-- <LongMod :base-size="150" :state="STATE.LONG.TIME" :liquid-rate="0.8" />  -->
+  <CircleMod :state="STATE.CIRCLE.VALVE" :base-size="150" />
   <!-- <MiddleMod :base-size="200" :liquid-rate="0.9" />  -->
-  <LongMod :base-size="150" :state="STATE.LONG.TIME" :liquid-rate="0.8" />
 </template>
