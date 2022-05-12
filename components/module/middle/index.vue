@@ -23,7 +23,6 @@ const liquidTop = getLiquidTop(modInnerTop, liquidHeight, modInnerHeight)
 
 <template>
     <div class="relative">
-
         <!-- container  -->
         <img class="absolute object-contain z-20" :style="{
             ...heightPx(modHeight)

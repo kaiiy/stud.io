@@ -1,34 +1,6 @@
 import { MIDDLE_MOD_SIZE, CIRCLE_MOD_SIZE, LONG_MOD_SIZE } from "./def-size";
 import { getActualSize } from "assets/ts/style/get-actual-size";
 
-// long
-export const getLongModSize = (baseSize: number) => ({
-  height: getActualSize(LONG_MOD_SIZE.OUTER.HEIGHT, baseSize),
-  width: getActualSize(LONG_MOD_SIZE.OUTER.WIDTH, baseSize),
-  innerHeight: getActualSize(LONG_MOD_SIZE.INNER.HEIGHT, baseSize),
-  innerWidth: getActualSize(LONG_MOD_SIZE.INNER.WIDTH, baseSize),
-  innerTop: getActualSize(
-    (LONG_MOD_SIZE.OUTER.HEIGHT - LONG_MOD_SIZE.INNER.HEIGHT) / 2,
-    baseSize
-  ),
-  innerLeft: getActualSize(
-    (LONG_MOD_SIZE.OUTER.WIDTH - LONG_MOD_SIZE.INNER.WIDTH) / 2,
-    baseSize
-  ),
-});
-export const getLongLightSize = (baseSize: number) => ({
-  height: getActualSize(LONG_MOD_SIZE.LIGHT.HEIGHT, baseSize),
-  width: getActualSize(LONG_MOD_SIZE.LIGHT.WIDTH, baseSize),
-  left: getActualSize(
-    LONG_MOD_SIZE.OUTER.WIDTH - LONG_MOD_SIZE.LIGHT.WIDTH,
-    baseSize
-  ),
-  top: getActualSize(
-    (LONG_MOD_SIZE.OUTER.HEIGHT - LONG_MOD_SIZE.LIGHT.HEIGHT) / 2,
-    baseSize
-  ),
-});
-
 // circle
 export const getCircleModSize = (baseSize: number) => ({
   size: getActualSize(CIRCLE_MOD_SIZE.OUTER.SIZE, baseSize),
@@ -61,7 +33,7 @@ export const getCircleHvSize = (baseSize: number) => ({
 export const getMiddleModSize = (baseSize: number) => ({
   height: getActualSize(MIDDLE_MOD_SIZE.OUTER.HEIGHT, baseSize),
   width: getActualSize(MIDDLE_MOD_SIZE.OUTER.WIDTH, baseSize),
-  innerHeight: getActualSize(MIDDLE_MOD_SIZE.INNER.WIDTH, baseSize),
+  innerHeight: getActualSize(MIDDLE_MOD_SIZE.INNER.HEIGHT, baseSize),
   innerWidth: getActualSize(MIDDLE_MOD_SIZE.INNER.WIDTH, baseSize),
   innerTop: getActualSize(
     (MIDDLE_MOD_SIZE.OUTER.HEIGHT - MIDDLE_MOD_SIZE.INNER.HEIGHT) / 2,
@@ -69,6 +41,34 @@ export const getMiddleModSize = (baseSize: number) => ({
   ),
   innerLeft: getActualSize(
     (MIDDLE_MOD_SIZE.OUTER.WIDTH - MIDDLE_MOD_SIZE.INNER.WIDTH) / 2,
+    baseSize
+  ),
+});
+
+// long
+export const getLongModSize = (baseSize: number) => ({
+  height: getActualSize(LONG_MOD_SIZE.OUTER.HEIGHT, baseSize),
+  width: getActualSize(LONG_MOD_SIZE.OUTER.WIDTH, baseSize),
+  innerHeight: getActualSize(LONG_MOD_SIZE.INNER.HEIGHT, baseSize),
+  innerWidth: getActualSize(LONG_MOD_SIZE.INNER.WIDTH, baseSize),
+  innerTop: getActualSize(
+    (LONG_MOD_SIZE.OUTER.HEIGHT - LONG_MOD_SIZE.INNER.HEIGHT) / 2,
+    baseSize
+  ),
+  innerLeft: getActualSize(
+    (LONG_MOD_SIZE.OUTER.WIDTH - LONG_MOD_SIZE.INNER.WIDTH) / 2,
+    baseSize
+  ),
+});
+export const getLongLightSize = (baseSize: number) => ({
+  height: getActualSize(LONG_MOD_SIZE.LIGHT.HEIGHT, baseSize),
+  width: getActualSize(LONG_MOD_SIZE.LIGHT.WIDTH, baseSize),
+  left: getActualSize(
+    LONG_MOD_SIZE.OUTER.WIDTH - LONG_MOD_SIZE.LIGHT.WIDTH,
+    baseSize
+  ),
+  top: getActualSize(
+    (LONG_MOD_SIZE.OUTER.HEIGHT - LONG_MOD_SIZE.LIGHT.HEIGHT) / 2,
     baseSize
   ),
 });

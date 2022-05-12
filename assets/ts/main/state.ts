@@ -3,10 +3,11 @@ export const STATE = {
     VALVE: "long-valve",
     TIME: "long-time",
     POT: "long-pot",
-    CUP: "long-cup"
+    CUP: "long-cup",
   },
   CIRCLE: {
     TIME: "circle-time",
-    VALVE: "circle-valve"
-  }
-}
+    VALVE: "circle-valve",
+    POT: "circle-pot",
+  },
+};

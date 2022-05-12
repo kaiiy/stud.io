@@ -50,9 +50,9 @@ const getMousePos = (ev: MouseEvent) => {
 
 onMounted(() => {
   const mouseAreaEle = document.getElementById(MOUSE_AREA_ID)
-  const mouseAreaBound = mouseAreaEle.getBoundingClientRect()
-  mouseAreaPos.x = mouseAreaBound.left
-  mouseAreaPos.y = mouseAreaBound.top
+  const mouseAreaBound = mouseAreaEle?.getBoundingClientRect()
+  mouseAreaPos.x = mouseAreaBound?.left ?? 0
+  mouseAreaPos.y = mouseAreaBound?.top ?? 0
 })
 </script>
 

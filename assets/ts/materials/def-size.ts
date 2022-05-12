@@ -1,11 +1,11 @@
 export const MIDDLE_MOD_SIZE = {
   OUTER: {
-    HEIGHT: 3.2,
+    HEIGHT: 4.3,
     WIDTH: 2.1,
   },
   INNER: {
-    HEIGHT: 2.5,
-    WIDTH: 0.8,
+    HEIGHT: 3.6,
+    WIDTH: 0.7,
   },
 };
 

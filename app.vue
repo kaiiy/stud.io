@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import MiddleMod from "@/components/materials/middle/index.vue"
-import CircleMod from "@/components/materials/circle/index.vue"
-import LongMod from "@/components/materials/long/index.vue"
+import MiddleMod from "@/components/module/middle/index.vue"
+import CircleMod from "@/components/module/circle/index.vue"
+import LongMod from "@/components/module/long/index.vue"
 import { STATE } from "@/assets/ts/main/state"
 
 // amount of water in pot/cup 
@@ -15,6 +15,6 @@ onMounted(() => {
 
 <template>
   <!-- <LongMod :base-size="150" :state="STATE.LONG.TIME" :liquid-rate="0.8" />  -->
-  <CircleMod :state="STATE.CIRCLE.VALVE" :base-size="150" />
-  <!-- <MiddleMod :base-size="200" :liquid-rate="0.9" />  -->
+  <!-- <CircleMod :state="STATE.CIRCLE.VALVE" :base-size="150" /> -->
+  <MiddleMod :base-size="100" :liquid-rate="0.7" />  
 </template>

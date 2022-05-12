@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (b8e25be833, 2022-02-05)"
+   sodipodi:docname="parts.svg"
+   inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\view.png"
+   inkscape:export-xdpi="200"
+   inkscape:export-ydpi="200"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="1.5208438"
+     inkscape:cx="699.94039"
+     inkscape:cy="195.28633"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="true"
+     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-nodes="true"
+     inkscape:snap-others="false"
+     inkscape:bbox-paths="true"
+     inkscape:bbox-nodes="true"
+     inkscape:object-paths="true"
+     inkscape:snap-bbox-edge-midpoints="false"
+     inkscape:snap-smooth-nodes="false"
+     inkscape:snap-midpoints="false"
+     inkscape:snap-object-midpoints="true"
+     inkscape:object-nodes="false">
+    <sodipodi:guide
+       position="177.26513,84.138015"
+       orientation="0,-1"
+       id="guide2789" />
+    <sodipodi:guide
+       position="189.51003,138.25"
+       orientation="0,1"
+       id="guide5534"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="84.666667,212.14286"
+       orientation="1,0"
+       id="guide1449" />
+    <sodipodi:guide
+       position="87.312496,200.63681"
+       orientation="1,0"
+       id="guide1451" />
+    <sodipodi:guide
+       position="32.360774,154.125"
+       orientation="0,1"
+       id="guide1453"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-92.949055,274.62922"
+       orientation="1,0"
+       id="guide972" />
+    <sodipodi:guide
+       position="68.304199,297.00001"
+       orientation="0,-1"
+       id="guide1002" />
+    <sodipodi:guide
+       position="1.4999989e-06,246.73018"
+       orientation="1,0"
+       id="guide956" />
+    <sodipodi:guide
+       position="-7.089335,294.35417"
+       orientation="0,1"
+       id="guide1015"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="14.393498,212.33335"
+       orientation="0,-1"
+       id="guide1017" />
+    <sodipodi:guide
+       position="35.876332,209.6875"
+       orientation="0,1"
+       id="guide1019"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="29.104167,197.53448"
+       orientation="-1,0"
+       id="guide1101"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-30.505623,196.03069"
+       orientation="1,0"
+       id="guide1103" />
+    <sodipodi:guide
+       position="58.208333,196.67517"
+       orientation="-1,0"
+       id="guide1105"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="-5.5855367,180.58333"
+       orientation="0,1"
+       id="guide1107"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="43.344278,287.72415"
+       orientation="0,-1"
+       id="guide1817" />
+    <sodipodi:guide
+       position="224.66203,270.54167"
+       orientation="0,1"
+       id="guide1194"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="216.95833,243.08111"
+       orientation="-1,0"
+       id="guide1196"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="225.06142,266.57292"
+       orientation="0,1"
+       id="guide1198"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="239.04039,261.28125"
+       orientation="0,1"
+       id="guide1200"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="234.84671,247.6742"
+       orientation="1,0"
+       id="guide1357" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstart"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow1Lstart"
+       inkscape:isstock="true">
+      <path
+         transform="scale(0.8) translate(12.5,0)"
+         style="fill-rule:evenodd;fill:context-stroke;stroke:context-stroke;stroke-width:1.0pt"
+         d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
+         id="path2971" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g946"
+       transform="translate(1.4999989e-6,-29.104171)">
+      <rect
+         style="fill:#f8dad5;fill-opacity:1;stroke:none;stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1215-5"
+         width="26.458334"
+         height="26.458334"
+         x="0"
+         y="116.41667"
+         ry="2.6458273"
+         inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\long-btn.png"
+         inkscape:export-xdpi="200"
+         inkscape:export-ydpi="200" />
+      <path
+         sodipodi:type="star"
+         style="fill:#ea9586;fill-opacity:1;stroke:#ea9586;stroke-width:18.6775;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path1394"
+         inkscape:flatsided="false"
+         sodipodi:sides="3"
+         sodipodi:cx="-197.00287"
+         sodipodi:cy="170.55952"
+         sodipodi:r1="140.08107"
+         sodipodi:r2="70.040535"
+         sodipodi:arg1="-0.26179939"
+         sodipodi:arg2="0.78539816"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         transform="matrix(-0.03579909,0.03579909,-0.03579909,-0.03579909,10.509552,142.80424)"
+         inkscape:transform-center-x="-1.772986"
+         inkscape:transform-center-y="-9.5850206e-06"
+         d="m -61.694945,134.30388 -85.781785,85.78178 -85.78179,85.78179 -31.39831,-117.1801 -31.39831,-117.1801 117.1801,31.39831 z"
+         inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\long-btn.png"
+         inkscape:export-xdpi="200"
+         inkscape:export-ydpi="200" />
+    </g>
+    <g
+       id="g950"
+       transform="translate(9.6911629e-7,-29.104156)">
+      <rect
+         style="fill:#f4d0df;fill-opacity:1;stroke:none;stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="rect1215-7"
+         width="26.458334"
+         height="26.458334"
+         x="29.104166"
+         y="116.41666"
+         ry="2.6458502"
+         inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\circle-btn.png"
+         inkscape:export-xdpi="200"
+         inkscape:export-ydpi="200" />
+      <path
+         sodipodi:type="star"
+         style="fill:#de7fa6;fill-opacity:1;stroke:#de7fa6;stroke-width:18.6775;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path1394-6"
+         inkscape:flatsided="false"
+         sodipodi:sides="3"
+         sodipodi:cx="-197.00287"
+         sodipodi:cy="170.55952"
+         sodipodi:r1="140.08107"
+         sodipodi:r2="70.040535"
+         sodipodi:arg1="-0.26179939"
+         sodipodi:arg2="0.78539816"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         transform="matrix(-0.03579909,0.03579909,-0.03579909,-0.03579909,39.613718,142.80422)"
+         inkscape:transform-center-x="-1.7729865"
+         inkscape:transform-center-y="-1.3617124e-06"
+         d="m -61.694945,134.30388 -85.781785,85.78178 -85.78179,85.78179 -31.39831,-117.1801 -31.39831,-117.1801 117.1801,31.39831 z"
+         inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\circle-btn.png"
+         inkscape:export-xdpi="200"
+         inkscape:export-ydpi="200" />
+    </g>
+    <rect
+       style="fill:#e1daee;fill-opacity:1;stroke:none;stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1215-8"
+       width="26.458334"
+       height="26.458334"
+       x="58.208332"
+       y="87.3125"
+       ry="2.6458578"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\middle-btn.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       sodipodi:type="star"
+       style="fill:#ac98cd;fill-opacity:1;stroke:#ac98cd;stroke-width:18.6775;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path1394-3"
+       inkscape:flatsided="false"
+       sodipodi:sides="3"
+       sodipodi:cx="-197.00287"
+       sodipodi:cy="170.55952"
+       sodipodi:r1="140.08107"
+       sodipodi:r2="70.040535"
+       sodipodi:arg1="-0.26179939"
+       sodipodi:arg2="0.78539816"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       transform="matrix(-0.03579909,0.03579909,-0.03579909,-0.03579909,68.717885,113.70007)"
+       inkscape:transform-center-x="-1.7729863"
+       inkscape:transform-center-y="-1.2698012e-06"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\middle-btn.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       d="m -61.694945,134.30388 -85.781785,85.78178 -85.78179,85.78179 -31.39831,-117.1801 -31.39831,-117.1801 117.1801,31.39831 z" />
+    <path
+       id="rect848"
+       style="fill:#f4d0df;stroke:none;stroke-width:1.12889;stroke-linecap:round;stroke-linejoin:round"
+       d="M 2.8220515,-9.2207147e-6 C 1.2585395,-9.2207147e-6 1.4999989e-6,1.2585288 1.4999989e-6,2.8220418 V 81.844605 c 0,1.56351 1.2585380000011,2.822051 2.8220500000011,2.822051 H 81.844616 c 1.563513,0 2.822051,-1.258541 2.822051,-2.822051 V 2.8220418 c 0,-1.563513 -1.258538,-2.8220510207147 -2.822051,-2.8220510207147 z M 42.333334,9.260407 A 33.072916,33.072916 0 0 1 75.40625,42.333323 33.072916,33.072916 0 0 1 42.333334,75.406239 33.072916,33.072916 0 0 1 9.2604181,42.333323 33.072916,33.072916 0 0 1 42.333334,9.260407 Z"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\circle.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       id="rect961"
+       style="fill:#f8dad5;fill-opacity:1;stroke:none;stroke-width:1.09985;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 2.6458348,116.41667 c -1.4657898,0 -2.6458333000011,1.18005 -2.6458333000011,2.64584 v 21.16666 c 0,1.46579 1.1800435000011,2.64584 2.6458333000011,2.64584 H 140.22917 c 1.46579,0 2.64583,-1.18005 2.64583,-2.64584 v -21.16666 c 0,-1.46579 -1.18004,-2.64584 -2.64583,-2.64584 z m 10.5833332,9.26042 H 129.64584 c 2.19868,0 3.96875,1.77006 3.96875,3.96875 0,2.19869 -1.77007,3.96875 -3.96875,3.96875 H 13.229168 c -2.198688,0 -3.9687499,-1.77006 -3.9687499,-3.96875 0,-2.19869 1.7700619,-3.96875 3.9687499,-3.96875 z"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\long.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       style="fill:none;stroke:#ac98cd;stroke-width:2.77851;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 150.92149,123.01719 c 0,0 3.35823,3.83608 6.35312,3.83608 2.99487,0 3.35822,-3.83608 6.35312,-3.83608 2.99487,0 3.35821,3.83608 6.35311,3.83608 2.99489,0 3.35823,-3.83608 6.35311,-3.83608 2.99489,0 3.35824,3.83608 6.35312,3.83608 2.9949,0 3.35822,-3.83608 6.35313,-3.83608 2.99488,0 3.35822,3.83608 6.3531,3.83608 2.9949,0 6.35313,-3.83608 6.35313,-3.83608"
+       id="path1623"
+       sodipodi:nodetypes="czzzzzzzc"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\img\men.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <g
+       id="g2240"
+       transform="translate(113.25239,5.3918885)"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\g2240.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <circle
+         style="fill:#de7fa6;fill-opacity:1;stroke:none;stroke-width:0.757237;stroke-linecap:round;stroke-opacity:1"
+         id="path983"
+         cx="42.333332"
+         cy="71.437492"
+         r="1.984375" />
+      <circle
+         style="fill:#de7fa6;fill-opacity:1;stroke:none;stroke-width:1.51447;stroke-linecap:round;stroke-opacity:1"
+         id="path983-8"
+         cx="42.333332"
+         cy="42.333332"
+         r="3.96875" />
+      <path
+         style="fill:#de7fa6;fill-opacity:1;stroke:none;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 46.30208,42.33333 -1.984375,29.104161 h -3.96875 L 38.36458,42.33333 Z"
+         id="path2083" />
+    </g>
+    <path
+       style="fill:none;stroke:#de7fa6;stroke-width:1.06766;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 177.14802,38.364581 c 0,20.099005 0,20.099005 0,20.099005"
+       id="path2104"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\assets\img\materials\long-light-circle.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       style="fill:none;stroke:#ac98cd;stroke-width:1.06766;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 189.9036,38.364581 c 0,20.099005 0,20.099005 0,20.099005"
+       id="path2104-0"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\assets\img\materials\long-light-middle.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <g
+       id="g875"
+       inkscape:export-filename="C:\Users\tomo\Downloads\plug.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200">
+      <path
+         sodipodi:type="star"
+         style="fill:#ac98cd;fill-opacity:1;stroke:#ac98cd;stroke-width:18.6775;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path1394-3-8"
+         inkscape:flatsided="false"
+         sodipodi:sides="3"
+         sodipodi:cx="-197.00287"
+         sodipodi:cy="170.55952"
+         sodipodi:r1="140.08107"
+         sodipodi:r2="70.040535"
+         sodipodi:arg1="-0.26179939"
+         sodipodi:arg2="0.78539816"
+         inkscape:rounded="0"
+         inkscape:randomized="0"
+         transform="matrix(0.03579909,-0.03579909,0.03579909,0.03579909,213.8862,19.914515)"
+         inkscape:transform-center-x="1.7729903"
+         inkscape:transform-center-y="-2.9022566e-06"
+         inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\middle-btn.png"
+         inkscape:export-xdpi="200"
+         inkscape:export-ydpi="200"
+         d="m -61.694945,134.30388 -85.781785,85.78178 -85.78179,85.78179 -31.39831,-117.1801 -31.39831,-117.1801 117.1801,31.39831 z" />
+      <path
+         style="fill:none;stroke:#ac98cd;stroke-width:1.22329;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 220.31491,30.427081 c -6.71317,0 -6.71317,0 -6.71317,0"
+         id="path2104-0-5"
+         inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\assets\img\materials\long-light-middle.png"
+         inkscape:export-xdpi="200"
+         inkscape:export-ydpi="200" />
+      <path
+         style="fill:none;stroke:#ac98cd;stroke-width:1.22225;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 220.30922,35.718751 c -6.70179,0 -6.70179,0 -6.70179,0"
+         id="path2104-0-5-4"
+         inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\assets\img\materials\long-light-middle.png"
+         inkscape:export-xdpi="200"
+         inkscape:export-ydpi="200" />
+    </g>
+    <path
+       id="rect1131"
+       style="fill:#e1daee;stroke-width:4.98444;stroke-linecap:round"
+       d="M 337.63867 0 C 333.40716 -1.1842379e-15 330 3.4071634 330 7.6386719 L 330 422.36133 C 330 426.59285 333.40716 430 337.63867 430 L 532.36133 430 C 536.59281 430 540 426.59285 540 422.36133 L 540 7.6386719 C 540 3.4071634 536.59281 0 532.36133 0 L 337.63867 0 z M 435 35 C 454.39 35 470 50.609999 470 70 L 470 360 C 470 379.39002 454.39 395 435 395 C 415.60997 395 400 379.39002 400 360 L 400 70 C 400 50.609999 415.60997 35 435 35 z "
+       transform="scale(0.26458333)"
+       inkscape:export-filename="C:\Users\tomo\Downloads\middle.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       style="fill:#ac98cd;fill-opacity:1;stroke:none;stroke-width:0.989782;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1681-0"
+       width="18.520834"
+       height="95.25"
+       x="251.14784"
+       y="9.2758512"
+       ry="9.260417" />
+    <path
+       sodipodi:type="star"
+       style="fill:#e1daee;fill-opacity:1;stroke:#e1daee;stroke-width:19.7546;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path1394-3-8-2"
+       inkscape:flatsided="false"
+       sodipodi:sides="3"
+       sodipodi:cx="-197.00287"
+       sodipodi:cy="170.55952"
+       sodipodi:r1="140.08107"
+       sodipodi:r2="70.040535"
+       sodipodi:arg1="-0.26179939"
+       sodipodi:arg2="0.78539816"
+       inkscape:rounded="0"
+       inkscape:randomized="0"
+       transform="matrix(0.03579909,-0.03579909,0.03579909,0.03579909,213.85048,43.208336)"
+       inkscape:transform-center-x="1.7729903"
+       inkscape:transform-center-y="-2.9022566e-06"
+       inkscape:export-filename="C:\Users\tomo\Downloads\plug-selected.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"
+       d="m -61.694945,134.30388 -85.781785,85.78178 -85.78179,85.78179 -31.39831,-117.1801 -31.39831,-117.1801 117.1801,31.39831 z" />
+    <path
+       style="fill:none;stroke:#e1daee;stroke-width:1.000125;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 220.27919,53.720902 c -6.71317,0 -6.71317,0 -6.71317,0"
+       id="path2104-0-5-9"
+       inkscape:export-filename="C:\Users\tomo\Downloads\plug-selected.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <path
+       style="fill:none;stroke:#e1daee;stroke-width:1.00013;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 220.2735,59.012572 c -6.70179,0 -6.70179,0 -6.70179,0"
+       id="path2104-0-5-4-2"
+       inkscape:export-filename="C:\Users\tomo\Downloads\plug-selected.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+  </g>
+</svg>
