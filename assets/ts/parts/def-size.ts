@@ -1,3 +1,10 @@
+// module container
+export const MODULE_CONTAINER = {
+  HEIGHT: 5.4,
+  WIDTH: 5.4,
+};
+
+// module
 export const MIDDLE_MOD_SIZE = {
   OUTER: {
     HEIGHT: 4.3,
@@ -48,4 +55,5 @@ export const NEXT_MOD_SIZE = {
   WIDTH: 1,
 };
 
+// module gap
 export const MODULE_GAP = 0.1;

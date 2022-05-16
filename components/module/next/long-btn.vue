@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getNextModSize } from "@/assets/ts/materials/get-size"
+import { getNextModSize } from "@/assets/ts/parts/get-size"
 import { heightPx } from "assets/ts/style/to-px"
 
 type Props = {

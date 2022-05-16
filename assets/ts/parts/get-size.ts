@@ -3,6 +3,7 @@ import {
   CIRCLE_MOD_SIZE,
   LONG_MOD_SIZE,
   NEXT_MOD_SIZE,
+  MODULE_GAP,
 } from "./def-size";
 import { getActualSize } from "assets/ts/style/get-actual-size";
 
@@ -83,3 +84,7 @@ export const getNextModSize = (baseSize: number) => ({
   height: getActualSize(NEXT_MOD_SIZE.HEIGHT, baseSize),
   width: getActualSize(NEXT_MOD_SIZE.WIDTH, baseSize),
 });
+
+// module gap
+export const getModuleGap = (baseSize: number): number =>
+  getActualSize(MODULE_GAP, baseSize);

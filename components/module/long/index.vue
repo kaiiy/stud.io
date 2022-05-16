@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { getLongModSize, getLongLightSize } from "assets/ts/materials/get-size"
+import { getLongModSize, getLongLightSize } from "assets/ts/parts/get-size"
 import { heightPx, widthPx, leftPx, topPx } from "assets/ts/style/to-px"
-import { getLiquidSize } from "assets/ts/materials/liquid"
+import { getLiquidSize } from "assets/ts/parts/liquid"
 import { STATE } from "@/assets/ts/main/state"
 
 type Props = {

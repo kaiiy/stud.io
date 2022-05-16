@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { getCircleModSize, getCircleHvSize } from "assets/ts/materials/get-size"
+import { getCircleModSize, getCircleHvSize } from "assets/ts/parts/get-size"
 import { heightPx, widthPx, leftPx, topPx } from "assets/ts/style/to-px"
 import { STATE } from "@/assets/ts/main/state"
 import { Vec } from "@/assets/ts/math/vec"
-import { getHvAngle } from "@/assets/ts/materials/circle/get-hv-angle"
+import { getHvAngle } from "@/assets/ts/parts/circle/get-hv-angle"
 import { transformOrigin, rotateOnly } from "assets/ts/style/transform"
 
 type Props = {
