@@ -1,4 +1,9 @@
-import { MIDDLE_MOD_SIZE, CIRCLE_MOD_SIZE, LONG_MOD_SIZE } from "./def-size";
+import {
+  MIDDLE_MOD_SIZE,
+  CIRCLE_MOD_SIZE,
+  LONG_MOD_SIZE,
+  NEXT_MOD_SIZE,
+} from "./def-size";
 import { getActualSize } from "assets/ts/style/get-actual-size";
 
 // circle
@@ -71,4 +76,10 @@ export const getLongLightSize = (baseSize: number) => ({
     (LONG_MOD_SIZE.OUTER.HEIGHT - LONG_MOD_SIZE.LIGHT.HEIGHT) / 2,
     baseSize
   ),
+});
+
+// next
+export const getNextModSize = (baseSize: number) => ({
+  height: getActualSize(NEXT_MOD_SIZE.HEIGHT, baseSize),
+  width: getActualSize(NEXT_MOD_SIZE.WIDTH, baseSize),
 });

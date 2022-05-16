@@ -24,12 +24,12 @@ const liquidTop = getLiquidTop(modInnerTop, liquidHeight, modInnerHeight)
 <template>
     <div class="relative">
         <!-- container  -->
-        <img class="absolute object-contain z-20" :style="{
+        <img class="comp-default z-20" :style="{
             ...heightPx(modHeight)
-        }" src="@/assets/img/materials/middle.png" alt="" />
+        }" src="@/assets/img/parts/middle.png" alt="" />
 
         <!-- liquid  -->
-        <div class="absolute bg-dark-purple z-10" :style="{
+        <div class="comp-default z-10" :style="{
             ...heightPx(liquidHeight), ...widthPx(modInnerWidth),
             ...topPx(liquidTop), ...leftPx(modInnerLeft)
         }">

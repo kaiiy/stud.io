@@ -42,3 +42,10 @@ export const LONG_MOD_SIZE = {
     WIDTH: 0.04,
   },
 };
+
+export const NEXT_MOD_SIZE = {
+  HEIGHT: 1,
+  WIDTH: 1,
+};
+
+export const MODULE_GAP = 0.1;
