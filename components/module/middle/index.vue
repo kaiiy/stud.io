@@ -22,7 +22,7 @@ const liquidTop = getLiquidTop(modInnerTop, liquidHeight, modInnerHeight)
 </script>
 
 <template>
-    <div class="relative" :style="{
+    <div class="relative col-span-2 row-span-4" :style="{
         ...heightPx(modHeight), ...widthPx(modWidth)
     }">
         <!-- container  -->

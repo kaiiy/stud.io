@@ -14,3 +14,6 @@ export const marginRightPx = (value: number) => ({ marginRight: toPx(value) });
 export const marginBottomPx = (value: number) => ({
   marginBottom: toPx(value),
 });
+
+// gap
+export const gapPx = (value: number) => ({ gap: toPx(value) });

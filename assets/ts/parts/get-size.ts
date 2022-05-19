@@ -4,6 +4,7 @@ import {
   LONG_MOD_SIZE,
   NEXT_MOD_SIZE,
   MODULE_GAP,
+  MODULE_CONTAINER,
 } from "./def-size";
 import { getActualSize } from "assets/ts/style/get-actual-size";
 
@@ -83,6 +84,12 @@ export const getLongLightSize = (baseSize: number) => ({
 export const getNextModSize = (baseSize: number) => ({
   height: getActualSize(NEXT_MOD_SIZE.HEIGHT, baseSize),
   width: getActualSize(NEXT_MOD_SIZE.WIDTH, baseSize),
+});
+
+// module container
+export const getModContainerSize = (baseSize: number) => ({
+  height: getActualSize(MODULE_CONTAINER.HEIGHT, baseSize),
+  width: getActualSize(MODULE_CONTAINER.WIDTH, baseSize),
 });
 
 // module gap

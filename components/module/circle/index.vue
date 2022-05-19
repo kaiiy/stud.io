@@ -57,11 +57,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="relative" :style="{
+  <div class="relative col-span-3 row-span-3" :style="{
     ...heightPx(modSize), ...widthPx(modSize)
   }">
     <!-- container  -->
-    <img class="comp-default z-10" :style="{
+    <img class="comp-default z-10 " :style="{
       ...heightPx(modSize)
     }" src="@/assets/img/parts/circle.png" />
 

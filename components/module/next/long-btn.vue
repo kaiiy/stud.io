@@ -15,7 +15,7 @@ const {
 </script> 
 
 <template>
-  <img @click="handleClick()" class="cursor-pointer" :style="{
+  <img @click="handleClick()" class="cursor-pointer col-span-1 row-span-1" :style="{
     ...heightPx(modHeight)
   }" src="@/assets/img/parts/long-btn.png" />
 </template>

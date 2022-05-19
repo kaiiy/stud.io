@@ -32,7 +32,7 @@ const liquidWidth = getLiquidSize(modInnerWidth, props.liquidRate)
 </script>
 
 <template>
-  <div class="relative" :style="{
+  <div class="relative  col-span-5 row-span-1" :style="{
     ...heightPx(modHeight), ...widthPx(modWidth)
   }">
     <!-- container  -->
