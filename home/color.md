@@ -48,6 +48,5 @@
 
 http://hue360.herokuapp.com
 
-設定: Munsell, 30, 7, ON
+設定: Munsell, 30, 7, ON, #FFFFFF(brightness)
 BaseColor: `#F8DAD5`
-

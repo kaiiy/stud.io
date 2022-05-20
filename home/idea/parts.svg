@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="1.5208438"
-     inkscape:cx="699.94039"
-     inkscape:cy="195.28633"
+     inkscape:zoom="0.9983453"
+     inkscape:cx="157.76105"
+     inkscape:cy="260.43093"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -166,6 +166,34 @@
        position="234.84671,247.6742"
        orientation="1,0"
        id="guide1357" />
+    <sodipodi:guide
+       position="-8.3506273,207.04167"
+       orientation="0,1"
+       id="guide980"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="2.6458333,198.18425"
+       orientation="-1,0"
+       id="guide982"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="23.8125,193.73395"
+       orientation="-1,0"
+       id="guide1020"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="1.0308838e-06,185.875"
+       orientation="0,1"
+       id="guide1044"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
   </sodipodi:namedview>
   <defs
      id="defs2">
@@ -190,7 +218,7 @@
      id="layer1">
     <g
        id="g946"
-       transform="translate(1.4999989e-6,-29.104171)">
+       transform="translate(29.104167,-29.104171)">
       <rect
          style="fill:#f8dad5;fill-opacity:1;stroke:none;stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect1215-5"
@@ -226,7 +254,7 @@
     </g>
     <g
        id="g950"
-       transform="translate(9.6911629e-7,-29.104156)">
+       transform="translate(-29.104165,-29.104156)">
       <rect
          style="fill:#f4d0df;fill-opacity:1;stroke:none;stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
          id="rect1215-7"
@@ -443,5 +471,23 @@
        inkscape:export-filename="C:\Users\tomo\Downloads\plug-selected.png"
        inkscape:export-xdpi="200"
        inkscape:export-ydpi="200" />
+    <circle
+       style="fill:#de7fa6;fill-opacity:1;stroke:none;stroke-width:0.292504;stroke-linecap:round"
+       id="path898"
+       cx="2.7775264"
+       cy="90.090019"
+       r="1.3229166" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.292504;stroke-linecap:round"
+       id="path898-2"
+       cx="23.8125"
+       cy="89.958328"
+       r="1.3229166" />
+    <circle
+       style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.292504;stroke-linecap:round"
+       id="path898-2-0"
+       cx="2.6458333"
+       cy="111.125"
+       r="1.3229166" />
   </g>
 </svg>
