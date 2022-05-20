@@ -5,6 +5,12 @@ export type Vec = {
 
 const getVecSize = (a: Vec) => Math.sqrt(a.x ** 2 + a.y ** 2);
 
+/**
+ *
+ * @param a
+ * @param b
+ * @returns 0 <= val <= pi
+ */
 export const getAngle = (a: Vec, b: Vec): number =>
   Math.acos((a.x * b.x + a.y * b.y) / (getVecSize(a) * getVecSize(b)));
 

@@ -3,7 +3,8 @@ import { getCircleModSize, getCircleHvSize } from "assets/ts/parts/get-size"
 import { heightPx, widthPx, leftPx, topPx } from "assets/ts/style/to-px"
 import { STATE } from "@/assets/ts/main/state"
 import { Vec } from "@/assets/ts/math/vec"
-import { getHvAngle } from "@/assets/ts/parts/circle/get-hv-angle"
+import { convertAngle2Rate } from "@/assets/ts/math/angle"
+import { hvAngleFromMouse } from "@/assets/ts/parts/circle/get-hv-angle"
 import { transformOrigin, rotateOnly } from "assets/ts/style/transform"
 
 type Props = {
@@ -12,23 +13,27 @@ type Props = {
 };
 const props = defineProps<Props>();
 
-// ======== get size ========
+// ======== style ========
 const {
   size: modSize, innerSize: modInnerSize
 } = getCircleModSize(props.baseSize)
 const {
-  height: hvHeight, left: valveLeft, top: valveTop, rotateOriginX: rotateOriginX, handRotateOriginY: handRotateOriginY, valveRotateOriginY: valveRotateOriginY
+  height: hvHeight, left: hvLeft, top: valveTop, rotateOriginX: rotateOriginX, handRotateOriginY: handRotateOriginY, valveRotateOriginY: valveRotateOriginY
 } = getCircleHvSize(props.baseSize)
 
 // ======== valve/hand (hv)  ========
 const showValve = computed(() => props.state === STATE.CIRCLE.VALVE)
 const showHand = computed(() => !showValve)
-const hvAngle = ref(3)
+
+// init: 0
+const hvAngle = ref(0)
+// init: false 
+const isOpenValve = ref(false)
 
 // ======== mouse ======== 
 const MOUSE_AREA_ID = "mouse_area_id"
 // absolute mouse area pos 
-const mouseAreaPos = reactive<Vec>({
+const mouseAreaPos = ref<Vec>({
   x: 0, y: 0
 })
 const innerTopMidpoint = computed<Vec>(() => ({
@@ -37,22 +42,40 @@ const innerTopMidpoint = computed<Vec>(() => ({
 const circleCenter = computed<Vec>(() => ({
   x: modInnerSize / 2, y: modInnerSize / 2
 }))
-// clicked 
-const getMousePos = (ev: MouseEvent) => {
-  // relative clicked pos 
-  const mousePos: Vec = {
-    x: ev.clientX - mouseAreaPos.x,
-    y: ev.clientY - mouseAreaPos.y
-  }
 
-  hvAngle.value = getHvAngle(innerTopMidpoint.value, circleCenter.value, mousePos)
+// on click
+const onClickMouseArea = (ev: MouseEvent) => {
+  // get hv angle 
+  hvAngle.value = hvAngleFromMouse(ev, innerTopMidpoint.value, circleCenter.value, mouseAreaPos.value)
+
+  const hvRate = convertAngle2Rate(hvAngle.value)
+  // valve 
+  if (props.state === STATE.CIRCLE.VALVE) {
+    // open 
+    if (isOpenValve.value === false && hvRate !== 0) {
+      // apply water vol to parent (ref: https://qiita.com/miiiii/items/bd4a7a008a150a8d18bf)
+
+      // addEventListener 
+    }
+    // change water volume 
+    else if (isOpenValve.value === true && hvRate !== 0) {
+
+    }
+    // close 
+    else if (isOpenValve.value === true && hvRate === 0) {
+      // removeEventListener 
+    }
+  }
 }
 
+
+// ======== valve function ======== 
+
+
 onMounted(() => {
-  const mouseAreaEle = document.getElementById(MOUSE_AREA_ID)
-  const mouseAreaBound = mouseAreaEle?.getBoundingClientRect()
-  mouseAreaPos.x = mouseAreaBound?.left ?? 0
-  mouseAreaPos.y = mouseAreaBound?.top ?? 0
+  // set mouse area pos
+  const mouseAreaBound = document.getElementById(MOUSE_AREA_ID)?.getBoundingClientRect()
+  mouseAreaPos.value = { x: mouseAreaBound?.left ?? 0, y: mouseAreaBound?.top ?? 0 }
 })
 </script>
 
@@ -67,16 +90,16 @@ onMounted(() => {
 
     <!-- valve/hand  -->
     <img v-show="showValve" class="comp-default z-20" :style="{
-      ...heightPx(hvHeight), ...leftPx(valveLeft), ...topPx(valveTop),
+      ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
       ...transformOrigin(rotateOriginX, valveRotateOriginY), ...rotateOnly(hvAngle)
-    }" src="@/assets/img/parts/circle-valve.png">
+    }" src="@/assets/img/parts/circle-valve.png" />
     <img v-show="showHand" class="comp-default z-20" :style="{
-      ...heightPx(hvHeight), ...leftPx(valveLeft), ...topPx(valveTop),
+      ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
       ...transformOrigin(rotateOriginX, handRotateOriginY), ...rotateOnly(hvAngle)
-    }" src="@/assets/img/parts/circle-hand.png">
+    }" src="@/assets/img/parts/circle-hand.png" />
 
     <!-- mouse area  -->
-    <div :id="MOUSE_AREA_ID" @click="getMousePos" class="absolute cursor-pointer z-30" :style="{
+    <div :id="MOUSE_AREA_ID" @click="onClickMouseArea" class="absolute cursor-pointer z-30" :style="{
       ...heightPx(modInnerSize), ...widthPx(modInnerSize),
       ...leftPx(valveTop), ...topPx(valveTop)
     }" />
