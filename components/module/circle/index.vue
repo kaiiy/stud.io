@@ -9,7 +9,8 @@ import { transformOrigin, rotateOnly } from "assets/ts/style/transform"
 
 type Props = {
   baseSize: number,
-  state: string
+  state: string,
+  intervalMsec: number
 };
 const props = defineProps<Props>();
 
@@ -29,6 +30,7 @@ const showHand = computed(() => !showValve)
 const hvAngle = ref(0)
 // init: false 
 const isOpenValve = ref(false)
+let addWaterTimer: number;
 
 // ======== mouse ======== 
 const MOUSE_AREA_ID = "mouse_area_id"
@@ -51,26 +53,28 @@ const onClickMouseArea = (ev: MouseEvent) => {
   const hvRate = convertAngle2Rate(hvAngle.value)
   // valve 
   if (props.state === STATE.CIRCLE.VALVE) {
-    // open 
+
     if (isOpenValve.value === false && hvRate !== 0) {
-      // apply water vol to parent (ref: https://qiita.com/miiiii/items/bd4a7a008a150a8d18bf)
-
-      // addEventListener 
+      // open 
+      addWaterTimer = window.setInterval(addWaterIntoPot, props.intervalMsec, hvRate)
     }
-    // change water volume 
     else if (isOpenValve.value === true && hvRate !== 0) {
-
+      // change water volume 
+      window.clearInterval(addWaterTimer)
+      addWaterTimer = window.setInterval(addWaterIntoPot, props.intervalMsec, hvRate)
     }
-    // close 
     else if (isOpenValve.value === true && hvRate === 0) {
-      // removeEventListener 
+      // close 
+      window.clearInterval(addWaterTimer)
     }
   }
 }
 
-
 // ======== valve function ======== 
-
+const addWaterIntoPot = (hvRate: number) => {
+  // todo 
+  // emit to parent 
+}
 
 onMounted(() => {
   // set mouse area pos

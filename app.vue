@@ -23,7 +23,7 @@ const clickFunc = () => { }
   <ModuleContainer :base-size="baseSize">
 
     <!-- circle module  -->
-    <CircleMod :state="STATE.CIRCLE.VALVE" :base-size="baseSize" />
+    <CircleMod :state="STATE.CIRCLE.VALVE" :interval-msec="100" :base-size="baseSize" />
 
     <!-- middle module  -->
     <MiddleMod :liquid-rate="0.7" :base-size="baseSize" />
