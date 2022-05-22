@@ -6,20 +6,25 @@ import { Vec } from "@/assets/ts/math/vec"
 import { convertAngle2Rate } from "@/assets/ts/math/angle"
 import { hvAngleFromMouse } from "@/assets/ts/parts/circle/get-hv-angle"
 import { transformOrigin, rotateOnly } from "assets/ts/style/transform"
+import { getWaterMlFromValve } from "@/assets/ts/main/water/main"
 
-type Props = {
+const props = defineProps<{
   baseSize: number,
   state: string,
-  intervalMsec: number
-};
-const props = defineProps<Props>();
+  intervalMsec: number,
+  handleAddWaterIntoPot: Function, // type?
+}>();
+const emits = defineEmits<{
+  (ev: "addWaterIntoPot"): number
+}>();
 
 // ======== style ========
 const {
   size: modSize, innerSize: modInnerSize
 } = getCircleModSize(props.baseSize)
 const {
-  height: hvHeight, left: hvLeft, top: valveTop, rotateOriginX: rotateOriginX, handRotateOriginY: handRotateOriginY, valveRotateOriginY: valveRotateOriginY
+  height: hvHeight, left: hvLeft, top: valveTop, rotateOriginX: rotateOriginX,
+  handRotateOriginY: handRotateOriginY, valveRotateOriginY: valveRotateOriginY
 } = getCircleHvSize(props.baseSize)
 
 // ======== valve/hand (hv)  ========
@@ -35,15 +40,9 @@ let addWaterTimer: number;
 // ======== mouse ======== 
 const MOUSE_AREA_ID = "mouse_area_id"
 // absolute mouse area pos 
-const mouseAreaPos = ref<Vec>({
-  x: 0, y: 0
-})
-const innerTopMidpoint = computed<Vec>(() => ({
-  x: modInnerSize / 2, y: 0
-}))
-const circleCenter = computed<Vec>(() => ({
-  x: modInnerSize / 2, y: modInnerSize / 2
-}))
+const mouseAreaPos = ref<Vec>({ x: 0, y: 0 })
+const innerTopMidpoint = computed<Vec>(() => ({ x: modInnerSize / 2, y: 0 }))
+const circleCenter = computed<Vec>(() => ({ x: modInnerSize / 2, y: modInnerSize / 2 }))
 
 // on click
 const onClickMouseArea = (ev: MouseEvent) => {
@@ -51,12 +50,14 @@ const onClickMouseArea = (ev: MouseEvent) => {
   hvAngle.value = hvAngleFromMouse(ev, innerTopMidpoint.value, circleCenter.value, mouseAreaPos.value)
 
   const hvRate = convertAngle2Rate(hvAngle.value)
+
   // valve 
   if (props.state === STATE.CIRCLE.VALVE) {
 
     if (isOpenValve.value === false && hvRate !== 0) {
       // open 
       addWaterTimer = window.setInterval(addWaterIntoPot, props.intervalMsec, hvRate)
+      isOpenValve.value = true
     }
     else if (isOpenValve.value === true && hvRate !== 0) {
       // change water volume 
@@ -66,14 +67,15 @@ const onClickMouseArea = (ev: MouseEvent) => {
     else if (isOpenValve.value === true && hvRate === 0) {
       // close 
       window.clearInterval(addWaterTimer)
+      isOpenValve.value = false
     }
   }
 }
 
 // ======== valve function ======== 
 const addWaterIntoPot = (hvRate: number) => {
-  // todo 
-  // emit to parent 
+  const waterVol = getWaterMlFromValve(props.intervalMsec, hvRate)
+  props.handleAddWaterIntoPot(waterVol)
 }
 
 onMounted(() => {

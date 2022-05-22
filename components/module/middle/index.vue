@@ -17,8 +17,12 @@ const {
 } = getMiddleModSize(props.baseSize)
 
 // liquid 
-const liquidHeight = getLiquidSize(modInnerHeight, props.liquidRate)
-const liquidTop = getLiquidTop(modInnerTop, liquidHeight, modInnerHeight)
+const liquidHeight = computed<number>(() => {
+    return getLiquidSize(modInnerHeight, props.liquidRate)
+})
+const liquidTop = computed<number>(() => {
+    return getLiquidTop(modInnerTop, liquidHeight.value, modInnerHeight)
+})
 </script>
 
 <template>

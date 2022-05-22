@@ -7,13 +7,24 @@ import CircleBtn from "@/components/module/next/circle-btn.vue"
 import LongBtn from "@/components/module/next/long-btn.vue"
 import MiddleBtn from "@/components/module/next/middle-btn.vue"
 import ModuleContainer from "@/components/main/module-container.vue"
+import { potFillRate } from "@/assets/ts/main/water/main"
 
+// ======== config ========
 const baseSize = 100
-
+const intervalMsec = 1000
 
 // amount of water in pot/cup 
 const potWater = ref<number>(0)
+const potRate = computed<number>(() => {
+  return potFillRate(potWater.value)
+})
+
 const cupWater = ref<number>(0)
+
+const addWaterIntoPot = (waterVol: number) => {
+  potWater.value += waterVol
+}
+
 
 const clickFunc = () => { }
 
@@ -23,10 +34,11 @@ const clickFunc = () => { }
   <ModuleContainer :base-size="baseSize">
 
     <!-- circle module  -->
-    <CircleMod :state="STATE.CIRCLE.VALVE" :interval-msec="100" :base-size="baseSize" />
+    <CircleMod :state="STATE.CIRCLE.VALVE" :interval-msec="intervalMsec" :base-size="baseSize"
+      :handle-add-water-into-pot="addWaterIntoPot" />
 
     <!-- middle module  -->
-    <MiddleMod :liquid-rate="0.7" :base-size="baseSize" />
+    <MiddleMod :liquid-rate="potRate" :base-size="baseSize" />
 
     <!-- next module  -->
     <CircleBtn :handle-click="clickFunc" :base-size="baseSize" />
@@ -36,4 +48,11 @@ const clickFunc = () => { }
     <!-- long module  -->
     <LongMod :state="STATE.LONG.TIME" :liquid-rate="0.8" :base-size="baseSize" />
   </ModuleContainer>
+
+  <div>
+    {{ potWater }}
+  </div>
+  <div>
+    {{ potRate }}
+  </div>
 </template>
