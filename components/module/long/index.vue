@@ -48,11 +48,11 @@ const liquidWidth = getLiquidSize(modInnerWidth, props.liquidRate)
     </div>
 
     <!-- light  -->
-    <img v-show="showCircleLight" class="comp-default z-30" :style="{
+    <!-- <img v-show="showCircleLight" class="comp-default z-30" :style="{
       ...heightPx(lightHeight), ...topPx(lightTop), ...leftPx(lightLeft)
     }" src="@/assets/img/parts/long-light-circle.png" />
     <img v-show="showMiddleLight" class="comp-default z-30" :style="{
       ...heightPx(lightHeight), ...topPx(lightTop), ...leftPx(lightLeft)
-    }" src="@/assets/img/parts/long-light-middle.png" />
+    }" src="@/assets/img/parts/long-light-middle.png" /> -->
   </div>
 </template>

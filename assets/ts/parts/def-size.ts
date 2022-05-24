@@ -32,6 +32,10 @@ export const CIRCLE_MOD_SIZE = {
     SM_RADIUS: 0.075,
     LG_RADIUS: 0.15,
   },
+  LIGHT: {
+    MARGIN: 0.07,
+    RADIUS: 0.1 / 2,
+  },
 };
 
 export const LONG_MOD_SIZE = {

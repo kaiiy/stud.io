@@ -35,6 +35,10 @@ export const getCircleHvSize = (baseSize: number) => ({
     baseSize
   ),
 });
+export const circleLightSize = (baseSize: number) => ({
+  radius: getActualSize(CIRCLE_MOD_SIZE.LIGHT.RADIUS, baseSize),
+  margin: getActualSize(CIRCLE_MOD_SIZE.LIGHT.MARGIN, baseSize),
+});
 
 // middle
 export const getMiddleModSize = (baseSize: number) => ({
