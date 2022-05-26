@@ -5,11 +5,11 @@ import { getLiquidSize, getLiquidTop } from "assets/ts/parts/liquid"
 
 type Props = {
     baseSize: number,
-    liquidRate: number
+    liquidRate: number,
+    state: string
 };
 const props = defineProps<Props>();
 
-// get size
 const {
     height: modHeight, width: modWidth,
     innerHeight: modInnerHeight, innerWidth: modInnerWidth,

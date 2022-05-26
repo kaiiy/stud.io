@@ -2,8 +2,10 @@
 import { getNextModSize, circleLightSize } from "@/assets/ts/parts/get-size"
 import { heightPx, topPx, leftPx, rightPx, bottomPx } from "assets/ts/style/to-px"
 import Circle from "@/components/shapes/circle.vue"
+import { COLOR } from "@/assets/ts/style/color"
 
 type Props = {
+  typeIdx: number,
   baseSize: number,
   handleClick: () => void,
 };
@@ -16,6 +18,13 @@ const {
 const {
   margin: lightMargin, radius: lightRadius
 } = circleLightSize(props.baseSize)
+
+const colorList = computed(() => {
+  const defaultList = [COLOR.WHITE, COLOR.WHITE]
+  if (props.typeIdx === 0) defaultList[0] = COLOR.DARK_PINK
+  else if (props.typeIdx === 1) defaultList[1] = COLOR.DARK_PURPLE
+  return defaultList
+})
 </script> 
 
 <template>
@@ -24,10 +33,10 @@ const {
       ...heightPx(modHeight)
     }" src="@/assets/img/parts/long-btn.png" />
 
-    <Circle class="absolute" color="white" :radius="lightRadius" :style="{
+    <Circle class="absolute" :color="colorList[0]" :radius="lightRadius" :style="{
       ...topPx(lightMargin), ...leftPx(lightMargin)
     }" />
-    <Circle class="absolute" color="white" :radius="lightRadius" :style="{
+    <Circle class="absolute" :color="colorList[1]" :radius="lightRadius" :style="{
       ...topPx(lightMargin), ...rightPx(lightMargin)
     }" />
   </div>

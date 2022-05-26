@@ -14,9 +14,6 @@ const props = defineProps<{
   intervalMsec: number,
   handleAddWaterIntoPot: Function, // type?
 }>();
-const emits = defineEmits<{
-  (ev: "addWaterIntoPot"): number
-}>();
 
 // ======== style ========
 const {
@@ -29,10 +26,11 @@ const {
 
 // ======== valve/hand (hv)  ========
 const showValve = computed(() => props.state === STATE.CIRCLE.VALVE)
-const showHand = computed(() => !showValve)
+const showHand = computed(() => props.state === STATE.CIRCLE.POT)
 
 // init: 0
-const hvAngle = ref(0)
+const valveAngle = ref(0)
+const handAngle = ref(0)
 // init: false 
 const isOpenValve = ref(false)
 let addWaterTimer: number;
@@ -46,13 +44,10 @@ const circleCenter = computed<Vec>(() => ({ x: modInnerSize / 2, y: modInnerSize
 
 // on click
 const onClickMouseArea = (ev: MouseEvent) => {
-  // get hv angle 
-  hvAngle.value = hvAngleFromMouse(ev, innerTopMidpoint.value, circleCenter.value, mouseAreaPos.value)
-
-  const hvRate = convertAngle2Rate(hvAngle.value)
-
   // valve 
   if (props.state === STATE.CIRCLE.VALVE) {
+    valveAngle.value = hvAngleFromMouse(ev, innerTopMidpoint.value, circleCenter.value, mouseAreaPos.value)
+    const hvRate = convertAngle2Rate(valveAngle.value)
 
     if (isOpenValve.value === false && hvRate !== 0) {
       // open 
@@ -69,6 +64,8 @@ const onClickMouseArea = (ev: MouseEvent) => {
       window.clearInterval(addWaterTimer)
       isOpenValve.value = false
     }
+  } else if (props.state === STATE.CIRCLE.TIME) {
+    // todo 
   }
 }
 
@@ -97,11 +94,11 @@ onMounted(() => {
     <!-- valve/hand  -->
     <img v-show="showValve" class="comp-default z-20" :style="{
       ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
-      ...transformOrigin(rotateOriginX, valveRotateOriginY), ...rotateOnly(hvAngle)
+      ...transformOrigin(rotateOriginX, valveRotateOriginY), ...rotateOnly(valveAngle)
     }" src="@/assets/img/parts/circle-valve.png" />
     <img v-show="showHand" class="comp-default z-20" :style="{
       ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
-      ...transformOrigin(rotateOriginX, handRotateOriginY), ...rotateOnly(hvAngle)
+      ...transformOrigin(rotateOriginX, handRotateOriginY), ...rotateOnly(handAngle)
     }" src="@/assets/img/parts/circle-hand.png" />
 
     <!-- mouse area  -->
