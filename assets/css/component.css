@@ -1,3 +1,7 @@
 .comp-default {
     @apply absolute object-contain select-none pointer-events-none;
 }
+
+.comp-default-click {
+    @apply absolute object-contain select-none cursor-pointer;
+}

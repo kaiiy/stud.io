@@ -26,7 +26,7 @@ const colorList = computed(() => {
 
 <template>
   <div class="relative col-span-1 row-span-1">
-    <img @click="handleClick()" class="absolute cursor-pointer" :style="{
+    <img @click="handleClick()" class="comp-default-click" :style="{
       ...heightPx(modHeight)
     }" src="@/assets/img/parts/middle-btn.png" />
 

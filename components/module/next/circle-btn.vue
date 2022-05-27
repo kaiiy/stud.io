@@ -27,17 +27,17 @@ const colorList = computed(() => {
 
 <template>
   <div class="relative col-span-1 row-span-1">
-    <img @click="handleClick()" class="absolute cursor-pointer" :style="{
+    <img @click="handleClick()" class="comp-default-click" :style="{
       ...heightPx(modHeight)
     }" src="@/assets/img/parts/circle-btn.png" />
 
-    <Circle class="absolute" :color="colorList[0]" :radius="lightRadius" :style="{
+    <Circle class="comp-default" :color="colorList[0]" :radius="lightRadius" :style="{
       ...topPx(lightMargin), ...leftPx(lightMargin)
     }" />
-    <Circle class="absolute" :color="colorList[1]" :radius="lightRadius" :style="{
+    <Circle class="comp-default" :color="colorList[1]" :radius="lightRadius" :style="{
       ...topPx(lightMargin), ...rightPx(lightMargin)
     }" />
-    <Circle class="absolute" :color="colorList[2]" :radius="lightRadius" :style="{
+    <Circle class="comp-default" :color="colorList[2]" :radius="lightRadius" :style="{
       ...bottomPx(lightMargin), ...leftPx(lightMargin)
     }" />
   </div>

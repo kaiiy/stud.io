@@ -72,6 +72,7 @@ const setNextLongType = () => {
   <div>[STATE]</div>
   <div>CIRCLE: {{ currentCircleState }}</div>
   <div>MIDDLE: {{ currentMiddleState }}</div>
+  <div>LONG: {{ currentLongState }}</div>
   <!-- <div>
     {{ potWater }}
   </div>
