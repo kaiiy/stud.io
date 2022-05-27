@@ -41,22 +41,22 @@ export const CIRCLE_MOD_SIZE = {
 export const LONG_MOD_SIZE = {
   OUTER: {
     HEIGHT: 1,
-    WIDTH: 5.4,
+    WIDTH: 4.3,
   },
   INNER: {
     HEIGHT: 0.3,
-    WIDTH: 4.7,
-  },
-  MARGIN: 0.35,
-  LIGHT: {
-    HEIGHT: 0.8,
-    WIDTH: 0.04,
+    WIDTH: (512.12761 - 138.0611) / 100,
   },
 };
 
 export const NEXT_MOD_SIZE = {
   HEIGHT: 1,
   WIDTH: 1,
+};
+
+export const SWITCH_SIZE = {
+  SIZE: 1,
+  CIRCLE_RADIUS: 0.5 / 2,
 };
 
 // module gap

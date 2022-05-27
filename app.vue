@@ -2,11 +2,13 @@
 import MiddleMod from "@/components/module/middle/index.vue"
 import CircleMod from "@/components/module/circle/index.vue"
 import LongMod from "@/components/module/long/index.vue"
-import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST } from "@/assets/ts/main/state"
 import CircleBtn from "@/components/module/next/circle-btn.vue"
 import LongBtn from "@/components/module/next/long-btn.vue"
 import MiddleBtn from "@/components/module/next/middle-btn.vue"
 import ModuleContainer from "@/components/main/module-container.vue"
+import Switch from "@/components/module/switch.vue"
+
+import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST } from "@/assets/ts/main/state"
 import { potFillRate } from "@/assets/ts/main/water/main"
 
 // ======== config ========
@@ -17,6 +19,8 @@ const intervalMsec = 1000
 const circleStateIdx = ref(0)
 const middleStateIdx = ref(0)
 const currentLongTypeIdx = ref(0)
+const switchState = ref<string>(STATE.SWITCH.OFF)
+
 
 const currentCircleState = computed(() => CIRCLE_STATE_LIST[circleStateIdx.value])
 const currentMiddleState = computed(() => MIDDLE_STATE_LIST[middleStateIdx.value])
@@ -47,6 +51,10 @@ const setNextMiddleIdx = () => {
 const setNextLongType = () => {
   currentLongTypeIdx.value = (currentLongTypeIdx.value + 1) % LONG_BTN_STATE_LIST.length
 }
+const toggleSwitchState = () => {
+  if (switchState.value === STATE.SWITCH.OFF) switchState.value = STATE.SWITCH.ON
+  else switchState.value = STATE.SWITCH.OFF
+}
 </script>
 
 <template>
@@ -61,11 +69,14 @@ const setNextLongType = () => {
 
     <!-- next module  -->
     <CircleBtn :state-idx="circleStateIdx" :handle-click="setNextCircleIdx" :base-size="baseSize" />
-    <MiddleBtn :state-idx="middleStateIdx" :base-size="baseSize" :handle-click="setNextMiddleIdx" />
     <LongBtn :type-idx="currentLongTypeIdx" :base-size="baseSize" :handle-click="setNextLongType" />
+    <MiddleBtn :state-idx="middleStateIdx" :base-size="baseSize" :handle-click="setNextMiddleIdx" />
 
     <!-- long module  -->
     <LongMod :state="currentLongState" :liquid-rate="0.8" :base-size="baseSize" />
+
+    <!-- switch  -->
+    <Switch :state="switchState" :handle-click="toggleSwitchState" :base-size="baseSize" />
   </ModuleContainer>
 
   <div>DEBUG</div>

@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="0.9983453"
-     inkscape:cx="157.76105"
-     inkscape:cy="260.43093"
+     inkscape:zoom="0.86772068"
+     inkscape:cx="355.52915"
+     inkscape:cy="313.46493"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -45,7 +45,7 @@
      inkscape:bbox-nodes="true"
      inkscape:object-paths="true"
      inkscape:snap-bbox-edge-midpoints="false"
-     inkscape:snap-smooth-nodes="false"
+     inkscape:snap-smooth-nodes="true"
      inkscape:snap-midpoints="false"
      inkscape:snap-object-midpoints="true"
      inkscape:object-nodes="false">
@@ -194,6 +194,28 @@
        inkscape:label=""
        inkscape:locked="false"
        inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="36.528665,166.64089"
+       orientation="1,0"
+       id="guide915" />
+    <sodipodi:guide
+       position="135.50043,167.42838"
+       orientation="1,0"
+       id="guide917" />
+    <sodipodi:guide
+       position="0,167.35417"
+       orientation="0,1"
+       id="guide1133"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="116.41667,193.73395"
+       orientation="-1,0"
+       id="guide1317"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
   </sodipodi:namedview>
   <defs
      id="defs2">
@@ -329,9 +351,9 @@
        inkscape:export-ydpi="200" />
     <path
        id="rect961"
-       style="fill:#f8dad5;fill-opacity:1;stroke:none;stroke-width:1.09985;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       d="m 2.6458348,116.41667 c -1.4657898,0 -2.6458333000011,1.18005 -2.6458333000011,2.64584 v 21.16666 c 0,1.46579 1.1800435000011,2.64584 2.6458333000011,2.64584 H 140.22917 c 1.46579,0 2.64583,-1.18005 2.64583,-2.64584 v -21.16666 c 0,-1.46579 -1.18004,-2.64584 -2.64583,-2.64584 z m 10.5833332,9.26042 H 129.64584 c 2.19868,0 3.96875,1.77006 3.96875,3.96875 0,2.19869 -1.77007,3.96875 -3.96875,3.96875 H 13.229168 c -2.198688,0 -3.9687499,-1.77006 -3.9687499,-3.96875 0,-2.19869 1.7700619,-3.96875 3.9687499,-3.96875 z"
-       inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\long.png"
+       style="fill:#f8dad5;fill-opacity:1;stroke:none;stroke-width:0.981456;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 2.1068685,116.41667 c -1.167203,0 -2.1068670000011,1.18005 -2.1068670000011,2.64584 v 21.16666 c 0,1.46579 0.9396640000011,2.64584 2.1068670000011,2.64584 H 111.66398 c 1.1672,0 2.10686,-1.18005 2.10686,-2.64584 v -21.16666 c 0,-1.46579 -0.93966,-2.64584 -2.10686,-2.64584 z m 8.4274675,9.26042 h 92.702174 c 1.7508,0 3.1603,1.77006 3.1603,3.96875 0,2.19869 -1.4095,3.96875 -3.1603,3.96875 H 10.534336 c -1.7508065,0 -3.1603005,-1.77006 -3.1603005,-3.96875 0,-2.19869 1.409494,-3.96875 3.1603005,-3.96875 z"
+       inkscape:export-filename="C:\Users\tomo\Downloads\long.png"
        inkscape:export-xdpi="200"
        inkscape:export-ydpi="200" />
     <path
@@ -489,5 +511,23 @@
        cx="2.6458333"
        cy="111.125"
        r="1.3229166" />
+    <rect
+       style="fill:#e1daee;fill-opacity:1;stroke:none;stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1215-5-6"
+       width="26.458334"
+       height="26.458334"
+       x="116.41667"
+       y="116.41667"
+       ry="2.6458273"
+       inkscape:export-filename="C:\Users\tomo\Downloads\switch.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <circle
+       style="fill:#ffffff;stroke-width:0.978887;stroke-linecap:round"
+       id="path1023-6"
+       cx="165.36458"
+       cy="-170.80972"
+       r="6.6145835"
+       transform="rotate(90)" />
   </g>
 </svg>

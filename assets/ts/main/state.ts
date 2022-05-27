@@ -12,6 +12,10 @@ export const STATE = {
     CIRCLE: "long-btn-circle",
     MIDDLE: "long-btn-middle",
   },
+  SWITCH: {
+    ON: "switch-on",
+    OFF: "switch-off",
+  },
 };
 
 export const CIRCLE_STATE_LIST = [

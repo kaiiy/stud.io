@@ -4,6 +4,7 @@ import {
   LONG_MOD_SIZE,
   NEXT_MOD_SIZE,
   MODULE_GAP,
+  SWITCH_SIZE,
   MODULE_CONTAINER,
 } from "./def-size";
 import { getActualSize } from "assets/ts/style/get-actual-size";
@@ -71,23 +72,22 @@ export const getLongModSize = (baseSize: number) => ({
     baseSize
   ),
 });
-export const getLongLightSize = (baseSize: number) => ({
-  height: getActualSize(LONG_MOD_SIZE.LIGHT.HEIGHT, baseSize),
-  width: getActualSize(LONG_MOD_SIZE.LIGHT.WIDTH, baseSize),
-  left: getActualSize(
-    LONG_MOD_SIZE.OUTER.WIDTH - LONG_MOD_SIZE.LIGHT.WIDTH,
-    baseSize
-  ),
-  top: getActualSize(
-    (LONG_MOD_SIZE.OUTER.HEIGHT - LONG_MOD_SIZE.LIGHT.HEIGHT) / 2,
-    baseSize
-  ),
-});
 
 // next
 export const getNextModSize = (baseSize: number) => ({
   height: getActualSize(NEXT_MOD_SIZE.HEIGHT, baseSize),
   width: getActualSize(NEXT_MOD_SIZE.WIDTH, baseSize),
+});
+
+// switch
+export const switchSize = (baseSize: number) => ({
+  height: getActualSize(SWITCH_SIZE.SIZE, baseSize),
+  width: getActualSize(SWITCH_SIZE.SIZE, baseSize),
+  circleMargin: getActualSize(
+    SWITCH_SIZE.SIZE / 2 - SWITCH_SIZE.CIRCLE_RADIUS,
+    baseSize
+  ),
+  circleRadius: getActualSize(SWITCH_SIZE.CIRCLE_RADIUS, baseSize),
 });
 
 // module container

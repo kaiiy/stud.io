@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { getLongModSize, getLongLightSize } from "assets/ts/parts/get-size"
+import { getLongModSize } from "assets/ts/parts/get-size"
 import { heightPx, widthPx, leftPx, topPx } from "assets/ts/style/to-px"
 import { getLiquidSize } from "assets/ts/parts/liquid"
 import { STATE } from "@/assets/ts/main/state"
@@ -21,7 +21,7 @@ const liquidWidth = getLiquidSize(modInnerWidth, props.liquidRate)
 </script>
 
 <template>
-  <div class="relative  col-span-5 row-span-1" :style="{
+  <div class="relative  col-span-4 row-span-1" :style="{
     ...heightPx(modHeight), ...widthPx(modWidth)
   }">
     <!-- container  -->
