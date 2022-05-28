@@ -6,7 +6,7 @@ import CircleBtn from "@/components/module/next/circle-btn.vue"
 import LongBtn from "@/components/module/next/long-btn.vue"
 import MiddleBtn from "@/components/module/next/middle-btn.vue"
 import ModuleContainer from "@/components/main/module-container.vue"
-import Switch from "@/components/module/switch.vue"
+import SwitchBtn from "@/components/module/switch-btn.vue"
 
 import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST } from "@/assets/ts/main/state"
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water/main"
@@ -84,7 +84,7 @@ const toggleSwitchState = () => {
     <LongMod :state="currentLongState" :liquid-rate="0.8" :base-size="baseSize" />
 
     <!-- switch  -->
-    <Switch :state="switchState" :handle-click="toggleSwitchState" :base-size="baseSize" />
+    <SwitchBtn :state="switchState" :handle-click="toggleSwitchState" :base-size="baseSize" />
   </ModuleContainer>
 
   <div>DEBUG</div>

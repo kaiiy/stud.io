@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { getNextModSize, circleLightSize } from "@/assets/ts/parts/get-size"
-import { heightPx, topPx, leftPx, rightPx, bottomPx } from "assets/ts/style/to-px"
-import Circle from "@/components/shapes/circle.vue"
+import { heightPx, topPx, leftPx, rightPx } from "assets/ts/style/to-px"
+import CircleSvg from "@/components/shapes/circle-svg.vue"
 import { COLOR } from "@/assets/ts/style/color"
 
 const props = defineProps<{
@@ -30,10 +30,10 @@ const colorList = computed(() => {
       ...heightPx(modHeight)
     }" src="@/assets/img/parts/middle-btn.png" alt="" />
 
-    <Circle class="absolute" :color="colorList[0]" :radius="lightRadius" :style="{
+    <CircleSvg class="absolute" :color="colorList[0]" :radius="lightRadius" :style="{
       ...topPx(lightMargin), ...leftPx(lightMargin)
     }" />
-    <Circle class="absolute" :color="colorList[1]" :radius="lightRadius" :style="{
+    <CircleSvg class="absolute" :color="colorList[1]" :radius="lightRadius" :style="{
       ...topPx(lightMargin), ...rightPx(lightMargin)
     }" />
   </div>
