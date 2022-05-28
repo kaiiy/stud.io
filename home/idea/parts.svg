@@ -26,9 +26,9 @@
      inkscape:pagecheckerboard="1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="0.86772068"
-     inkscape:cx="355.52915"
-     inkscape:cy="313.46493"
+     inkscape:zoom="0.94316065"
+     inkscape:cx="916.59889"
+     inkscape:cy="88.001975"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
@@ -48,7 +48,9 @@
      inkscape:snap-smooth-nodes="true"
      inkscape:snap-midpoints="false"
      inkscape:snap-object-midpoints="true"
-     inkscape:object-nodes="false">
+     inkscape:object-nodes="true"
+     inkscape:snap-global="true"
+     inkscape:snap-intersection-paths="true">
     <sodipodi:guide
        position="177.26513,84.138015"
        orientation="0,-1"
@@ -529,5 +531,10 @@
        cy="-170.80972"
        r="6.6145835"
        transform="rotate(90)" />
+    <path
+       id="rect923"
+       style="fill:#e1daee;stroke-width:0;stroke-linecap:round;paint-order:fill markers stroke"
+       d="M 557.24219 -363.73828 L 593.49219 -60.345703 L 688.62109 -60.646484 L 783.75 -60.345703 L 820 -363.73828 L 688.62109 -363.73828 L 557.24219 -363.73828 z "
+       transform="scale(0.26458333)" />
   </g>
 </svg>

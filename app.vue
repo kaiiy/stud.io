@@ -68,7 +68,6 @@ const toggleSwitchState = () => {
 
 <template>
   <ModuleContainer :base-size="baseSize">
-
     <!-- circle module  -->
     <CircleMod :state="currentCircleState" :interval-msec="intervalMsec" :base-size="baseSize"
       :handle-add-water-into-pot="addWaterIntoPot" />
