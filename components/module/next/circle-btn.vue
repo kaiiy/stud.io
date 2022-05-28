@@ -29,7 +29,7 @@ const colorList = computed(() => {
   <div class="relative col-span-1 row-span-1">
     <img @click="handleClick()" class="comp-default-click" :style="{
       ...heightPx(modHeight)
-    }" src="@/assets/img/parts/circle-btn.png" />
+    }" src="@/assets/img/parts/circle-btn.png" alt="" />
 
     <Circle class="comp-default" :color="colorList[0]" :radius="lightRadius" :style="{
       ...topPx(lightMargin), ...leftPx(lightMargin)

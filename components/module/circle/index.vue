@@ -89,17 +89,17 @@ onMounted(() => {
     <!-- container  -->
     <img class="comp-default z-10 " :style="{
       ...heightPx(modSize)
-    }" src="@/assets/img/parts/circle.png" />
+    }" src="@/assets/img/parts/circle.png" alt="" />
 
     <!-- valve/hand  -->
     <img v-show="showValve" class="comp-default z-20" :style="{
       ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
       ...transformOrigin(rotateOriginX, valveRotateOriginY), ...rotateOnly(valveAngle)
-    }" src="@/assets/img/parts/circle-valve.png" />
+    }" src="@/assets/img/parts/circle-valve.png" alt="" />
     <img v-show="showHand" class="comp-default z-20" :style="{
       ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
       ...transformOrigin(rotateOriginX, handRotateOriginY), ...rotateOnly(handAngle)
-    }" src="@/assets/img/parts/circle-hand.png" />
+    }" src="@/assets/img/parts/circle-hand.png" alt="" />
 
     <!-- mouse area  -->
     <div :id="MOUSE_AREA_ID" @click="onClickMouseArea" class="absolute cursor-pointer z-30" :style="{

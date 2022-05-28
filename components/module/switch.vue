@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { switchSize } from "@/assets/ts/parts/get-size"
-import { heightPx, topPx, leftPx, rightPx, bottomPx } from "assets/ts/style/to-px"
+import { heightPx, topPx, leftPx } from "assets/ts/style/to-px"
 import Circle from "@/components/shapes/circle.vue"
 import { COLOR } from "@/assets/ts/style/color"
 import { STATE } from "@/assets/ts/main/state"
@@ -24,7 +24,7 @@ const circleColor = computed(() => {
   <div class="relative col-span-1 row-span-1">
     <img class="comp-default" :style="{
       ...heightPx(modHeight)
-    }" src="@/assets/img/parts/switch.png" />
+    }" src="@/assets/img/parts/switch.png" alt="" />
 
     <Circle @click="handleClick()" class="comp-default-click" :color="circleColor" :radius="circleRadius" :style="{
       ...topPx(circleMargin), ...leftPx(circleMargin)

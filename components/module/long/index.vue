@@ -27,7 +27,7 @@ const liquidWidth = getLiquidSize(modInnerWidth, props.liquidRate)
     <!-- container  -->
     <img class="comp-default z-20" :style="{
       ...heightPx(modHeight)
-    }" src="@/assets/img/parts/long.png" />
+    }" src="@/assets/img/parts/long.png" alt="" />
 
     <!-- liquid  -->
     <div class="comp-default bg-dark-red z-10" :style="{
