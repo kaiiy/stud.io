@@ -9,7 +9,7 @@ import ModuleContainer from "@/components/main/module-container.vue"
 import Switch from "@/components/module/switch.vue"
 
 import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST } from "@/assets/ts/main/state"
-import { potFillRate } from "@/assets/ts/main/water/main"
+import { potFillRate, cupFillRate } from "@/assets/ts/main/water/main"
 
 // ======== config ========
 const baseSize = 100
@@ -21,7 +21,6 @@ const middleStateIdx = ref(0)
 const currentLongTypeIdx = ref(0)
 const switchState = ref<string>(STATE.SWITCH.OFF)
 
-
 const currentCircleState = computed(() => CIRCLE_STATE_LIST[circleStateIdx.value])
 const currentMiddleState = computed(() => MIDDLE_STATE_LIST[middleStateIdx.value])
 const currentLongState = computed(() => {
@@ -30,18 +29,26 @@ const currentLongState = computed(() => {
   return MIDDLE_STATE_LIST[middleStateIdx.value]
 })
 
-// amount of water in pot/cup 
+// circle
+const addWaterIntoPot = (waterVol: number) => {
+  potWater.value += waterVol
+}
+
+// middle 
 const potWater = ref<number>(0)
 const potRate = computed<number>(() => {
   return potFillRate(potWater.value)
 })
 const cupWater = ref<number>(0)
+const cupRate = computed<number>(() => {
+  return cupFillRate(cupWater.value)
+})
+const middleRate = computed(() => {
+  if (currentMiddleState.value === STATE.MIDDLE.POT) return potRate.value
+  return cupRate.value
+})
 
-const addWaterIntoPot = (waterVol: number) => {
-  potWater.value += waterVol
-}
-
-// ======== btn ========
+// next 
 const setNextCircleIdx = () => {
   circleStateIdx.value = (circleStateIdx.value + 1) % CIRCLE_STATE_LIST.length
 }
@@ -51,6 +58,8 @@ const setNextMiddleIdx = () => {
 const setNextLongType = () => {
   currentLongTypeIdx.value = (currentLongTypeIdx.value + 1) % LONG_BTN_STATE_LIST.length
 }
+
+// switch 
 const toggleSwitchState = () => {
   if (switchState.value === STATE.SWITCH.OFF) switchState.value = STATE.SWITCH.ON
   else switchState.value = STATE.SWITCH.OFF
@@ -65,7 +74,7 @@ const toggleSwitchState = () => {
       :handle-add-water-into-pot="addWaterIntoPot" />
 
     <!-- middle module  -->
-    <MiddleMod :state="currentMiddleState" :liquid-rate="potRate" :base-size="baseSize" />
+    <MiddleMod :state="currentMiddleState" :liquid-rate="middleRate" :base-size="baseSize" />
 
     <!-- next module  -->
     <CircleBtn :state-idx="circleStateIdx" :handle-click="setNextCircleIdx" :base-size="baseSize" />

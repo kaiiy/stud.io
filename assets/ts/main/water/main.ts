@@ -10,6 +10,11 @@ const POT_CAPACITY = 1526;
 
 const getWaterMlFromPot = (amountWaterMlPerMsec: number, timeMsec: number) =>
   amountWaterMlPerMsec * timeMsec;
-
 export const potFillRate = (waterVol: number): number =>
   waterVol / POT_CAPACITY;
+
+// cup
+// todo
+const CUP_CAPACITY = 700;
+export const cupFillRate = (waterVol: number): number =>
+  waterVol / CUP_CAPACITY;
