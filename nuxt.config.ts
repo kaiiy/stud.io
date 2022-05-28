@@ -16,7 +16,7 @@ export default defineNuxtConfig({
       link: [{ rel: "icon", type: "image/png", href: "/favicon.png" }],
     },
   },
-  css: ["normalize.css", "@/assets/css/component.css"],
+  css: ["@/assets/css/component.css"],
   modules: ["nuxt-windicss"],
   typescript: {
     strict: true,
