@@ -13,6 +13,7 @@ import { getActualSize } from "assets/ts/style/get-actual-size";
 export const getCircleModSize = (baseSize: number) => ({
   size: getActualSize(CIRCLE_MOD_SIZE.OUTER.SIZE, baseSize),
   innerSize: getActualSize(CIRCLE_MOD_SIZE.INNER.SIZE, baseSize),
+  innerRadius: getActualSize(CIRCLE_MOD_SIZE.INNER.SIZE / 2, baseSize),
   margin: getActualSize(
     (CIRCLE_MOD_SIZE.OUTER.SIZE - CIRCLE_MOD_SIZE.INNER.SIZE) / 2,
     baseSize

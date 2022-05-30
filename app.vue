@@ -7,7 +7,6 @@ import LongBtn from "@/components/module/next/long-btn.vue"
 import MiddleBtn from "@/components/module/next/middle-btn.vue"
 import ModuleContainer from "@/components/main/module-container.vue"
 import SwitchBtn from "@/components/module/switch-btn.vue"
-import EllipseSvg from "@/components/shapes/ellipse-svg.vue"
 
 import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST } from "@/assets/ts/main/state"
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water/main"
@@ -17,7 +16,7 @@ const baseSize = 100
 const intervalMsec = 1000
 
 // ======== state ========
-const circleStateIdx = ref(0)
+const circleStateIdx = ref(1)
 const middleStateIdx = ref(0)
 const currentLongTypeIdx = ref(0)
 const switchState = ref<string>(STATE.SWITCH.OFF)
@@ -93,6 +92,4 @@ const toggleSwitchState = () => {
   <div>CIRCLE: {{ currentCircleState }}</div>
   <div>MIDDLE: {{ currentMiddleState }}</div>
   <div>LONG: {{ currentLongState }}</div>
-
-  <!-- <EllipseSvg :x-radius="100" :y-radius="50" color="red" /> -->
 </template>

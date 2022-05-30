@@ -7,6 +7,8 @@ import { convertAngle2Rate } from "@/assets/ts/math/angle"
 import { hvAngleFromMouse } from "@/assets/ts/parts/circle/get-hv-angle"
 import { transformOrigin, rotateOnly } from "assets/ts/style/transform"
 import { getWaterMlFromValve } from "@/assets/ts/main/water/main"
+import EllipseSvg from "@/components/shapes/ellipse-svg.vue"
+import { COLOR } from "@/assets/ts/style/color"
 
 const props = defineProps<{
   baseSize: number,
@@ -17,7 +19,7 @@ const props = defineProps<{
 
 // ======== style ========
 const {
-  size: modSize, innerSize: modInnerSize
+  size: modSize, innerSize: modInnerSize, innerRadius,
 } = getCircleModSize(props.baseSize)
 const {
   height: hvHeight, left: hvLeft, top: valveTop, rotateOriginX: rotateOriginX,
@@ -91,15 +93,21 @@ onMounted(() => {
       ...heightPx(modSize)
     }" src="@/assets/img/parts/circle.png" alt="" />
 
-    <!-- valve/hand  -->
+    <!-- valve  -->
     <img v-show="showValve" class="comp-default z-20" :style="{
       ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
       ...transformOrigin(rotateOriginX, valveRotateOriginY), ...rotateOnly(valveAngle)
     }" src="@/assets/img/parts/circle-valve.png" alt="" />
+    <!-- time  -->
     <img v-show="showHand" class="comp-default z-20" :style="{
       ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
       ...transformOrigin(rotateOriginX, handRotateOriginY), ...rotateOnly(handAngle)
     }" src="@/assets/img/parts/circle-hand.png" alt="" />
+
+    <!-- todo: y-radius  -->
+    <EllipseSvg :x-radius="innerRadius" :y-radius="1" :color="COLOR.DARK_PINK" class="absolute" :style="{
+      ...leftPx(valveTop), ...topPx(valveTop)
+    }" />
 
     <!-- mouse area  -->
     <div :id="MOUSE_AREA_ID" @click="onClickMouseArea" class="absolute cursor-pointer z-30" :style="{
