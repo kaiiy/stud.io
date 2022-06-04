@@ -26,29 +26,29 @@
      inkscape:pagecheckerboard="1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="0.94316065"
-     inkscape:cx="916.59889"
-     inkscape:cy="88.001975"
+     inkscape:zoom="0.54115914"
+     inkscape:cx="1310.1507"
+     inkscape:cy="-295.66164"
      inkscape:window-width="1920"
-     inkscape:window-height="1009"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
+     inkscape:window-height="1094"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:snap-bbox="true"
-     inkscape:snap-bbox-midpoints="true"
+     inkscape:snap-bbox-midpoints="false"
      inkscape:snap-nodes="true"
      inkscape:snap-others="false"
-     inkscape:bbox-paths="true"
-     inkscape:bbox-nodes="true"
+     inkscape:bbox-paths="false"
+     inkscape:bbox-nodes="false"
      inkscape:object-paths="true"
-     inkscape:snap-bbox-edge-midpoints="false"
-     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:snap-smooth-nodes="false"
      inkscape:snap-midpoints="false"
      inkscape:snap-object-midpoints="true"
-     inkscape:object-nodes="true"
+     inkscape:object-nodes="false"
      inkscape:snap-global="true"
      inkscape:snap-intersection-paths="true">
     <sodipodi:guide
@@ -165,9 +165,12 @@
        inkscape:locked="false"
        inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
-       position="234.84671,247.6742"
-       orientation="1,0"
-       id="guide1357" />
+       position="264.58333,247.6742"
+       orientation="-1,0"
+       id="guide1357"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
     <sodipodi:guide
        position="-8.3506273,207.04167"
        orientation="0,1"
@@ -218,9 +221,44 @@
        inkscape:label=""
        inkscape:locked="false"
        inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="290.37189,393.54622"
+       orientation="0,-1"
+       id="guide10615" />
+    <sodipodi:guide
+       position="520.21049,402.83333"
+       orientation="0,1"
+       id="guide10699"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="264.58334,458.13126"
+       orientation="0,-1"
+       id="guide10701" />
+    <sodipodi:guide
+       position="291.04167,476.48453"
+       orientation="-1,0"
+       id="guide10703"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
+    <sodipodi:guide
+       position="449.79167,523.85873"
+       orientation="-1,0"
+       id="guide10705"
+       inkscape:label=""
+       inkscape:locked="false"
+       inkscape:color="rgb(0,0,255)" />
   </sodipodi:namedview>
   <defs
      id="defs2">
+    <rect
+       x="1201.28"
+       y="135"
+       width="401.84034"
+       height="305.00001"
+       id="rect2799" />
     <marker
        style="overflow:visible"
        id="Arrow1Lstart"
@@ -536,5 +574,37 @@
        style="fill:#e1daee;stroke-width:0;stroke-linecap:round;paint-order:fill markers stroke"
        d="M 557.24219 -363.73828 L 593.49219 -60.345703 L 688.62109 -60.646484 L 783.75 -60.345703 L 820 -363.73828 L 688.62109 -363.73828 L 557.24219 -363.73828 z "
        transform="scale(0.26458333)" />
+    <rect
+       id="rect9244"
+       width="211.66667"
+       height="110.59583"
+       x="264.58334"
+       y="-216.42917"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.469248"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu\home\wakit\site\stud.io\docs\img\visual.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <rect
+       style="fill:#e1daee;fill-opacity:1;stroke:none;stroke-width:1.58749;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1215-5-6-9"
+       width="39.6875"
+       height="39.6875"
+       x="291.04166"
+       y="-180.97501"
+       ry="3.9687412"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu\home\wakit\site\stud.io\docs\img\visual.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.65714946,0,0,0.65714946,-439.61263,-263.62476)"
+       id="text2797"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Consolas;-inkscape-font-specification:Consolas;white-space:pre;shape-inside:url(#rect2799);fill:#000000;fill-opacity:1;stroke:none"
+       inkscape:export-filename="\\wsl.localhost\Ubuntu\home\wakit\site\stud.io\docs\img\visual.png"
+       inkscape:export-xdpi="200"
+       inkscape:export-ydpi="200"><tspan
+         x="1201.2793"
+         y="169.70703"
+         id="tspan10863">stud.io</tspan></text>
   </g>
 </svg>
