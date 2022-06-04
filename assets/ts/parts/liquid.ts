@@ -1,11 +1,11 @@
 /**
  * Correct values for drawing
  *
- * @param {number} amount
+ * @param {number} amount 0 <= val
  * @return {number}  0 <= amount <= 1
  */
 export const correctLiquid4Drawing = (amount: number): number => {
-  if (amount < 0) throw new Error("The water volume is negative.");
+  if (amount < 0) throw new RangeError();
 
   const MAX_AMOUNT = 1;
   if (amount >= MAX_AMOUNT) return MAX_AMOUNT;
