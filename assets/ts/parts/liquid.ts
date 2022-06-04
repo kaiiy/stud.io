@@ -4,7 +4,7 @@
  * @param {number} amount
  * @return {number}  0 <= amount <= 1
  */
-const correctLiquid4Drawing = (amount: number): number => {
+export const correctLiquid4Drawing = (amount: number): number => {
   if (amount < 0) throw new Error("The water volume is negative.");
 
   const MAX_AMOUNT = 1;
