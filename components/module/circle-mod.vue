@@ -9,6 +9,7 @@ import { transformOrigin, rotateOnly } from "assets/ts/style/transform"
 import { getWaterMlFromValve } from "@/assets/ts/main/water/main"
 import EllipseSvg from "@/components/shapes/ellipse-svg.vue"
 import { COLOR } from "@/assets/ts/style/color"
+import { MOUSE_AREA_ID, getMouseRelativePos, getCircleCenterPos } from "./circle/mouse"
 
 const props = defineProps<{
   baseSize: number,
@@ -17,7 +18,7 @@ const props = defineProps<{
   handleAddWaterIntoPot: Function, // type?
 }>();
 
-// ======== style ========
+// style 
 const {
   size: modSize, innerSize: modInnerSize, innerRadius,
 } = getCircleModSize(props.baseSize)
@@ -26,9 +27,10 @@ const {
   handRotateOriginY: handRotateOriginY, valveRotateOriginY: valveRotateOriginY
 } = getCircleHvSize(props.baseSize)
 
-// ======== valve/hand (hv)  ========
+// switch state 
 const showValve = computed(() => props.state === STATE.CIRCLE.VALVE)
-const showHand = computed(() => props.state === STATE.CIRCLE.POT)
+const showTimer = computed(() => props.state === STATE.CIRCLE.TIME)
+const showPot = computed(() => props.state === STATE.CIRCLE.POT)
 
 // init: 0
 const valveAngle = ref(0)
@@ -38,17 +40,18 @@ const isOpenValve = ref(false)
 let addWaterTimer: number;
 
 // ======== mouse ======== 
-const MOUSE_AREA_ID = "mouse_area_id"
-// absolute mouse area pos 
+// absolute area pos 
 const mouseAreaPos = ref<Vec>({ x: 0, y: 0 })
-const innerTopMidpoint = computed<Vec>(() => ({ x: modInnerSize / 2, y: 0 }))
-const circleCenter = computed<Vec>(() => ({ x: modInnerSize / 2, y: modInnerSize / 2 }))
 
 // on click
 const onClickMouseArea = (ev: MouseEvent) => {
+  // detail: home/code_comment/mouse_relative_pos.png 
+  const mouseRelativePos: Vec = getMouseRelativePos(ev, mouseAreaPos.value)
+  const circleCenterPos: Vec = getCircleCenterPos(modInnerSize)
+
   // valve 
   if (props.state === STATE.CIRCLE.VALVE) {
-    valveAngle.value = hvAngleFromMouse(ev, innerTopMidpoint.value, circleCenter.value, mouseAreaPos.value)
+    valveAngle.value = hvAngleFromMouse(mouseRelativePos, circleCenterPos)
     const hvRate = convertAngle2Rate(valveAngle.value)
 
     if (isOpenValve.value === false && hvRate !== 0) {
@@ -66,9 +69,16 @@ const onClickMouseArea = (ev: MouseEvent) => {
       window.clearInterval(addWaterTimer)
       isOpenValve.value = false
     }
-  } else if (props.state === STATE.CIRCLE.TIME) {
+  }
+  // timer 
+  else if (props.state === STATE.CIRCLE.TIME) {
     // todo 
   }
+  // pot 
+  else if (props.state === STATE.CIRCLE.POT) {
+    potYRadiusPx.value = Math.abs(mouseRelativePos.y - circleCenterPos.y)
+  }
+  else { throw new Error("non-existent state") }
 }
 
 // ======== valve function ======== 
@@ -77,10 +87,14 @@ const addWaterIntoPot = (hvRate: number) => {
   props.handleAddWaterIntoPot(waterVol)
 }
 
+// ======== pot ========
+const potYRadiusPx = ref(0)
+
 onMounted(() => {
   // set mouse area pos
   const mouseAreaBound = document.getElementById(MOUSE_AREA_ID)?.getBoundingClientRect()
   mouseAreaPos.value = { x: mouseAreaBound?.left ?? 0, y: mouseAreaBound?.top ?? 0 }
+  if (mouseAreaBound === void 0) throw new Error("can't get mouse area")
 })
 </script>
 
@@ -99,20 +113,22 @@ onMounted(() => {
       ...transformOrigin(rotateOriginX, valveRotateOriginY), ...rotateOnly(valveAngle)
     }" src="@/assets/img/parts/circle-valve.png" alt="" />
     <!-- time  -->
-    <img v-show="showHand" class="comp-default z-20" :style="{
+    <img v-show="showTimer" class="comp-default z-20" :style="{
       ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
       ...transformOrigin(rotateOriginX, handRotateOriginY), ...rotateOnly(handAngle)
     }" src="@/assets/img/parts/circle-hand.png" alt="" />
 
+    <!-- pot  -->
     <!-- todo: y-radius  -->
-    <EllipseSvg :x-radius="innerRadius" :y-radius="1" :color="COLOR.DARK_PINK" class="absolute" :style="{
-      ...leftPx(valveTop), ...topPx(valveTop)
-    }" />
+    <EllipseSvg v-show="showPot" :x-radius="innerRadius" :y-radius="potYRadiusPx" :color="COLOR.DARK_PINK"
+      class="absolute" :style="{
+        ...leftPx(valveTop), ...topPx(valveTop)
+      }" />
 
     <!-- mouse area  -->
     <div :id="MOUSE_AREA_ID" @click="onClickMouseArea" class="absolute cursor-pointer z-30" :style="{
       ...heightPx(modInnerSize), ...widthPx(modInnerSize),
       ...leftPx(valveTop), ...topPx(valveTop)
-    }" />
+    }"></div>
   </div>
 </template>

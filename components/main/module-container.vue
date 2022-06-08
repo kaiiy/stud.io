@@ -2,11 +2,9 @@
 import { getModContainerSize, getModuleGap } from '~~/assets/ts/parts/get-size';
 import { heightPx, widthPx, gapPx } from "assets/ts/style/to-px"
 
-
-type Props = {
+const props = defineProps<{
   baseSize: number,
-};
-const props = defineProps<Props>();
+}>();
 
 const { height, width } = getModContainerSize(props.baseSize)
 const gap = getModuleGap(props.baseSize)

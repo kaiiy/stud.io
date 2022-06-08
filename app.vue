@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import MiddleMod from "@/components/module/middle/index.vue"
-import CircleMod from "@/components/module/circle/index.vue"
-import LongMod from "@/components/module/long/index.vue"
+import MiddleMod from "@/components/module/middle-mod.vue"
+import CircleMod from "@/components/module/circle-mod.vue"
+import LongMod from "@/components/module/long-mod.vue"
 import CircleBtn from "@/components/module/next/circle-btn.vue"
 import LongBtn from "@/components/module/next/long-btn.vue"
 import MiddleBtn from "@/components/module/next/middle-btn.vue"
@@ -12,11 +12,11 @@ import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST } from
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water/main"
 
 // ======== config ========
-const baseSize = 100
-const intervalMsec = 1000
+const baseSize = 100 // todo 
+const intervalMsec = 1000 // todo 
 
 // ======== state ========
-const circleStateIdx = ref(1)
+const circleStateIdx = ref(0)
 const middleStateIdx = ref(0)
 const currentLongTypeIdx = ref(0)
 const switchState = ref<string>(STATE.SWITCH.OFF)
@@ -48,7 +48,7 @@ const middleRate = computed(() => {
   return cupRate.value
 })
 
-// next 
+// next btn
 const setNextCircleIdx = () => {
   circleStateIdx.value = (circleStateIdx.value + 1) % CIRCLE_STATE_LIST.length
 }
@@ -87,8 +87,8 @@ const toggleSwitchState = () => {
     <SwitchBtn :state="switchState" :handle-click="toggleSwitchState" :base-size="baseSize" />
   </ModuleContainer>
 
+  <div>========</div>
   <div>DEBUG</div>
-  <div>[STATE]</div>
   <div>CIRCLE: {{ currentCircleState }}</div>
   <div>MIDDLE: {{ currentMiddleState }}</div>
   <div>LONG: {{ currentLongState }}</div>
