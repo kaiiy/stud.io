@@ -2,4 +2,4 @@
 
 a game with input/output in studio
 
-![](./docs/img/visual.png)
+![](./docs/img/header.png)
