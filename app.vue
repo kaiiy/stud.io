@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import MiddleMod from "@/components/module/middle/index.vue"
-import CircleMod from "@/components/module/circle/index.vue"
+import CircleMod from "@/components/module/circle.vue"
 import LongMod from "@/components/module/long/index.vue"
 import CircleBtn from "@/components/module/next/circle-btn.vue"
 import LongBtn from "@/components/module/next/long-btn.vue"
@@ -16,7 +16,7 @@ const baseSize = 100
 const intervalMsec = 1000
 
 // ======== state ========
-const circleStateIdx = ref(1)
+const circleStateIdx = ref(0)
 const middleStateIdx = ref(0)
 const currentLongTypeIdx = ref(0)
 const switchState = ref<string>(STATE.SWITCH.OFF)

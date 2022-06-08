@@ -8,7 +8,11 @@ import { convertRad2Deg } from "@/assets/ts/math/angle";
  * @param mousePos
  * @returns 0 <= val < 2*pi
  */
-const hvAngle = (innerTopMidpoint: Vec, circleCenter: Vec, mousePos: Vec) => {
+const hvAngle = (circleCenter: Vec, mousePos: Vec) => {
+  const innerTopMidpoint: Vec = {
+    x: circleCenter.x,
+    y: 0,
+  };
   const mouseVec = diffVec(mousePos, circleCenter);
   const angleSize = getAngle(diffVec(innerTopMidpoint, circleCenter), mouseVec);
 
@@ -30,17 +34,10 @@ const adjustHvAngle = (actualHvAngleRad: number) => {
 };
 
 export const hvAngleFromMouse = (
-  ev: MouseEvent,
-  innerTopMidpoint: Vec,
-  circleCenter: Vec,
-  mouseAreaPos: Vec
+  mouseRelativePos: Vec,
+  circleCenter: Vec
 ): number => {
-  // relative clicked pos
-  const mousePos: Vec = {
-    x: ev.clientX - mouseAreaPos.x,
-    y: ev.clientY - mouseAreaPos.y,
-  };
-  const actualHvAngleVal = hvAngle(innerTopMidpoint, circleCenter, mousePos);
+  const actualHvAngleVal = hvAngle(circleCenter, mouseRelativePos);
   const hvAngleVal = adjustHvAngle(actualHvAngleVal);
 
   return hvAngleVal;
