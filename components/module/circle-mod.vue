@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import EllipseSvg from "@/components/shapes/ellipse-svg.vue"
+
 import { getCircleModSize, getCircleHvSize } from "assets/ts/parts/get-size"
 import { heightPx, widthPx, leftPx, topPx } from "assets/ts/style/to-px"
 import { STATE } from "@/assets/ts/main/state"
@@ -7,25 +9,27 @@ import { convertAngle2Rate } from "@/assets/ts/math/angle"
 import { hvAngleFromMouse } from "@/assets/ts/parts/circle/get-hv-angle"
 import { transformOrigin, rotateOnly } from "assets/ts/style/transform"
 import { getWaterMlFromValve } from "@/assets/ts/main/water/main"
-import EllipseSvg from "@/components/shapes/ellipse-svg.vue"
 import { COLOR } from "@/assets/ts/style/color"
-import { MOUSE_AREA_ID, getMouseRelativePos, getCircleCenterPos } from "./circle/mouse"
+import { MOUSE_AREA_ID, getMouseRelativePos, getCircleCenterPos, getMousePos } from "@/assets/ts/parts/circle/mouse"
 
 const props = defineProps<{
   baseSize: number,
   state: string,
   intervalMsec: number,
+  potRad: number,
   handleAddWaterIntoPot: Function, // type?
+  handleUpdatePotRad: Function, // type?
 }>();
 
 // style 
 const {
-  size: modSize, innerSize: modInnerSize, innerRadius,
+  size: modSize, innerSize: modInnerSize
 } = getCircleModSize(props.baseSize)
 const {
   height: hvHeight, left: hvLeft, top: valveTop, rotateOriginX: rotateOriginX,
   handRotateOriginY: handRotateOriginY, valveRotateOriginY: valveRotateOriginY
 } = getCircleHvSize(props.baseSize)
+const circleRadius = modInnerSize / 2
 
 // switch state 
 const showValve = computed(() => props.state === STATE.CIRCLE.VALVE)
@@ -76,25 +80,26 @@ const onClickMouseArea = (ev: MouseEvent) => {
   }
   // pot 
   else if (props.state === STATE.CIRCLE.POT) {
-    potYRadiusPx.value = Math.abs(mouseRelativePos.y - circleCenterPos.y)
+    const potRad = Math.asin(Math.abs(mouseRelativePos.y - circleCenterPos.y) / circleRadius)
+    props.handleUpdatePotRad(potRad)
   }
   else { throw new Error("non-existent state") }
 }
 
-// ======== valve function ======== 
+// ======== valve ======== 
 const addWaterIntoPot = (hvRate: number) => {
   const waterVol = getWaterMlFromValve(props.intervalMsec, hvRate)
   props.handleAddWaterIntoPot(waterVol)
 }
 
+// ======== timer ========
+
 // ======== pot ========
-const potYRadiusPx = ref(0)
+const potYRadiusPx = computed(() => circleRadius * Math.sin(props.potRad))
 
 onMounted(() => {
   // set mouse area pos
-  const mouseAreaBound = document.getElementById(MOUSE_AREA_ID)?.getBoundingClientRect()
-  mouseAreaPos.value = { x: mouseAreaBound?.left ?? 0, y: mouseAreaBound?.top ?? 0 }
-  if (mouseAreaBound === void 0) throw new Error("can't get mouse area")
+  mouseAreaPos.value = getMousePos(MOUSE_AREA_ID)
 })
 </script>
 
@@ -103,7 +108,7 @@ onMounted(() => {
     ...heightPx(modSize), ...widthPx(modSize)
   }">
     <!-- container  -->
-    <img class="comp-default z-10 " :style="{
+    <img class="comp-default z-10" :style="{
       ...heightPx(modSize)
     }" src="@/assets/img/parts/circle.png" alt="" />
 
@@ -119,8 +124,7 @@ onMounted(() => {
     }" src="@/assets/img/parts/circle-hand.png" alt="" />
 
     <!-- pot  -->
-    <!-- todo: y-radius  -->
-    <EllipseSvg v-show="showPot" :x-radius="innerRadius" :y-radius="potYRadiusPx" :color="COLOR.DARK_PINK"
+    <EllipseSvg v-show="showPot" :x-radius="circleRadius" :y-radius="potYRadiusPx" :color="COLOR.DARK_PINK"
       class="absolute" :style="{
         ...leftPx(valveTop), ...topPx(valveTop)
       }" />
