@@ -30,8 +30,12 @@ const currentLongState = computed(() => {
 })
 
 // circle
+const circlePotRad = ref(0)
 const addWaterIntoPot = (waterVol: number) => {
   potWater.value += waterVol
+}
+const updateCirclePotRad = (newPotRad: number) => {
+  circlePotRad.value = newPotRad
 }
 
 // middle 
@@ -69,8 +73,8 @@ const toggleSwitchState = () => {
 <template>
   <ModuleContainer :base-size="baseSize">
     <!-- circle module  -->
-    <CircleMod :state="currentCircleState" :interval-msec="intervalMsec" :base-size="baseSize"
-      :handle-add-water-into-pot="addWaterIntoPot" />
+    <CircleMod :state="currentCircleState" :interval-msec="intervalMsec" :pot-rad="circlePotRad" :base-size="baseSize"
+      :handle-add-water-into-pot="addWaterIntoPot" :handle-update-pot-rad="updateCirclePotRad" />
 
     <!-- middle module  -->
     <MiddleMod :state="currentMiddleState" :liquid-rate="middleRate" :base-size="baseSize" />
