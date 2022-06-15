@@ -93,7 +93,7 @@ const toggleSwitchState = () => {
 
   <div>========</div>
   <div>DEBUG</div>
-  <div>CIRCLE: {{ currentCircleState }}</div>
+  <div>CIRCLE: {{ currentCircleState }}, POT: {{ circlePotRad * 180 / Math.PI }}</div>
   <div>MIDDLE: {{ currentMiddleState }}</div>
   <div>LONG: {{ currentLongState }}</div>
 </template>

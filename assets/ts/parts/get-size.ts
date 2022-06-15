@@ -9,7 +9,7 @@ import {
 } from "./def-size";
 import { getActualSize } from "assets/ts/style/get-actual-size";
 
-// circle
+// circle mod
 export const getCircleModSize = (baseSize: number) => ({
   size: getActualSize(CIRCLE_MOD_SIZE.OUTER.SIZE, baseSize),
   innerSize: getActualSize(CIRCLE_MOD_SIZE.INNER.SIZE, baseSize),
@@ -40,6 +40,13 @@ export const getCircleHvSize = (baseSize: number) => ({
 export const circleLightSize = (baseSize: number) => ({
   radius: getActualSize(CIRCLE_MOD_SIZE.LIGHT.RADIUS, baseSize),
   margin: getActualSize(CIRCLE_MOD_SIZE.LIGHT.MARGIN, baseSize),
+});
+export const circlePotTriangleSize = (baseSize: number) => ({
+  width: getActualSize(CIRCLE_MOD_SIZE.POT_TRIANGLE.WIDTH, baseSize),
+  maxHeight: getActualSize(
+    (CIRCLE_MOD_SIZE.OUTER.SIZE - CIRCLE_MOD_SIZE.INNER.SIZE) / 2,
+    baseSize
+  ),
 });
 
 // middle

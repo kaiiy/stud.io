@@ -42,3 +42,6 @@ const liquidTop = computed<number>(() => {
         </div>
     </div>
 </template>
+
+<style src="@/assets/css/component.css" scoped>
+</style>

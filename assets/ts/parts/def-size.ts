@@ -36,6 +36,9 @@ export const CIRCLE_MOD_SIZE = {
     MARGIN: 0.07,
     RADIUS: 0.1 / 2,
   },
+  POT_TRIANGLE: {
+    WIDTH: 0.7,
+  },
 };
 
 export const LONG_MOD_SIZE = {

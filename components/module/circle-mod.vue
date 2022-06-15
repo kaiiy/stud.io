@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import EllipseSvg from "@/components/shapes/ellipse-svg.vue"
+import TriangleSvg from "@/components/shapes/triangle-svg.vue"
 
-import { getCircleModSize, getCircleHvSize } from "assets/ts/parts/get-size"
+import { getCircleModSize, getCircleHvSize, circlePotTriangleSize } from "assets/ts/parts/get-size"
 import { heightPx, widthPx, leftPx, topPx } from "assets/ts/style/to-px"
 import { STATE } from "@/assets/ts/main/state"
 import { Vec } from "@/assets/ts/math/vec"
@@ -11,6 +12,7 @@ import { transformOrigin, rotateOnly } from "assets/ts/style/transform"
 import { getWaterMlFromValve } from "@/assets/ts/main/water/main"
 import { COLOR } from "@/assets/ts/style/color"
 import { MOUSE_AREA_ID, getMouseRelativePos, getCircleCenterPos, getMousePos } from "@/assets/ts/parts/circle/mouse"
+import { getPotRad } from "@/assets/ts/parts/circle/pot"
 
 const props = defineProps<{
   baseSize: number,
@@ -23,12 +25,15 @@ const props = defineProps<{
 
 // style 
 const {
-  size: modSize, innerSize: modInnerSize
+  size: modSize, innerSize: modInnerSize, margin: modMargin
 } = getCircleModSize(props.baseSize)
 const {
   height: hvHeight, left: hvLeft, top: valveTop, rotateOriginX: rotateOriginX,
   handRotateOriginY: handRotateOriginY, valveRotateOriginY: valveRotateOriginY
 } = getCircleHvSize(props.baseSize)
+const {
+  width: potTriangleWidth, maxHeight: potTriangleMaxHeight
+} = circlePotTriangleSize(props.baseSize)
 const circleRadius = modInnerSize / 2
 
 // switch state 
@@ -80,7 +85,7 @@ const onClickMouseArea = (ev: MouseEvent) => {
   }
   // pot 
   else if (props.state === STATE.CIRCLE.POT) {
-    const potRad = Math.asin(Math.abs(mouseRelativePos.y - circleCenterPos.y) / circleRadius)
+    const potRad = getPotRad((mouseRelativePos.y - circleCenterPos.y) / Math.sqrt(circleRadius ** 2 - (mouseRelativePos.x - circleCenterPos.x) ** 2))
     props.handleUpdatePotRad(potRad)
   }
   else { throw new Error("non-existent state") }
@@ -96,6 +101,12 @@ const addWaterIntoPot = (hvRate: number) => {
 
 // ======== pot ========
 const potYRadiusPx = computed(() => circleRadius * Math.sin(props.potRad))
+const potTrianglePx = computed(() => ({
+  width: potTriangleWidth,
+  height: potTriangleMaxHeight * (potYRadiusPx.value / circleRadius),
+  left: (modSize - potTriangleWidth) / 2,
+  top: modMargin + circleRadius + Math.sqrt(1 - ((potTriangleWidth / 2) / circleRadius) ** 2) * potYRadiusPx.value
+}))
 
 onMounted(() => {
   // set mouse area pos
@@ -125,8 +136,12 @@ onMounted(() => {
 
     <!-- pot  -->
     <EllipseSvg v-show="showPot" :x-radius="circleRadius" :y-radius="potYRadiusPx" :color="COLOR.DARK_PINK"
-      class="absolute" :style="{
+      class="absolute z-20" :style="{
         ...leftPx(valveTop), ...topPx(valveTop)
+      }" />
+    <TriangleSvg v-show="showPot" :height-px="potTrianglePx.height" :width-px="potTrianglePx.width"
+      :color="COLOR.DARK_PINK" class="absolute z-20" :style="{
+        ...leftPx(potTrianglePx.left), ...topPx(potTrianglePx.top)
       }" />
 
     <!-- mouse area  -->
@@ -136,3 +151,6 @@ onMounted(() => {
     }"></div>
   </div>
 </template>
+
+<style src="@/assets/css/component.css" scoped>
+</style>

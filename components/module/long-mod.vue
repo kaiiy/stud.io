@@ -38,3 +38,6 @@ const liquidWidth = getLiquidSize(modInnerWidth, props.liquidRate)
 
   </div>
 </template>
+
+<style src="@/assets/css/component.css" scoped>
+</style>

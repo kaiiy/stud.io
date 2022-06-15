@@ -41,3 +41,6 @@ const colorList = computed(() => {
     }" />
   </div>
 </template>
+
+<style src="@/assets/css/component.css" scoped>
+</style>
