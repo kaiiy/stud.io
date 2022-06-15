@@ -10,5 +10,7 @@ const adjustPotRate = (potRate: number) => {
 export const getPotRad = (potRate: number) => {
   const absPotRate = Math.abs(potRate);
   const adjustedRate = adjustPotRate(absPotRate);
+
+  if (adjustedRate < 0 || adjustedRate > 1) throw RangeError();
   return Math.asin(adjustedRate);
 };
