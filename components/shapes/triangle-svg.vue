@@ -11,6 +11,6 @@ const pointsStr = computed(() => `0 0, ${props.widthPx / 2} ${props.heightPx}, $
 
 <template>
   <svg xmlns="http://www.w3.org/2000/svg" :width="widthPx" :height="heightPx" :viewBox="viewBoxStr">
-    <polygon :points="pointsStr" fill=" #000" />
+    <polygon :points="pointsStr" :fill="color" />
   </svg>
 </template>
