@@ -28,12 +28,8 @@ export const getCircleHvSize = (baseSize: number) => ({
   ),
   top: getActualSize(CIRCLE_MOD_SIZE.MIN_MARGIN, baseSize),
   rotateOriginX: getActualSize(CIRCLE_MOD_SIZE.HV.WIDTH / 2, baseSize),
-  valveRotateOriginY: getActualSize(
+  hvRotateOriginY: getActualSize(
     CIRCLE_MOD_SIZE.HV.LG_RADIUS + CIRCLE_MOD_SIZE.HV.BONE,
-    baseSize
-  ),
-  handRotateOriginY: getActualSize(
-    CIRCLE_MOD_SIZE.HV.SM_RADIUS + CIRCLE_MOD_SIZE.HV.BONE,
     baseSize
   ),
 });

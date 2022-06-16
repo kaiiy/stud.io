@@ -9,16 +9,18 @@ import ModuleContainer from "@/components/main/module-container.vue"
 import SwitchBtn from "@/components/module/switch-btn.vue"
 
 import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST } from "@/assets/ts/main/state"
-import { potFillRate, cupFillRate } from "@/assets/ts/main/water/main"
+import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
 
 // ======== config ========
 const baseSize = 100 // todo 
 const intervalMsec = 1000 // todo 
 
 // ======== state ========
+// init: 0 
 const circleStateIdx = ref(0)
 const middleStateIdx = ref(0)
 const currentLongTypeIdx = ref(0)
+
 const switchState = ref<string>(STATE.SWITCH.OFF)
 
 const currentCircleState = computed(() => CIRCLE_STATE_LIST[circleStateIdx.value])
@@ -31,11 +33,15 @@ const currentLongState = computed(() => {
 
 // circle
 const circlePotRad = ref(0)
+const circleRemainingTimeRate = ref(1) //  0<=val<=1 (init: 1)
 const addWaterIntoPot = (waterVol: number) => {
   potWater.value += waterVol
 }
 const updateCirclePotRad = (newPotRad: number) => {
   circlePotRad.value = newPotRad
+}
+const updateCircleRemainingTimeRate = (newTimeRate: number) => {
+  circleRemainingTimeRate.value = newTimeRate
 }
 
 // middle 
@@ -74,7 +80,8 @@ const toggleSwitchState = () => {
   <ModuleContainer :base-size="baseSize">
     <!-- circle module  -->
     <CircleMod :state="currentCircleState" :interval-msec="intervalMsec" :pot-rad="circlePotRad" :base-size="baseSize"
-      :handle-add-water-into-pot="addWaterIntoPot" :handle-update-pot-rad="updateCirclePotRad" />
+      :handle-add-water-into-pot="addWaterIntoPot" :handle-update-pot-rad="updateCirclePotRad"
+      :handle-update-remaining-time-rate="updateCircleRemainingTimeRate" />
 
     <!-- middle module  -->
     <MiddleMod :state="currentMiddleState" :liquid-rate="middleRate" :base-size="baseSize" />
@@ -93,7 +100,8 @@ const toggleSwitchState = () => {
 
   <div>========</div>
   <div>DEBUG</div>
-  <div>CIRCLE: {{ currentCircleState }}, POT: {{ circlePotRad * 180 / Math.PI }}</div>
+  <div>CIRCLE: {{ currentCircleState }}, POT: {{ circlePotRad * 180 / Math.PI }}, R_TIME: {{ circleRemainingTimeRate }}
+  </div>
   <div>MIDDLE: {{ currentMiddleState }}</div>
   <div>LONG: {{ currentLongState }}</div>
 </template>

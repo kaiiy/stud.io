@@ -9,10 +9,11 @@ import { Vec } from "@/assets/ts/math/vec"
 import { convertAngle2Rate } from "@/assets/ts/math/angle"
 import { hvAngleFromMouse } from "@/assets/ts/parts/circle/get-hv-angle"
 import { transformOrigin, rotateOnly } from "assets/ts/style/transform"
-import { getWaterMlFromValve } from "@/assets/ts/main/water/main"
+import { getWaterMlFromValve } from "@/assets/ts/main/water"
 import { COLOR } from "@/assets/ts/style/color"
 import { MOUSE_AREA_ID, getMouseRelativePos, getCircleCenterPos, getMousePos } from "@/assets/ts/parts/circle/mouse"
 import { getPotRad } from "@/assets/ts/parts/circle/pot"
+import { getRemainingTime } from "@/assets/ts/main/timer"
 
 const props = defineProps<{
   baseSize: number,
@@ -21,6 +22,7 @@ const props = defineProps<{
   potRad: number,
   handleAddWaterIntoPot: Function, // type?
   handleUpdatePotRad: Function, // type?
+  handleUpdateRemainingTimeRate: Function // type?
 }>();
 
 // style 
@@ -28,8 +30,7 @@ const {
   size: modSize, innerSize: modInnerSize, margin: modMargin
 } = getCircleModSize(props.baseSize)
 const {
-  height: hvHeight, left: hvLeft, top: valveTop, rotateOriginX: rotateOriginX,
-  handRotateOriginY: handRotateOriginY, valveRotateOriginY: valveRotateOriginY
+  height: hvHeight, left: hvLeft, top: valveTop, rotateOriginX, hvRotateOriginY
 } = getCircleHvSize(props.baseSize)
 const {
   width: potTriangleWidth, maxHeight: potTriangleMaxHeight
@@ -43,10 +44,13 @@ const showPot = computed(() => props.state === STATE.CIRCLE.POT)
 
 // init: 0
 const valveAngle = ref(0)
-const handAngle = ref(0)
+const timerAngle = ref(0)
 // init: false 
 const isOpenValve = ref(false)
+const isOpenTimer = ref(false)
+
 let addWaterTimer: number;
+let pureTimer: number;
 
 // ======== mouse ======== 
 // absolute area pos 
@@ -61,43 +65,79 @@ const onClickMouseArea = (ev: MouseEvent) => {
   // valve 
   if (props.state === STATE.CIRCLE.VALVE) {
     valveAngle.value = hvAngleFromMouse(mouseRelativePos, circleCenterPos)
-    const hvRate = convertAngle2Rate(valveAngle.value)
+    const valveAngleRate = convertAngle2Rate(valveAngle.value)
 
-    if (isOpenValve.value === false && hvRate !== 0) {
+    if (isOpenValve.value === false && valveAngleRate !== 0) {
       // open 
-      addWaterTimer = window.setInterval(addWaterIntoPot, props.intervalMsec, hvRate)
+      addWaterTimer = window.setInterval(addWaterIntoPot, props.intervalMsec, valveAngleRate)
       isOpenValve.value = true
     }
-    else if (isOpenValve.value === true && hvRate !== 0) {
+    else if (isOpenValve.value === true && valveAngleRate !== 0) {
       // change water volume 
       window.clearInterval(addWaterTimer)
-      addWaterTimer = window.setInterval(addWaterIntoPot, props.intervalMsec, hvRate)
+      addWaterTimer = window.setInterval(addWaterIntoPot, props.intervalMsec, valveAngleRate)
     }
-    else if (isOpenValve.value === true && hvRate === 0) {
+    else if (isOpenValve.value === true && valveAngleRate === 0) {
       // close 
       window.clearInterval(addWaterTimer)
       isOpenValve.value = false
+    } else {
+      throw new Error()
     }
   }
   // timer 
   else if (props.state === STATE.CIRCLE.TIME) {
-    // todo 
+    timerAngle.value = hvAngleFromMouse(mouseRelativePos, circleCenterPos)
+    const timerRate = convertAngle2Rate(timerAngle.value)
+
+    if (isOpenTimer.value === false && timerRate !== 0) {
+      // set at first
+      initRemainingTimeSec.value = remainingTimeSec.value = getRemainingTime(timerRate)
+      pureTimer = window.setInterval(countTimer, props.intervalMsec, props.intervalMsec)
+      isOpenTimer.value = true
+    }
+    else if (isOpenTimer.value === true && timerRate !== 0) {
+      // change water volume 
+      window.clearInterval(pureTimer)
+      initRemainingTimeSec.value = remainingTimeSec.value = getRemainingTime(timerRate)
+      pureTimer = window.setInterval(countTimer, props.intervalMsec, props.intervalMsec)
+    }
+    else if (isOpenTimer.value === true && timerRate === 0) {
+      // close 
+      initRemainingTimeSec.value = remainingTimeSec.value = 0
+      window.clearInterval(pureTimer)
+      isOpenTimer.value = false
+    } else {
+      throw new Error()
+    }
   }
   // pot 
   else if (props.state === STATE.CIRCLE.POT) {
     const potRad = getPotRad((mouseRelativePos.y - circleCenterPos.y) / Math.sqrt(circleRadius ** 2 - (mouseRelativePos.x - circleCenterPos.x) ** 2))
     props.handleUpdatePotRad(potRad)
   }
-  else { throw new Error("non-existent state") }
+  else { throw new Error() }
 }
 
 // ======== valve ======== 
-const addWaterIntoPot = (hvRate: number) => {
-  const waterVol = getWaterMlFromValve(props.intervalMsec, hvRate)
+const addWaterIntoPot = (valveRate: number) => {
+  const waterVol = getWaterMlFromValve(props.intervalMsec, valveRate)
   props.handleAddWaterIntoPot(waterVol)
 }
 
 // ======== timer ========
+const initRemainingTimeSec = ref(0)
+const remainingTimeSec = ref(0)
+const countTimer = (intervalMsec: number) => {
+  remainingTimeSec.value -= intervalMsec / 1000
+  if (remainingTimeSec.value < 0) {
+    window.clearInterval(pureTimer)
+    remainingTimeSec.value = 0
+  }
+  const remainingTimeRate = remainingTimeSec.value / initRemainingTimeSec.value
+  props.handleUpdateRemainingTimeRate(remainingTimeRate)
+}
+
 
 // ======== pot ========
 const potYRadiusPx = computed(() => circleRadius * Math.sin(props.potRad))
@@ -126,12 +166,12 @@ onMounted(() => {
     <!-- valve  -->
     <img v-show="showValve" class="comp-default z-20" :style="{
       ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
-      ...transformOrigin(rotateOriginX, valveRotateOriginY), ...rotateOnly(valveAngle)
+      ...transformOrigin(rotateOriginX, hvRotateOriginY), ...rotateOnly(valveAngle)
     }" src="@/assets/img/parts/circle-valve.png" alt="" />
     <!-- time  -->
     <img v-show="showTimer" class="comp-default z-20" :style="{
       ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
-      ...transformOrigin(rotateOriginX, handRotateOriginY), ...rotateOnly(handAngle)
+      ...transformOrigin(rotateOriginX, hvRotateOriginY), ...rotateOnly(timerAngle)
     }" src="@/assets/img/parts/circle-hand.png" alt="" />
 
     <!-- pot  -->
