@@ -7,6 +7,7 @@ import LongBtn from "@/components/module/next/long-btn.vue"
 import MiddleBtn from "@/components/module/next/middle-btn.vue"
 import ModuleContainer from "@/components/main/module-container.vue"
 import SwitchBtn from "@/components/module/switch-btn.vue"
+import CoverMod from "@/components/module/cover-mod.vue"
 
 import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST } from "@/assets/ts/main/state"
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
@@ -32,42 +33,26 @@ const currentLongState = computed(() => {
 })
 
 // circle
-const circlePotRad = ref(0)
+const circlePotRad = ref(0) // init: 1
 const circleRemainingTimeRate = ref(1) //  0<=val<=1 (init: 1)
-const addWaterIntoPot = (waterVol: number) => {
-  potWater.value += waterVol
-}
-const updateCirclePotRad = (newPotRad: number) => {
-  circlePotRad.value = newPotRad
-}
-const updateCircleRemainingTimeRate = (newTimeRate: number) => {
-  circleRemainingTimeRate.value = newTimeRate
-}
+const addWaterIntoPot = (waterVol: number) => { potWater.value += waterVol }
+const updateCirclePotRad = (newPotRad: number) => { circlePotRad.value = newPotRad }
+const updateCircleRemainingTimeRate = (newTimeRate: number) => { circleRemainingTimeRate.value = newTimeRate }
 
 // middle 
 const potWater = ref<number>(0)
-const potRate = computed<number>(() => {
-  return potFillRate(potWater.value)
-})
+const potRate = computed<number>(() => potFillRate(potWater.value))
 const cupWater = ref<number>(0)
-const cupRate = computed<number>(() => {
-  return cupFillRate(cupWater.value)
-})
+const cupRate = computed<number>(() => cupFillRate(cupWater.value))
 const middleRate = computed(() => {
   if (currentMiddleState.value === STATE.MIDDLE.POT) return potRate.value
   return cupRate.value
 })
 
 // next btn
-const setNextCircleIdx = () => {
-  circleStateIdx.value = (circleStateIdx.value + 1) % CIRCLE_STATE_LIST.length
-}
-const setNextMiddleIdx = () => {
-  middleStateIdx.value = (middleStateIdx.value + 1) % MIDDLE_STATE_LIST.length
-}
-const setNextLongType = () => {
-  currentLongTypeIdx.value = (currentLongTypeIdx.value + 1) % LONG_BTN_STATE_LIST.length
-}
+const setNextCircleIdx = () => { circleStateIdx.value = (circleStateIdx.value + 1) % CIRCLE_STATE_LIST.length }
+const setNextMiddleIdx = () => { middleStateIdx.value = (middleStateIdx.value + 1) % MIDDLE_STATE_LIST.length }
+const setNextLongType = () => { currentLongTypeIdx.value = (currentLongTypeIdx.value + 1) % LONG_BTN_STATE_LIST.length }
 
 // switch 
 const toggleSwitchState = () => {
@@ -84,7 +69,10 @@ const toggleSwitchState = () => {
       :handle-update-remaining-time-rate="updateCircleRemainingTimeRate" />
 
     <!-- middle module  -->
-    <MiddleMod :state="currentMiddleState" :liquid-rate="middleRate" :base-size="baseSize" />
+    <div class="col-span-2 row-span-4">
+      <CoverMod :base-size="baseSize" />
+      <MiddleMod :state="currentMiddleState" :liquid-rate="middleRate" :base-size="baseSize" />
+    </div>
 
     <!-- next module  -->
     <CircleBtn :state-idx="circleStateIdx" :handle-click="setNextCircleIdx" :base-size="baseSize" />

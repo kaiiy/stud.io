@@ -11,7 +11,7 @@ const gap = getModuleGap(props.baseSize)
 </script>
 
 <template>
-  <div class="relative grid grid-cols-5 grid-rows-5" :style="{
+  <div class="grid grid-cols-5 grid-rows-5" :style="{
     ...heightPx(height), ...widthPx(width), ...gapPx(gap)
   }">
     <slot></slot>

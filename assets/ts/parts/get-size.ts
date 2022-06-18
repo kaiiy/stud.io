@@ -6,6 +6,7 @@ import {
   MODULE_GAP,
   SWITCH_SIZE,
   MODULE_CONTAINER,
+  COVER_MOD_SIZE
 } from "./def-size";
 import { getActualSize } from "assets/ts/style/get-actual-size";
 
@@ -46,6 +47,10 @@ export const circlePotTriangleSize = (baseSize: number) => ({
 });
 
 // middle
+export const coverModSize = (baseSize: number) => ({
+  height: getActualSize(COVER_MOD_SIZE.HEIGHT, baseSize),
+  width: getActualSize(COVER_MOD_SIZE.WIDTH, baseSize),
+});
 export const getMiddleModSize = (baseSize: number) => ({
   height: getActualSize(MIDDLE_MOD_SIZE.OUTER.HEIGHT, baseSize),
   width: getActualSize(MIDDLE_MOD_SIZE.OUTER.WIDTH, baseSize),

@@ -3,12 +3,11 @@ import { getMiddleModSize } from "assets/ts/parts/get-size"
 import { heightPx, widthPx, leftPx, topPx } from "assets/ts/style/to-px"
 import { getLiquidSize, getLiquidTop } from "assets/ts/parts/liquid"
 
-type Props = {
+const props = defineProps<{
     baseSize: number,
     liquidRate: number,
     state: string
-};
-const props = defineProps<Props>();
+}>();
 
 const {
     height: modHeight, width: modWidth,
@@ -26,7 +25,7 @@ const liquidTop = computed<number>(() => {
 </script>
 
 <template>
-    <div class="relative col-span-2 row-span-4" :style="{
+    <div :style="{
         ...heightPx(modHeight), ...widthPx(modWidth)
     }">
         <!-- container  -->

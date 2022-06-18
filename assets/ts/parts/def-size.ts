@@ -5,13 +5,17 @@ export const MODULE_CONTAINER = {
 };
 
 // module
+export const COVER_MOD_SIZE = {
+  HEIGHT: 0.1,
+  WIDTH: 2.1
+}
 export const MIDDLE_MOD_SIZE = {
   OUTER: {
-    HEIGHT: 4.3,
+    HEIGHT: 4.1,
     WIDTH: 2.1,
   },
   INNER: {
-    HEIGHT: 3.6,
+    HEIGHT: 4.1 * 36 / 43,
     WIDTH: 0.7,
   },
 };

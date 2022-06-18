@@ -27,8 +27,8 @@
      inkscape:document-units="px"
      showgrid="false"
      inkscape:zoom="1.1476306"
-     inkscape:cx="287.98466"
-     inkscape:cy="262.27952"
+     inkscape:cx="274.91425"
+     inkscape:cy="263.15088"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="1912"
@@ -508,9 +508,9 @@
        id="rect1131"
        style="fill:#e1daee;stroke-width:1.28777;stroke-linecap:round"
        d="m 89.333561,5.2916708 c -1.119587,0 -2.021065,0.8595493 -2.021065,1.9270626 V 111.84377 c 0,1.06751 0.901478,1.92706 2.021065,1.92706 h 51.520369 c 1.11958,0 2.02107,-0.85955 2.02107,-1.92706 V 7.2187334 c 0,-1.0675133 -0.90149,-1.9270626 -2.02107,-1.9270626 z M 115.09375,14.12137 c 5.13027,0 9.26042,3.938045 9.26042,8.8297 v 73.160363 c 0,4.891657 -4.13015,8.829707 -9.26042,8.829707 -5.13028,0 -9.26042,-3.93805 -9.26042,-8.829707 V 22.95107 c 0,-4.891655 4.13014,-8.8297 9.26042,-8.8297 z"
-       inkscape:export-filename="C:\Users\tomo\Downloads\middle.png"
-       inkscape:export-xdpi="200"
-       inkscape:export-ydpi="200" />
+       inkscape:export-filename="..\..\assets\img\parts\middle.png"
+       inkscape:export-xdpi="191.99997"
+       inkscape:export-ydpi="191.99997" />
     <rect
        style="fill:#ac98cd;fill-opacity:1;stroke:none;stroke-width:0.989782;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect1681-0"
@@ -626,7 +626,7 @@
        inkscape:export-ydpi="200"><tspan
          x="1201.2793"
          y="169.70703"
-         id="tspan1197">stud.io</tspan></text>
+         id="tspan3056">stud.io</tspan></text>
     <rect
        style="fill:#000000;stroke-width:0;stroke-linecap:round;paint-order:fill markers stroke;fill-opacity:1"
        id="rect235"
