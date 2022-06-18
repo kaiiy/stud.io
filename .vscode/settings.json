@@ -2,16 +2,16 @@
   "editor.dragAndDrop": false,
   "editor.wordWrap": "on",
   "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": false,
+  "editor.formatOnType": false,
   "editor.wordBasedSuggestions": true,
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "editor.tabSize": 2,
   "explorer.incrementalNaming": "smart",
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "cSpell.words": ["noindex"]
+  "cSpell.words": ["noindex"],
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  }
 }

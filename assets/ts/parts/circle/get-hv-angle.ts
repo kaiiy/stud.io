@@ -3,7 +3,6 @@ import { convertRad2Deg } from "@/assets/ts/math/angle";
 
 /**
  *
- * @param innerTopMidpoint
  * @param circleCenter
  * @param mousePos
  * @returns 0 <= val < 2*pi

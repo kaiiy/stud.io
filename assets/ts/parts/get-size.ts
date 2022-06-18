@@ -6,6 +6,7 @@ import {
   MODULE_GAP,
   SWITCH_SIZE,
   MODULE_CONTAINER,
+  COVER_MOD_SIZE
 } from "./def-size";
 import { getActualSize } from "assets/ts/style/get-actual-size";
 
@@ -28,12 +29,8 @@ export const getCircleHvSize = (baseSize: number) => ({
   ),
   top: getActualSize(CIRCLE_MOD_SIZE.MIN_MARGIN, baseSize),
   rotateOriginX: getActualSize(CIRCLE_MOD_SIZE.HV.WIDTH / 2, baseSize),
-  valveRotateOriginY: getActualSize(
+  hvRotateOriginY: getActualSize(
     CIRCLE_MOD_SIZE.HV.LG_RADIUS + CIRCLE_MOD_SIZE.HV.BONE,
-    baseSize
-  ),
-  handRotateOriginY: getActualSize(
-    CIRCLE_MOD_SIZE.HV.SM_RADIUS + CIRCLE_MOD_SIZE.HV.BONE,
     baseSize
   ),
 });
@@ -50,6 +47,10 @@ export const circlePotTriangleSize = (baseSize: number) => ({
 });
 
 // middle
+export const coverModSize = (baseSize: number) => ({
+  height: getActualSize(COVER_MOD_SIZE.HEIGHT, baseSize),
+  width: getActualSize(COVER_MOD_SIZE.WIDTH, baseSize),
+});
 export const getMiddleModSize = (baseSize: number) => ({
   height: getActualSize(MIDDLE_MOD_SIZE.OUTER.HEIGHT, baseSize),
   width: getActualSize(MIDDLE_MOD_SIZE.OUTER.WIDTH, baseSize),
