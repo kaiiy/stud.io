@@ -8,6 +8,7 @@ import MiddleBtn from "@/components/module/next/middle-btn.vue"
 import ModuleContainer from "@/components/main/module-container.vue"
 import SwitchBtn from "@/components/module/switch-btn.vue"
 import CoverMod from "@/components/module/cover-mod.vue"
+import MiddleWrapper from "@/components/module/middle-wrapper.vue"
 
 import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST } from "@/assets/ts/main/state"
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
@@ -69,10 +70,10 @@ const toggleSwitchState = () => {
       :handle-update-remaining-time-rate="updateCircleRemainingTimeRate" />
 
     <!-- middle module  -->
-    <div class="col-span-2 row-span-4">
+    <MiddleWrapper>
       <CoverMod :base-size="baseSize" />
       <MiddleMod :state="currentMiddleState" :liquid-rate="middleRate" :base-size="baseSize" />
-    </div>
+    </MiddleWrapper>
 
     <!-- next module  -->
     <CircleBtn :state-idx="circleStateIdx" :handle-click="setNextCircleIdx" :base-size="baseSize" />
