@@ -2,11 +2,9 @@
 import { getLongModSize } from "assets/ts/parts/get-size"
 import { heightPx, widthPx, leftPx, topPx } from "assets/ts/style/to-px"
 import { getLiquidSize } from "assets/ts/parts/liquid"
-import { STATE } from "@/assets/ts/main/state"
 
 const props = defineProps<{
   baseSize: number,
-  state: string,
   liquidRate: number
 }>();
 
@@ -17,7 +15,7 @@ const {
 } = getLongModSize(props.baseSize)
 
 // liquid 
-const liquidWidth = getLiquidSize(modInnerWidth, props.liquidRate)
+const liquidWidth = computed<number>(() => getLiquidSize(modInnerWidth, props.liquidRate))
 </script>
 
 <template>

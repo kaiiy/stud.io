@@ -55,6 +55,17 @@ const setNextCircleIdx = () => { circleStateIdx.value = (circleStateIdx.value + 
 const setNextMiddleIdx = () => { middleStateIdx.value = (middleStateIdx.value + 1) % MIDDLE_STATE_LIST.length }
 const setNextLongType = () => { currentLongTypeIdx.value = (currentLongTypeIdx.value + 1) % LONG_BTN_STATE_LIST.length }
 
+// long 
+const longLiquidRate = computed<number>(() => {
+  // valve: water temperature (circle) 
+  // time: remaining time rate (circle) 
+  if (currentLongState.value === STATE.CIRCLE.TIME) return circleRemainingTimeRate.value
+  // pot: degree (circle) 
+  // pot: temperature (middle) 
+  // cup: (middle) 
+  return 0 // todo: add the other rate
+})
+
 // switch 
 const toggleSwitchState = () => {
   if (switchState.value === STATE.SWITCH.OFF) switchState.value = STATE.SWITCH.ON
@@ -81,7 +92,7 @@ const toggleSwitchState = () => {
     <MiddleBtn :state-idx="middleStateIdx" :base-size="baseSize" :handle-click="setNextMiddleIdx" />
 
     <!-- long module  -->
-    <LongMod :state="currentLongState" :liquid-rate="0.8" :base-size="baseSize" />
+    <LongMod :liquid-rate="longLiquidRate" :base-size="baseSize" />
 
     <!-- switch  -->
     <SwitchBtn :state="switchState" :handle-click="toggleSwitchState" :base-size="baseSize" />
@@ -92,5 +103,5 @@ const toggleSwitchState = () => {
   <div>CIRCLE: {{ currentCircleState }}, POT: {{ circlePotRad * 180 / Math.PI }}, R_TIME: {{ circleRemainingTimeRate }}
   </div>
   <div>MIDDLE: {{ currentMiddleState }}</div>
-  <div>LONG: {{ currentLongState }}</div>
+  <div>LONG: {{ currentLongState }}, liquid: {{ longLiquidRate }}</div>
 </template>
