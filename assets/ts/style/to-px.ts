@@ -22,3 +22,6 @@ export const marginLeftPx = (value: number) => ({
 
 // gap
 export const gapPx = (value: number) => ({ gap: toPx(value) });
+
+// font
+export const fontSizePx = (value: number) => ({ fontSize: toPx(value) });

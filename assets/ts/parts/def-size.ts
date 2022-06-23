@@ -54,6 +54,11 @@ export const LONG_MOD_SIZE = {
     HEIGHT: 0.3,
     WIDTH: (512.12761 - 138.0611) / 100,
   },
+  NUM_MARGIN: {
+    VERTICAL: (0.35 - 0.15) / 2,
+    HORIZONTAL: 0.1,
+  },
+  NUM_SIZE: 0.15,
 };
 
 export const NEXT_MOD_SIZE = {

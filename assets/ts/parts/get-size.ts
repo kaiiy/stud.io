@@ -6,7 +6,7 @@ import {
   MODULE_GAP,
   SWITCH_SIZE,
   MODULE_CONTAINER,
-  COVER_MOD_SIZE
+  COVER_MOD_SIZE,
 } from "./def-size";
 import { getActualSize } from "assets/ts/style/get-actual-size";
 
@@ -80,6 +80,12 @@ export const getLongModSize = (baseSize: number) => ({
     (LONG_MOD_SIZE.OUTER.WIDTH - LONG_MOD_SIZE.INNER.WIDTH) / 2,
     baseSize
   ),
+  numVerticalMargin: getActualSize(LONG_MOD_SIZE.NUM_MARGIN.VERTICAL, baseSize),
+  numHorizontalMargin: getActualSize(
+    LONG_MOD_SIZE.NUM_MARGIN.HORIZONTAL,
+    baseSize
+  ),
+  numSize: getActualSize(LONG_MOD_SIZE.NUM_SIZE, baseSize),
 });
 
 // next
