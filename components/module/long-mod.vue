@@ -36,11 +36,11 @@ const liquidWidth = computed<number>(() => getLiquidSize(modInnerWidth, props.li
     </div>
 
     <!-- num (todo)  -->
-    <div class="absolute z-20 leading-none " :style="{
+    <div class="absolute z-20 leading-none num-font" :style="{
       ...leftPx(numHorizontalMargin), ...bottomPx(numVerticalMargin), ...fontSizePx(numSize),
-      color: COLOR.DARK_RED
-    }">-20</div>
-    <div class="absolute z-20 leading-none " :style="{
+      color: COLOR.DARK_RED,
+    }">0</div>
+    <div class="absolute z-20 leading-none num-font" :style="{
       ...rightPx(numHorizontalMargin), ...topPx(numVerticalMargin), ...fontSizePx(numSize),
       color: COLOR.DARK_RED
     }">100</div>

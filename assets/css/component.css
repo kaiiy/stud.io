@@ -5,3 +5,8 @@
 .comp-default-click {
     @apply absolute object-contain select-none cursor-pointer;
 }
+
+/* for long num  */
+.num-font {
+    font-family: "Orbitron", sans-serif;
+}
