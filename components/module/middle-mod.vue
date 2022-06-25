@@ -25,7 +25,7 @@ const liquidTop = computed<number>(() => {
 </script>
 
 <template>
-    <div :style="{
+    <div class="relative" :style="{
         ...heightPx(modHeight), ...widthPx(modWidth)
     }">
         <!-- container  -->

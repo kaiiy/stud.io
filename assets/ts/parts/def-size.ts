@@ -7,15 +7,15 @@ export const MODULE_CONTAINER = {
 // module
 export const COVER_MOD_SIZE = {
   HEIGHT: 0.1,
-  WIDTH: 2.1
-}
+  WIDTH: 2.1,
+};
 export const MIDDLE_MOD_SIZE = {
   OUTER: {
     HEIGHT: 4.1,
     WIDTH: 2.1,
   },
   INNER: {
-    HEIGHT: 4.1 * 36 / 43,
+    HEIGHT: (4.1 * 36) / 43,
     WIDTH: 0.7,
   },
 };
@@ -45,6 +45,7 @@ export const CIRCLE_MOD_SIZE = {
   },
 };
 
+const NUM_SIZE = 0.25;
 export const LONG_MOD_SIZE = {
   OUTER: {
     HEIGHT: 1,
@@ -54,6 +55,11 @@ export const LONG_MOD_SIZE = {
     HEIGHT: 0.3,
     WIDTH: (512.12761 - 138.0611) / 100,
   },
+  NUM_MARGIN: {
+    VERTICAL: (0.35 - NUM_SIZE) / 2,
+    HORIZONTAL: 0.1,
+  },
+  NUM_SIZE: NUM_SIZE,
 };
 
 export const NEXT_MOD_SIZE = {

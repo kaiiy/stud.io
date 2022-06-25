@@ -1,23 +1,22 @@
 <script setup lang="ts">
 import { getLongModSize } from "assets/ts/parts/get-size"
-import { heightPx, widthPx, leftPx, topPx } from "assets/ts/style/to-px"
+import { heightPx, widthPx, leftPx, topPx, rightPx, fontSizePx, bottomPx } from "assets/ts/style/to-px"
 import { getLiquidSize } from "assets/ts/parts/liquid"
-import { STATE } from "@/assets/ts/main/state"
+import { COLOR } from "@/assets/ts/style/color"
 
 const props = defineProps<{
   baseSize: number,
-  state: string,
   liquidRate: number
 }>();
 
 // get size
 const {
   height: modHeight, width: modWidth, innerHeight: modInnerHeight, innerWidth: modInnerWidth,
-  innerTop: modInnerTop, innerLeft: modInnerLeft
+  innerTop: modInnerTop, innerLeft: modInnerLeft, numHorizontalMargin, numVerticalMargin, numSize
 } = getLongModSize(props.baseSize)
 
 // liquid 
-const liquidWidth = getLiquidSize(modInnerWidth, props.liquidRate)
+const liquidWidth = computed<number>(() => getLiquidSize(modInnerWidth, props.liquidRate))
 </script>
 
 <template>
@@ -35,6 +34,16 @@ const liquidWidth = getLiquidSize(modInnerWidth, props.liquidRate)
       ...topPx(modInnerTop), ...leftPx(modInnerLeft)
     }">
     </div>
+
+    <!-- num (todo)  -->
+    <div class="absolute z-20 leading-none num-font" :style="{
+      ...leftPx(numHorizontalMargin), ...bottomPx(numVerticalMargin), ...fontSizePx(numSize),
+      color: COLOR.DARK_RED,
+    }">0</div>
+    <div class="absolute z-20 leading-none num-font" :style="{
+      ...rightPx(numHorizontalMargin), ...topPx(numVerticalMargin), ...fontSizePx(numSize),
+      color: COLOR.DARK_RED
+    }">100</div>
 
   </div>
 </template>

@@ -8,6 +8,7 @@ import MiddleBtn from "@/components/module/next/middle-btn.vue"
 import ModuleContainer from "@/components/main/module-container.vue"
 import SwitchBtn from "@/components/module/switch-btn.vue"
 import CoverMod from "@/components/module/cover-mod.vue"
+import MiddleWrapper from "@/components/module/middle-wrapper.vue"
 
 import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST } from "@/assets/ts/main/state"
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
@@ -54,6 +55,17 @@ const setNextCircleIdx = () => { circleStateIdx.value = (circleStateIdx.value + 
 const setNextMiddleIdx = () => { middleStateIdx.value = (middleStateIdx.value + 1) % MIDDLE_STATE_LIST.length }
 const setNextLongType = () => { currentLongTypeIdx.value = (currentLongTypeIdx.value + 1) % LONG_BTN_STATE_LIST.length }
 
+// long 
+const longLiquidRate = computed<number>(() => {
+  // valve: water temperature (circle) 
+  // time: remaining time rate (circle) 
+  if (currentLongState.value === STATE.CIRCLE.TIME) return circleRemainingTimeRate.value
+  // pot: degree (circle) 
+  // pot: temperature (middle) 
+  // cup: (middle) 
+  return 0 // todo: add the other rate
+})
+
 // switch 
 const toggleSwitchState = () => {
   if (switchState.value === STATE.SWITCH.OFF) switchState.value = STATE.SWITCH.ON
@@ -69,10 +81,10 @@ const toggleSwitchState = () => {
       :handle-update-remaining-time-rate="updateCircleRemainingTimeRate" />
 
     <!-- middle module  -->
-    <div class="col-span-2 row-span-4">
+    <MiddleWrapper>
       <CoverMod :base-size="baseSize" />
       <MiddleMod :state="currentMiddleState" :liquid-rate="middleRate" :base-size="baseSize" />
-    </div>
+    </MiddleWrapper>
 
     <!-- next module  -->
     <CircleBtn :state-idx="circleStateIdx" :handle-click="setNextCircleIdx" :base-size="baseSize" />
@@ -80,7 +92,7 @@ const toggleSwitchState = () => {
     <MiddleBtn :state-idx="middleStateIdx" :base-size="baseSize" :handle-click="setNextMiddleIdx" />
 
     <!-- long module  -->
-    <LongMod :state="currentLongState" :liquid-rate="0.8" :base-size="baseSize" />
+    <LongMod :liquid-rate="longLiquidRate" :base-size="baseSize" />
 
     <!-- switch  -->
     <SwitchBtn :state="switchState" :handle-click="toggleSwitchState" :base-size="baseSize" />
@@ -91,5 +103,5 @@ const toggleSwitchState = () => {
   <div>CIRCLE: {{ currentCircleState }}, POT: {{ circlePotRad * 180 / Math.PI }}, R_TIME: {{ circleRemainingTimeRate }}
   </div>
   <div>MIDDLE: {{ currentMiddleState }}</div>
-  <div>LONG: {{ currentLongState }}</div>
+  <div>LONG: {{ currentLongState }}, liquid: {{ longLiquidRate }}</div>
 </template>
