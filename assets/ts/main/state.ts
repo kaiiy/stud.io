@@ -28,3 +28,13 @@ export const LONG_BTN_STATE_LIST = [
   STATE.LONG_BTN.CIRCLE,
   STATE.LONG_BTN.MIDDLE,
 ];
+
+export const getCurrentLongState = (
+  currentLongTypeIdx: number,
+  circleStateIdx: number,
+  middleStateIdx: number
+) => {
+  if (LONG_BTN_STATE_LIST[currentLongTypeIdx] === STATE.LONG_BTN.CIRCLE)
+    return CIRCLE_STATE_LIST[circleStateIdx];
+  return MIDDLE_STATE_LIST[middleStateIdx];
+};

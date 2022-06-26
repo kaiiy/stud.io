@@ -23,6 +23,7 @@ const props = defineProps<{
   handleAddWaterIntoPot: Function, // type?
   handleUpdatePotRad: Function, // type?
   handleUpdateRemainingTimeRate: Function // type?
+  handleUpdateInitTimeSec: Function // type?
 }>();
 
 // style 
@@ -90,19 +91,25 @@ const onClickMouseArea = (ev: MouseEvent) => {
     timerAngle.value = hvAngleFromMouse(mouseRelativePos, circleCenterPos)
     const timerRate = convertAngle2Rate(timerAngle.value)
 
-    if (isOpenTimer.value === false && timerRate !== 0) {
+    const isOpen = isOpenTimer.value
+
+    if (isOpen === false && timerRate !== 0) {
       // set at first
-      initRemainingTimeSec.value = remainingTimeSec.value = getRemainingTime(timerRate)
+      const remainingTime = getRemainingTime(timerRate)
+      initRemainingTimeSec.value = remainingTimeSec.value = remainingTime
+      props.handleUpdateInitTimeSec(remainingTime)
       pureTimer = window.setInterval(countTimer, props.intervalMsec, props.intervalMsec)
       isOpenTimer.value = true
     }
-    else if (isOpenTimer.value === true && timerRate !== 0) {
+    else if (isOpen === true && timerRate !== 0) {
       // change water volume 
+      const remainingTime = getRemainingTime(timerRate)
+      initRemainingTimeSec.value = remainingTimeSec.value = remainingTime
+      props.handleUpdateInitTimeSec(remainingTime)
       window.clearInterval(pureTimer)
-      initRemainingTimeSec.value = remainingTimeSec.value = getRemainingTime(timerRate)
       pureTimer = window.setInterval(countTimer, props.intervalMsec, props.intervalMsec)
     }
-    else if (isOpenTimer.value === true && timerRate === 0) {
+    else if (isOpen === true && timerRate === 0) {
       // close 
       initRemainingTimeSec.value = remainingTimeSec.value = 0
       window.clearInterval(pureTimer)

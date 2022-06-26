@@ -6,7 +6,9 @@ import { COLOR } from "@/assets/ts/style/color"
 
 const props = defineProps<{
   baseSize: number,
-  liquidRate: number
+  liquidRate: number,
+  maxNum: number,
+  minMum: number
 }>();
 
 // get size
@@ -39,11 +41,11 @@ const liquidWidth = computed<number>(() => getLiquidSize(modInnerWidth, props.li
     <div class="absolute z-20 leading-none num-font" :style="{
       ...leftPx(numHorizontalMargin), ...bottomPx(numVerticalMargin), ...fontSizePx(numSize),
       color: COLOR.DARK_RED,
-    }">0</div>
+    }">{{ minMum }}</div>
     <div class="absolute z-20 leading-none num-font" :style="{
       ...rightPx(numHorizontalMargin), ...topPx(numVerticalMargin), ...fontSizePx(numSize),
       color: COLOR.DARK_RED
-    }">100</div>
+    }">{{ maxNum }}</div>
 
   </div>
 </template>
