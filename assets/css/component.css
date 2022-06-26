@@ -6,6 +6,10 @@
     @apply absolute object-contain select-none cursor-pointer;
 }
 
+.prohibit-mouse {
+    @apply object-contain select-none pointer-events-none;
+}
+
 /* for long num  */
 .num-font {
     font-family: "Orbitron", sans-serif;
