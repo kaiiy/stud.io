@@ -84,7 +84,6 @@ const longVal = computed(() => {
   }
 })
 
-
 // switch 
 const toggleSwitchState = () => {
   if (switchState.value === STATE.SWITCH.OFF) switchState.value = STATE.SWITCH.ON

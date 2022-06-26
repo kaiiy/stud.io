@@ -166,33 +166,33 @@ onMounted(() => {
     ...heightPx(modSize), ...widthPx(modSize)
   }">
     <!-- container  -->
-    <img class="comp-default z-10" :style="{
+    <img class="comp-default" :style="{
       ...heightPx(modSize)
     }" src="@/assets/img/parts/circle.png" alt="" />
 
     <!-- valve  -->
-    <img v-show="showValve" class="comp-default z-20" :style="{
+    <img v-show="showValve" class="comp-default" :style="{
       ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
       ...transformOrigin(rotateOriginX, hvRotateOriginY), ...rotateOnly(valveAngle)
     }" src="@/assets/img/parts/circle-valve.png" alt="" />
     <!-- time  -->
-    <img v-show="showTimer" class="comp-default z-20" :style="{
+    <img v-show="showTimer" class="comp-default" :style="{
       ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
       ...transformOrigin(rotateOriginX, hvRotateOriginY), ...rotateOnly(timerAngle)
     }" src="@/assets/img/parts/circle-hand.png" alt="" />
 
     <!-- pot  -->
     <EllipseSvg v-show="showPot" :x-radius="circleRadius" :y-radius="potYRadiusPx" :color="COLOR.DARK_PINK"
-      class="absolute z-20" :style="{
+      class="absolute" :style="{
         ...leftPx(valveTop), ...topPx(valveTop)
       }" />
     <TriangleSvg v-show="showPot" :height-px="potTrianglePx.height" :width-px="potTrianglePx.width"
-      :color="COLOR.DARK_PINK" class="absolute z-20" :style="{
+      :color="COLOR.DARK_PINK" class="absolute" :style="{
         ...leftPx(potTrianglePx.left), ...topPx(potTrianglePx.top)
       }" />
 
     <!-- mouse area  -->
-    <div :id="MOUSE_AREA_ID" @click="onClickMouseArea" class="absolute cursor-pointer z-30" :style="{
+    <div :id="MOUSE_AREA_ID" @click="onClickMouseArea" class="absolute cursor-pointer" :style="{
       ...heightPx(modInnerSize), ...widthPx(modInnerSize),
       ...leftPx(valveTop), ...topPx(valveTop)
     }"></div>

@@ -45,7 +45,7 @@ export const CIRCLE_MOD_SIZE = {
   },
 };
 
-const LONG_NUM_SIZE = 0.2;
+const LONG_NUM_SIZE = 0.25;
 const LONG_OUTER_HEIGHT = 1;
 const LONG_INNER_HEIGHT = 0.3;
 export const LONG_MOD_SIZE = {

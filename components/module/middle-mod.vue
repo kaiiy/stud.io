@@ -28,17 +28,16 @@ const liquidTop = computed<number>(() => {
     <div class="relative" :style="{
         ...heightPx(modHeight), ...widthPx(modWidth)
     }">
-        <!-- container  -->
-        <img class="comp-default z-20" :style="{
-            ...heightPx(modHeight)
-        }" src="@/assets/img/parts/middle.png" alt="" />
-
         <!-- liquid  -->
-        <div class="comp-default bg-dark-purple z-10" :style="{
+        <div class="comp-default bg-dark-purple" :style="{
             ...heightPx(liquidHeight), ...widthPx(modInnerWidth),
             ...topPx(liquidTop), ...leftPx(modInnerLeft)
-        }">
-        </div>
+        }"></div>
+
+        <!-- container  -->
+        <img class="comp-default" :style="{
+            ...heightPx(modHeight)
+        }" src="@/assets/img/parts/middle.png" alt="" />
     </div>
 </template>
 

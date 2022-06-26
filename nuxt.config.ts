@@ -46,7 +46,7 @@ export default defineNuxtConfig({
         },
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Orbitron&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Goldman&family=Share+Tech+Mono&display=swap",
         },
       ],
     },

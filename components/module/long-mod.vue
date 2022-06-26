@@ -25,24 +25,23 @@ const liquidWidth = computed<number>(() => getLiquidSize(modInnerWidth, props.li
   <div class="relative  col-span-4 row-span-1" :style="{
     ...heightPx(modHeight), ...widthPx(modWidth)
   }">
+    <!-- liquid  -->
+    <div class="comp-default bg-dark-red" :style="{
+      ...heightPx(modInnerHeight), ...widthPx(liquidWidth),
+      ...topPx(modInnerTop), ...leftPx(modInnerLeft)
+    }"></div>
+
     <!-- container  -->
-    <img class="comp-default z-20" :style="{
+    <img class="comp-default" :style="{
       ...heightPx(modHeight)
     }" src="@/assets/img/parts/long.png" alt="" />
 
-    <!-- liquid  -->
-    <div class="comp-default bg-dark-red z-10" :style="{
-      ...heightPx(modInnerHeight), ...widthPx(liquidWidth),
-      ...topPx(modInnerTop), ...leftPx(modInnerLeft)
-    }">
-    </div>
-
     <!-- num -->
-    <div class="absolute z-20 leading-none num-font prohibit-mouse" :style="{
+    <div class="absolute leading-none num-font prohibit-mouse" :style="{
       ...leftPx(numHorizontalMargin), ...bottomPx(numVerticalMargin), ...fontSizePx(numSize),
       color: COLOR.DARK_RED,
     }">{{ minMum }}</div>
-    <div class="absolute z-20 leading-none num-font prohibit-mouse" :style="{
+    <div class="absolute leading-none num-font prohibit-mouse" :style="{
       ...rightPx(numHorizontalMargin), ...topPx(numVerticalMargin), ...fontSizePx(numSize),
       color: COLOR.DARK_RED
     }">{{ maxNum }}</div>
@@ -51,4 +50,10 @@ const liquidWidth = computed<number>(() => getLiquidSize(modInnerWidth, props.li
 </template>
 
 <style src="@/assets/css/component.css" scoped>
+</style>
+<style scoped>
+/* for long num  */
+.num-font {
+  font-family: 'Goldman', cursive;
+}
 </style>
