@@ -83,8 +83,17 @@ const longVal = computed(() => {
     liquidRate = convertRad2Deg(circlePotRad.value) / (maxNum - minNum)
   }
   // pot: temperature (middle) 
-  // cup: (middle) 
-
+  if (currentState === STATE.MIDDLE.POT) {
+    maxNum = 100
+    minNum = 0
+    // liquidRate = 20  todo
+  }
+  // cup: temperature (middle) 
+  if (currentState === STATE.MIDDLE.CUP) {
+    maxNum = 100
+    minNum = 0
+    // liquidRate = 20 todo
+  }
   return {
     liquidRate, maxNum, minNum
   }
