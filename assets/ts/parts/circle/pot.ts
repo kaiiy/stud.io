@@ -1,6 +1,6 @@
 const adjustPotRate = (potRate: number) => {
   const BOTTOM_CORRECTION_RATIO = 0.03;
-  const TOP_CORRECTION_RATIO = 0.06;
+  const TOP_CORRECTION_RATIO = 0.03;
 
   if (potRate < BOTTOM_CORRECTION_RATIO) return 0;
   if (potRate > 1 - TOP_CORRECTION_RATIO) return 1;

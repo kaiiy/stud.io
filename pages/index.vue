@@ -12,6 +12,7 @@ import MiddleWrapper from "@/components/module/middle-wrapper.vue"
 
 import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST, getCurrentLongState } from "@/assets/ts/main/state"
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
+import { convertRad2Deg } from "@/assets/ts/math/angle"
 
 // ======== config ========
 const baseSize = 100 // todo 
@@ -31,9 +32,9 @@ const currentLongState = computed(() =>
   getCurrentLongState(currentLongTypeIdx.value, circleStateIdx.value, middleStateIdx.value))
 
 // circle
-const circlePotRad = ref(0) // init: 1
+const circleInitTimeSec = ref(0) // init: 0
 const circleRemainingTimeRate = ref(1) //  0<=val<=1 (init: 1)
-const circleInitTimeSec = ref(0)
+const circlePotRad = ref(0) // init: 0
 const addWaterIntoPot = (waterVol: number) => { potWater.value += waterVol }
 const updateCirclePotRad = (newPotRad: number) => { circlePotRad.value = newPotRad }
 const updateCircleRemainingTimeRate = (newTimeRate: number) => { circleRemainingTimeRate.value = newTimeRate }
@@ -76,6 +77,11 @@ const longVal = computed(() => {
     liquidRate = circleRemainingTimeRate.value
   }
   // pot: degree (circle) 
+  else if (currentState === STATE.CIRCLE.POT) {
+    maxNum = 90
+    minNum = 0
+    liquidRate = convertRad2Deg(circlePotRad.value) / (maxNum - minNum)
+  }
   // pot: temperature (middle) 
   // cup: (middle) 
 
@@ -120,7 +126,7 @@ const toggleSwitchState = () => {
 
   <div>========</div>
   <div>DEBUG</div>
-  <div>CIRCLE: {{ currentCircleState }}, POT: {{ circlePotRad * 180 / Math.PI }}, R_TIME: {{ circleRemainingTimeRate }},
+  <div>CIRCLE: {{ currentCircleState }}, POT: {{ convertRad2Deg(circlePotRad) }}, R_TIME: {{ circleRemainingTimeRate }},
     {{ circleInitTimeSec }}
   </div>
   <div>MIDDLE: {{ currentMiddleState }}</div>
