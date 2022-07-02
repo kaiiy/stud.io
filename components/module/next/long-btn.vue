@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { getNextModSize, circleLightSize } from "@/assets/ts/parts/get-size"
-import { heightPx, topPx, leftPx, rightPx } from "assets/ts/style/to-px"
+import { heightPx, topPx, leftPx, rightPx, widthPx } from "assets/ts/style/to-px"
 import CircleSvg from "@/components/shapes/circle-svg.vue"
 import { COLOR } from "@/assets/ts/style/color"
+import BtnBase from "./btn-base.vue"
 
 type Props = {
   typeIdx: number,
@@ -29,9 +30,9 @@ const colorList = computed(() => {
 
 <template>
   <div class="relative col-span-1 row-span-1">
-    <img @click="handleClick()" class="comp-default-click" :style="{
-      ...heightPx(modHeight)
-    }" src="@/assets/img/parts/long-btn.png" alt="" />
+    <BtnBase @click="handleClick()" class="comp-default-click" :style="{
+      ...heightPx(modHeight), ...widthPx(modHeight)
+    }" :base-color="COLOR.DARK_RED" :inner-color="COLOR.LIGHT_RED" />
 
     <CircleSvg class="absolute" :color="colorList[0]" :radius="lightRadius" :style="{
       ...topPx(lightMargin), ...leftPx(lightMargin)

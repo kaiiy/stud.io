@@ -31,7 +31,7 @@ const {
   size: modSize, innerSize: modInnerSize, margin: modMargin
 } = getCircleModSize(props.baseSize)
 const {
-  height: hvHeight, left: hvLeft, top: valveTop, rotateOriginX, hvRotateOriginY
+  height: hvHeight, width: hvWidth, left: hvLeft, top: valveTop, rotateOriginX, hvRotateOriginY
 } = getCircleHvSize(props.baseSize)
 const {
   width: potTriangleWidth, maxHeight: potTriangleMaxHeight
@@ -166,20 +166,42 @@ onMounted(() => {
     ...heightPx(modSize), ...widthPx(modSize)
   }">
     <!-- container  -->
-    <img class="comp-default" :style="{
-      ...heightPx(modSize)
-    }" src="@/assets/img/parts/circle.png" alt="" />
+    <svg class="comp-default" :style="{
+      ...heightPx(modSize), ...widthPx(modSize)
+    }" version="1.1" viewBox="0 0 84.667 84.667" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="m2.8221-9.2207e-6c-1.5635 0-2.8221 1.2585-2.8221 2.8221v79.023c0 1.5635 1.2585 2.8221 2.8221 2.8221h79.023c1.5635 0 2.8221-1.2585 2.8221-2.8221v-79.023c0-1.5635-1.2585-2.8221-2.8221-2.8221zm39.511 9.2604a33.073 33.073 0 0 1 33.073 33.073 33.073 33.073 0 0 1-33.073 33.073 33.073 33.073 0 0 1-33.073-33.073 33.073 33.073 0 0 1 33.073-33.073z"
+        :fill="COLOR.LIGHT_PINK" />
+    </svg>
 
     <!-- valve  -->
-    <img v-show="showValve" class="comp-default" :style="{
-      ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
+    <svg v-show="showValve" class="comp-default" :style="{
+      ...heightPx(hvHeight), ...widthPx(hvWidth), ...leftPx(hvLeft), ...topPx(valveTop),
       ...transformOrigin(rotateOriginX, hvRotateOriginY), ...rotateOnly(valveAngle)
-    }" src="@/assets/img/parts/circle-valve.png" alt="" />
+    }" version="1.1" viewBox="0 0 7.9375 35.057" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(-151.62 -43.756)">
+        <g transform="translate(113.25 5.3919)" :fill="COLOR.DARK_PINK">
+          <circle cx="42.333" cy="71.437" r="1.9844" />
+          <circle cx="42.333" cy="42.333" r="3.9688" />
+          <path d="m46.302 42.333-1.9844 29.104h-3.9688l-1.9844-29.104z" />
+        </g>
+      </g>
+    </svg>
+
     <!-- time  -->
-    <img v-show="showTimer" class="comp-default" :style="{
-      ...heightPx(hvHeight), ...leftPx(hvLeft), ...topPx(valveTop),
+    <svg v-show="showTimer" class="comp-default" :style="{
+      ...heightPx(hvHeight), ...widthPx(hvWidth), ...leftPx(hvLeft), ...topPx(valveTop),
       ...transformOrigin(rotateOriginX, hvRotateOriginY), ...rotateOnly(timerAngle)
-    }" src="@/assets/img/parts/circle-hand.png" alt="" />
+    }" version="1.1" viewBox="0 0 7.9375 35.057" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(-151.62 -43.756)">
+        <g transform="matrix(1 0 0 -1 113.25 117.18)" :fill="COLOR.DARK_PINK">
+          <circle cx="42.333" cy="71.437" r="1.9844" />
+          <circle cx="42.333" cy="42.333" r="3.9688" />
+          <path d="m46.302 42.333-1.9844 29.104h-3.9688l-1.9844-29.104z" />
+        </g>
+      </g>
+    </svg>
+
 
     <!-- pot  -->
     <EllipseSvg v-show="showPot" :x-radius="circleRadius" :y-radius="potYRadiusPx" :color="COLOR.DARK_PINK"
