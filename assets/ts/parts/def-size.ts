@@ -45,21 +45,23 @@ export const CIRCLE_MOD_SIZE = {
   },
 };
 
-const NUM_SIZE = 0.25;
+const LONG_NUM_SIZE = 0.25;
+const LONG_OUTER_HEIGHT = 1;
+const LONG_INNER_HEIGHT = 0.3;
 export const LONG_MOD_SIZE = {
   OUTER: {
-    HEIGHT: 1,
+    HEIGHT: LONG_OUTER_HEIGHT,
     WIDTH: 4.3,
   },
   INNER: {
-    HEIGHT: 0.3,
+    HEIGHT: LONG_INNER_HEIGHT,
     WIDTH: (512.12761 - 138.0611) / 100,
   },
   NUM_MARGIN: {
-    VERTICAL: (0.35 - NUM_SIZE) / 2,
+    VERTICAL: ((LONG_OUTER_HEIGHT - LONG_INNER_HEIGHT) / 2 - LONG_NUM_SIZE) / 2,
     HORIZONTAL: 0.1,
   },
-  NUM_SIZE: NUM_SIZE,
+  NUM_SIZE: LONG_NUM_SIZE,
 };
 
 export const NEXT_MOD_SIZE = {

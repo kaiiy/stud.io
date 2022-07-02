@@ -27,7 +27,7 @@ export default defineNuxtConfig({
         {
           hid: "og:description",
           property: "og:description",
-          content: "in studio",
+          content: "in my studio",
         },
         {
           hid: "og:image",
@@ -46,7 +46,7 @@ export default defineNuxtConfig({
         },
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Orbitron&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Goldman&family=Share+Tech+Mono&display=swap",
         },
       ],
     },

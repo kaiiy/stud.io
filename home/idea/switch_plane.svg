@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="26.45834mm"
+   height="26.45834mm"
+   viewBox="0 0 26.45834 26.45834"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2">
+    <rect
+       x="1201.28"
+       y="135"
+       width="401.84033"
+       height="305"
+       id="rect2799" />
+    <marker
+       style="overflow:visible"
+       id="Arrow1Lstart"
+       refX="0"
+       refY="0"
+       orient="auto">
+      <path
+         transform="matrix(0.8,0,0,0.8,10,0)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 0,0 5,-5 -12.5,0 5,5 Z"
+         id="path2971" />
+    </marker>
+  </defs>
+  <g
+     id="layer1"
+     transform="translate(-116.41667,-116.41667)">
+    <path
+       id="rect1215-5-6"
+       style="fill:#e1daee;stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round"
+       d="m 119.0625,116.41667 h 21.16668 c 1.46579,0 2.64583,1.18004 2.64583,2.64583 v 21.16668 c 0,1.46579 -1.18004,2.64583 -2.64583,2.64583 H 119.0625 c -1.46579,0 -2.64583,-1.18004 -2.64583,-2.64583 V 119.0625 c 0,-1.46579 1.18004,-2.64583 2.64583,-2.64583 z" />
+    <rect
+       id="rect9244"
+       width="211.66667"
+       height="110.59583"
+       x="264.58334"
+       y="-216.42917"
+       style="fill:#ffffff;fill-opacity:1;stroke-width:0.469248" />
+    <rect
+       style="fill:#e1daee;fill-opacity:1;stroke:none;stroke-width:1.58749;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1215-5-6-9"
+       width="39.6875"
+       height="39.6875"
+       x="291.04166"
+       y="-180.97501"
+       ry="3.9687412" />
+    <text
+       xml:space="preserve"
+       transform="matrix(0.65714946,0,0,0.65714946,-439.61263,-263.62476)"
+       id="text2797"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:Consolas;-inkscape-font-specification:Consolas;white-space:pre;shape-inside:url(#rect2799);display:inline;fill:#000000;fill-opacity:1;stroke:none"><tspan
+         x="1201.2793"
+         y="169.70703"
+         id="tspan564">stud.io</tspan></text>
+  </g>
+</svg>

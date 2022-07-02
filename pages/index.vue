@@ -10,8 +10,9 @@ import SwitchBtn from "@/components/module/switch-btn.vue"
 import CoverMod from "@/components/module/cover-mod.vue"
 import MiddleWrapper from "@/components/module/middle-wrapper.vue"
 
-import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST } from "@/assets/ts/main/state"
+import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST, getCurrentLongState } from "@/assets/ts/main/state"
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
+import { convertRad2Deg } from "@/assets/ts/math/angle"
 
 // ======== config ========
 const baseSize = 100 // todo 
@@ -27,18 +28,19 @@ const switchState = ref<string>(STATE.SWITCH.OFF)
 
 const currentCircleState = computed(() => CIRCLE_STATE_LIST[circleStateIdx.value])
 const currentMiddleState = computed(() => MIDDLE_STATE_LIST[middleStateIdx.value])
-const currentLongState = computed(() => {
-  if (LONG_BTN_STATE_LIST[currentLongTypeIdx.value] === STATE.LONG_BTN.CIRCLE)
-    return CIRCLE_STATE_LIST[circleStateIdx.value]
-  return MIDDLE_STATE_LIST[middleStateIdx.value]
-})
+const currentLongState = computed(() =>
+  getCurrentLongState(currentLongTypeIdx.value, circleStateIdx.value, middleStateIdx.value))
 
 // circle
-const circlePotRad = ref(0) // init: 1
+const circleInitTimeSec = ref(0) // init: 0
 const circleRemainingTimeRate = ref(1) //  0<=val<=1 (init: 1)
+const circlePotRad = ref(0) // init: 0
 const addWaterIntoPot = (waterVol: number) => { potWater.value += waterVol }
 const updateCirclePotRad = (newPotRad: number) => { circlePotRad.value = newPotRad }
 const updateCircleRemainingTimeRate = (newTimeRate: number) => { circleRemainingTimeRate.value = newTimeRate }
+const updateCircleInitTimeSec = (newInitTime: number) => {
+  circleInitTimeSec.value = Math.floor(newInitTime)
+}
 
 // middle 
 const potWater = ref<number>(0)
@@ -56,14 +58,45 @@ const setNextMiddleIdx = () => { middleStateIdx.value = (middleStateIdx.value + 
 const setNextLongType = () => { currentLongTypeIdx.value = (currentLongTypeIdx.value + 1) % LONG_BTN_STATE_LIST.length }
 
 // long 
-const longLiquidRate = computed<number>(() => {
+const longVal = computed(() => {
+  let liquidRate: number, maxNum: number, minNum: number
+  liquidRate = maxNum = minNum = 0
+
+  const currentState = currentLongState.value
+
   // valve: water temperature (circle) 
+  if (currentState === STATE.CIRCLE.VALVE) {
+    maxNum = 100
+    minNum = 0
+    liquidRate = 20 / (maxNum - minNum)
+  }
   // time: remaining time rate (circle) 
-  if (currentLongState.value === STATE.CIRCLE.TIME) return circleRemainingTimeRate.value
+  else if (currentState === STATE.CIRCLE.TIME) {
+    maxNum = circleInitTimeSec.value
+    minNum = 0
+    liquidRate = circleRemainingTimeRate.value
+  }
   // pot: degree (circle) 
+  else if (currentState === STATE.CIRCLE.POT) {
+    maxNum = 90
+    minNum = 0
+    liquidRate = convertRad2Deg(circlePotRad.value) / (maxNum - minNum)
+  }
   // pot: temperature (middle) 
-  // cup: (middle) 
-  return 0 // todo: add the other rate
+  if (currentState === STATE.MIDDLE.POT) {
+    maxNum = 100
+    minNum = 0
+    // liquidRate = 20  todo
+  }
+  // cup: temperature (middle) 
+  if (currentState === STATE.MIDDLE.CUP) {
+    maxNum = 100
+    minNum = 0
+    // liquidRate = 20 todo
+  }
+  return {
+    liquidRate, maxNum, minNum
+  }
 })
 
 // switch 
@@ -78,7 +111,8 @@ const toggleSwitchState = () => {
     <!-- circle module  -->
     <CircleMod :state="currentCircleState" :interval-msec="intervalMsec" :pot-rad="circlePotRad" :base-size="baseSize"
       :handle-add-water-into-pot="addWaterIntoPot" :handle-update-pot-rad="updateCirclePotRad"
-      :handle-update-remaining-time-rate="updateCircleRemainingTimeRate" />
+      :handle-update-remaining-time-rate="updateCircleRemainingTimeRate"
+      :handle-update-init-time-sec="updateCircleInitTimeSec" />
 
     <!-- middle module  -->
     <MiddleWrapper>
@@ -92,7 +126,8 @@ const toggleSwitchState = () => {
     <MiddleBtn :state-idx="middleStateIdx" :base-size="baseSize" :handle-click="setNextMiddleIdx" />
 
     <!-- long module  -->
-    <LongMod :liquid-rate="longLiquidRate" :base-size="baseSize" />
+    <LongMod :liquid-rate="longVal.liquidRate" :max-num="longVal.maxNum" :min-mum="longVal.minNum"
+      :base-size="baseSize" />
 
     <!-- switch  -->
     <SwitchBtn :state="switchState" :handle-click="toggleSwitchState" :base-size="baseSize" />
@@ -100,8 +135,9 @@ const toggleSwitchState = () => {
 
   <div>========</div>
   <div>DEBUG</div>
-  <div>CIRCLE: {{ currentCircleState }}, POT: {{ circlePotRad * 180 / Math.PI }}, R_TIME: {{ circleRemainingTimeRate }}
+  <div>CIRCLE: {{ currentCircleState }}, POT: {{ convertRad2Deg(circlePotRad) }}, R_TIME: {{ circleRemainingTimeRate }},
+    {{ circleInitTimeSec }}
   </div>
   <div>MIDDLE: {{ currentMiddleState }}</div>
-  <div>LONG: {{ currentLongState }}, liquid: {{ longLiquidRate }}</div>
+  <div>LONG: {{ currentLongState }}</div>
 </template>

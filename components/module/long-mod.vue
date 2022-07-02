@@ -6,7 +6,9 @@ import { COLOR } from "@/assets/ts/style/color"
 
 const props = defineProps<{
   baseSize: number,
-  liquidRate: number
+  liquidRate: number,
+  maxNum: number,
+  minMum: number
 }>();
 
 // get size
@@ -23,30 +25,41 @@ const liquidWidth = computed<number>(() => getLiquidSize(modInnerWidth, props.li
   <div class="relative  col-span-4 row-span-1" :style="{
     ...heightPx(modHeight), ...widthPx(modWidth)
   }">
-    <!-- container  -->
-    <img class="comp-default z-20" :style="{
-      ...heightPx(modHeight)
-    }" src="@/assets/img/parts/long.png" alt="" />
-
     <!-- liquid  -->
-    <div class="comp-default bg-dark-red z-10" :style="{
+    <div class="comp-default bg-dark-red" :style="{
       ...heightPx(modInnerHeight), ...widthPx(liquidWidth),
       ...topPx(modInnerTop), ...leftPx(modInnerLeft)
-    }">
-    </div>
+    }"></div>
 
-    <!-- num (todo)  -->
-    <div class="absolute z-20 leading-none num-font" :style="{
+    <!-- container  -->
+    <svg class="comp-default" :style="{
+      ...heightPx(modHeight), ...widthPx(modWidth)
+    }" version="1.1" viewBox="0 0 113.77 26.458" xmlns="http://www.w3.org/2000/svg">
+      <g transform="translate(-1.5e-6 -116.42)">
+        <path
+          d="m2.1069 116.42c-1.1672 0-2.1069 1.18-2.1069 2.6458v21.167c0 1.4658 0.93966 2.6458 2.1069 2.6458h109.56c1.1672 0 2.1069-1.18 2.1069-2.6458v-21.167c0-1.4658-0.93966-2.6458-2.1069-2.6458zm8.4275 9.2604h92.702c1.7508 0 3.1603 1.7701 3.1603 3.9688s-1.4095 3.9688-3.1603 3.9688h-92.702c-1.7508 0-3.1603-1.7701-3.1603-3.9688s1.4095-3.9688 3.1603-3.9688z"
+          :fill="COLOR.LIGHT_RED" />
+      </g>
+    </svg>
+
+    <!-- num -->
+    <div class="absolute leading-none num-font prohibit-mouse" :style="{
       ...leftPx(numHorizontalMargin), ...bottomPx(numVerticalMargin), ...fontSizePx(numSize),
       color: COLOR.DARK_RED,
-    }">0</div>
-    <div class="absolute z-20 leading-none num-font" :style="{
+    }">{{ minMum }}</div>
+    <div class="absolute leading-none num-font prohibit-mouse" :style="{
       ...rightPx(numHorizontalMargin), ...topPx(numVerticalMargin), ...fontSizePx(numSize),
       color: COLOR.DARK_RED
-    }">100</div>
+    }">{{ maxNum }}</div>
 
   </div>
 </template>
 
 <style src="@/assets/css/component.css" scoped>
+</style>
+<style scoped>
+/* for long num  */
+.num-font {
+  font-family: 'Goldman', cursive;
+}
 </style>
