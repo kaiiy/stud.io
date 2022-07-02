@@ -55,7 +55,7 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
-  nitro: {
-    preset: "vercel",
-  },
+  // nitro: {
+  //   preset: "vercel",
+  // },
 });
