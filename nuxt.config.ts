@@ -27,7 +27,7 @@ export default defineNuxtConfig({
         {
           hid: "og:description",
           property: "og:description",
-          content: "in studio",
+          content: "in my studio",
         },
         {
           hid: "og:image",
