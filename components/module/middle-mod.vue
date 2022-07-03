@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { getMiddleModSize } from "assets/ts/parts/get-size"
+import { getMiddleModSize, getNoodleSize } from "assets/ts/parts/get-size"
 import { heightPx, widthPx, leftPx, topPx } from "assets/ts/style/to-px"
 import { getLiquidSize, getLiquidTop } from "assets/ts/parts/liquid"
 import { COLOR } from "@/assets/ts/style/color"
+import NoodleSvg from "../shapes/noodle-svg.vue"
 
 const props = defineProps<{
     baseSize: number,
@@ -16,6 +17,10 @@ const {
     innerTop: modInnerTop, innerLeft: modInnerLeft
 } = getMiddleModSize(props.baseSize)
 
+const {
+    height: noodleHeight, width: NoodleWidth
+} = getNoodleSize(props.baseSize)
+
 // liquid 
 const liquidHeight = computed<number>(() => {
     return getLiquidSize(modInnerHeight, props.liquidRate)
@@ -26,7 +31,7 @@ const liquidTop = computed<number>(() => {
 </script>
 
 <template>
-    <div class="relative" :style="{
+    <div class="relative overflow-hidden" :style="{
         ...heightPx(modHeight), ...widthPx(modWidth)
     }">
         <!-- liquid  -->
@@ -34,6 +39,10 @@ const liquidTop = computed<number>(() => {
             ...heightPx(liquidHeight), ...widthPx(modInnerWidth),
             ...topPx(liquidTop), ...leftPx(modInnerLeft)
         }"></div>
+
+        <NoodleSvg class="absolute" :style="{
+            top: '50px', ...heightPx(noodleHeight), ...widthPx(NoodleWidth)
+        }" :color="COLOR.LIGHT_PURPLE" />
 
         <!-- container  -->
         <svg class="comp-default" :style="{
