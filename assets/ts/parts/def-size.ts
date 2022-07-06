@@ -18,6 +18,10 @@ export const MIDDLE_MOD_SIZE = {
     HEIGHT: (4.1 * 36) / 43,
     WIDTH: 0.7,
   },
+  NOODLE: {
+    HEIGHT: 0.66146 / 3,
+    WIDTH: 5.2916 / 3,
+  },
 };
 
 export const CIRCLE_MOD_SIZE = {

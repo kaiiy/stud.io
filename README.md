@@ -1,5 +1,5 @@
 # stud.io
 
-a game with input/output in studio
+a mystery game
 
 ![](./docs/img/header.png)
