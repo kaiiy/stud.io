@@ -1,4 +1,4 @@
-node_modules
+# nuxt 
 *.log*
 .nuxt
 .nitro
@@ -8,3 +8,13 @@ node_modules
 dist
 .vercel_build_output
 pages/pre/
+
+# yarn 
+node_modules
+.yarn/*
+!.yarn/cache
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
