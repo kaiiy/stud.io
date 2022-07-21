@@ -3,6 +3,7 @@ import { defineNuxtConfig } from "nuxt";
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   app: {
+    baseURL: "/stud.io/",
     head: {
       htmlAttrs: {
         lang: "ja",
@@ -12,12 +13,11 @@ export default defineNuxtConfig({
         { name: "description", content: "stud.io" },
         { name: "format-detection", content: "telephone=no" },
         { name: "robots", content: "noindex" },
-        // OGP
         { hid: "og:type", property: "og:type", content: "website" },
         {
           hid: "og:url",
           property: "og:url",
-          content: "https://stud-io.vercel.app/",
+          content: "https://kaiiy.github.io/stud.io/",
         },
         {
           hid: "og:title",
@@ -32,7 +32,7 @@ export default defineNuxtConfig({
         {
           hid: "og:image",
           property: "og:image",
-          content: "https://stud-io.vercel.app/header.png",
+          content: "https://kaiiy.github.io/stud.io/header.png",
         },
         { name: "twitter:card", content: "summary_large_image" },
       ],
@@ -55,7 +55,4 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
   },
-  // nitro: {
-  //   preset: "vercel",
-  // },
 });
