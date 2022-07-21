@@ -1,5 +1,5 @@
 # stud.io
 
-a mystery game
+謎制作: k
 
 ![](./docs/img/header.png)
