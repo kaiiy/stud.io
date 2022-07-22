@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { getMiddleModSize } from "assets/ts/parts/get-size"
-import { heightPx, widthPx, leftPx, topPx } from "assets/ts/style/to-px"
+import { heightPx, widthPx, leftPx, topPx, toPx } from "assets/ts/style/to-px"
+import { baseLeftPx, baseTopPx } from "@/assets/ts/parts/middle/noodle"
 import { getLiquidSize, getLiquidTop } from "assets/ts/parts/liquid"
 import { COLOR } from "@/assets/ts/style/color"
+import { STATE } from "@/assets/ts/main/state"
 import Noodles from "./middle/noodles.vue"
 import Container from "./middle/container.vue"
 
@@ -25,6 +27,9 @@ const liquidHeight = computed<number>(() => {
 const liquidTop = computed<number>(() => {
     return getLiquidTop(modInnerTop, liquidHeight.value, modInnerHeight)
 })
+
+// cup 
+const showCupComponents = computed(() => props.state === STATE.MIDDLE.CUP)
 </script>
 
 <template>
@@ -37,19 +42,20 @@ const liquidTop = computed<number>(() => {
             ...topPx(liquidTop), ...leftPx(modInnerLeft)
         }"></div>
 
+        <!-- noodles (cup) -->
+        <Noodles v-show="showCupComponents" :base-size="baseSize" />
+
         <!-- container  -->
         <Container class="comp-default" :style="{
             ...heightPx(modHeight), ...widthPx(modWidth)
         }" :color="COLOR.LIGHT_PURPLE" />
 
-        <Noodles :base-size="baseSize" />
-
         <!-- liquid line (cup)  -->
-        <svg :style="{
-            strokeWidth: '4px',
-            top: '130px'
+        <svg v-show="showCupComponents" :style="{
+            strokeWidth: toPx(baseSize * 0.03),
+            ...baseTopPx(0.68, baseSize)
         }" class="absolute" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <line x1="0" y1="0" x2="100" y2="0" :stroke="COLOR.DARK_PURPLE" />
+            <line x1="0" y1="0" x2="100" y2="0" :stroke="COLOR.LIGHT_PURPLE" />
         </svg>
     </div>
 </template>

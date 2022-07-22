@@ -5,3 +5,6 @@ export const transformOrigin = (x: number, y: number) => ({
 export const rotateOnly = (rad: number) => ({
   transform: `rotate(${rad}rad)`,
 });
+export const rotateDegOnly = (deg: number) => ({
+  transform: `rotate(${deg}deg)`,
+});
