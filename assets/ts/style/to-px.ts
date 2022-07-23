@@ -25,3 +25,5 @@ export const gapPx = (value: number) => ({ gap: toPx(value) });
 
 // font
 export const fontSizePx = (value: number) => ({ fontSize: toPx(value) });
+
+export const strokeWidthPx = (value: number) => ({ strokeWidth: toPx(value) });

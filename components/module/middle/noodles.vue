@@ -10,9 +10,8 @@ const props = defineProps<{
   baseSize: number,
 }>();
 
-const topBase = 1.2
 const leftBase = 0.2
-const topPx = (value: number) => baseTopPx(value + topBase, props.baseSize)
+const topPx = (value: number) => baseTopPx(value, props.baseSize)
 const leftPx = (value: number) => baseLeftPx(value + leftBase, props.baseSize)
 
 const {
@@ -23,35 +22,37 @@ const noodleColor: string = COLOR.LIGHT_PURPLE
 </script>
 
 <template>
-  <div>
-    <Noodle class="absolute" :style="{
+  <div :style="{
+    ...topPx(1.2)
+  }">
+    <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(0)
     }" :color="noodleColor" />
-    <Noodle class="absolute" :style="{
+    <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(0.2)
     }" :color="noodleColor" />
-    <Noodle class="absolute" :style="{
+    <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(0.4)
     }" :color="noodleColor" />
-    <Noodle class="absolute" :style="{
+    <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(0.6)
     }" :color="noodleColor" />
-    <Noodle class="absolute" :style="{
+    <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(0.8)
     }" :color="noodleColor" />
-    <Noodle class="absolute" :style="{
+    <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(1)
     }" :color="noodleColor" />
-    <Noodle class="absolute" :style="{
+    <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(1.2)
     }" :color="noodleColor" />
-    <Noodle class="absolute" :style="{
+    <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(1.4)
     }" :color="noodleColor" />
-    <Noodle class="absolute" :style="{
+    <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(1.6)
     }" :color="noodleColor" />
-    <Noodle class="absolute" :style="{
+    <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(1.8)
     }" :color="noodleColor" />
   </div>

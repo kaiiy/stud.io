@@ -2,7 +2,7 @@
 import { getLongModSize } from "assets/ts/parts/get-size"
 import { heightPx, widthPx, leftPx, topPx, rightPx, fontSizePx, bottomPx } from "assets/ts/style/to-px"
 import { getLiquidSize } from "assets/ts/parts/liquid"
-import { COLOR } from "@/assets/ts/style/color"
+import { COLOR, bgColor } from "@/assets/ts/style/color"
 
 const props = defineProps<{
   baseSize: number,
@@ -26,9 +26,9 @@ const liquidWidth = computed<number>(() => getLiquidSize(modInnerWidth, props.li
     ...heightPx(modHeight), ...widthPx(modWidth)
   }">
     <!-- liquid  -->
-    <div class="comp-default bg-dark-red" :style="{
+    <div class="comp-default" :style="{
       ...heightPx(modInnerHeight), ...widthPx(liquidWidth),
-      ...topPx(modInnerTop), ...leftPx(modInnerLeft)
+      ...topPx(modInnerTop), ...leftPx(modInnerLeft), ...bgColor(COLOR.DARK_RED)
     }"></div>
 
     <!-- container  -->
