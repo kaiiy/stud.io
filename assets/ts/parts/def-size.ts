@@ -9,6 +9,7 @@ export const COVER_MOD_SIZE = {
   HEIGHT: 0.1,
   WIDTH: 2.1,
 };
+const noodleRate = 0.3;
 export const MIDDLE_MOD_SIZE = {
   OUTER: {
     HEIGHT: 4.1,
@@ -19,8 +20,8 @@ export const MIDDLE_MOD_SIZE = {
     WIDTH: 0.7,
   },
   NOODLE: {
-    HEIGHT: 0.66146 / 3,
-    WIDTH: 5.2916 / 3,
+    HEIGHT: 0.66146 * noodleRate,
+    WIDTH: 5.2916 * noodleRate,
   },
 };
 

@@ -202,7 +202,6 @@ onMounted(() => {
       </g>
     </svg>
 
-
     <!-- pot  -->
     <EllipseSvg v-show="showPot" :x-radius="circleRadius" :y-radius="potYRadiusPx" :color="COLOR.DARK_PINK"
       class="absolute" :style="{

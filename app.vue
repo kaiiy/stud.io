@@ -15,7 +15,7 @@ import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
 import { convertRad2Deg } from "@/assets/ts/math/angle"
 
 // ======== config ========
-const baseSize = 100 // todo 
+const baseSize = 150 // todo 
 const intervalMsec = 1000 // todo 
 
 // ======== state ========
