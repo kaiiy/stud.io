@@ -10,13 +10,16 @@ jobs:
     timeout-minutes: 5
     steps:
       - uses: actions/checkout@v3
+      - uses: pnpm/action-setup@v2.2.2
+        with:
+          version: 7
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: yarn
+          cache: "pnpm"
 
-      - run: yarn install
-      - run: yarn generate
+      - run: pnpm install
+      - run: pnpm generate
 
       - uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.ref == 'refs/heads/main' }}

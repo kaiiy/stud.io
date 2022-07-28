@@ -1,4 +1,3 @@
-# nuxt 
 *.log*
 .nuxt
 .nitro
@@ -6,15 +5,4 @@
 .output
 .env
 dist
-.vercel_build_output
-pages/pre/
-
-# yarn 
 node_modules
-.yarn/*
-!.yarn/patches
-!.yarn/releases
-!.yarn/plugins
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
