@@ -16,3 +16,5 @@ export const COLOR = {
   LIGHT_YELLOW: "#FDF5D4",
   DARK_YELLOW: "#F9DF80",
 };
+
+export const bgColor = (color: string) => ({ backgroundColor: color });

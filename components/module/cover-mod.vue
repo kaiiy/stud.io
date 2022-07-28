@@ -1,6 +1,5 @@
 <script setup lang="ts" >
 import RoundedLineSvg from "@/components/shapes/rounded-line-svg.vue"
-
 import { COLOR } from "@/assets/ts/style/color"
 import { getModuleGap, coverModSize } from '@/assets/ts/parts/get-size';
 import { marginBottomPx } from "@/assets/ts/style/to-px"
