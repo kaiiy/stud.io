@@ -28,21 +28,18 @@ const colorList = computed(() => {
 
 <template>
   <div class="relative col-span-1 row-span-1">
-    <BtnBase @click="handleClick()" class="comp-default-click" :style="{
+    <BtnBase @click="handleClick()" class="absolute cursor-pointer" :style="{
       ...heightPx(modHeight), ...widthPx(modHeight)
     }" :base-color="COLOR.DARK_PINK" :inner-color="COLOR.LIGHT_PINK" />
 
-    <CircleSvg class="comp-default" :color="colorList[0]" :radius="lightRadius" :style="{
+    <CircleSvg class="absolute" :color="colorList[0]" :radius="lightRadius" :style="{
       ...topPx(lightMargin), ...leftPx(lightMargin)
     }" />
-    <CircleSvg class="comp-default" :color="colorList[1]" :radius="lightRadius" :style="{
+    <CircleSvg class="absolute" :color="colorList[1]" :radius="lightRadius" :style="{
       ...topPx(lightMargin), ...rightPx(lightMargin)
     }" />
-    <CircleSvg class="comp-default" :color="colorList[2]" :radius="lightRadius" :style="{
+    <CircleSvg class="absolute" :color="colorList[2]" :radius="lightRadius" :style="{
       ...bottomPx(lightMargin), ...leftPx(lightMargin)
     }" />
   </div>
 </template>
-
-<style src="@/assets/css/component.css" scoped>
-</style>
