@@ -1,21 +1,21 @@
 {
-  "node_modules/.pnpm/nuxt@3.0.0-rc.6/node_modules/nuxt/dist/app/entry.mjs": {
-    "file": "entry-03d3d8c3.mjs",
-    "src": "node_modules/.pnpm/nuxt@3.0.0-rc.6/node_modules/nuxt/dist/app/entry.mjs",
+  "node_modules/.pnpm/nuxt@3.0.0-rc.6_rollup@2.77.2+vite@2.9.14/node_modules/nuxt/dist/app/entry.mjs": {
+    "file": "entry-55885fc2.mjs",
+    "src": "node_modules/.pnpm/nuxt@3.0.0-rc.6_rollup@2.77.2+vite@2.9.14/node_modules/nuxt/dist/app/entry.mjs",
     "isEntry": true,
     "dynamicImports": [
       "virtual:nuxt:/home/runner/work/stud.io/stud.io/.nuxt/error-component.mjs"
     ],
     "css": [
-      "entry.d6477d24.css"
+      "entry.7f3e8c81.css"
     ]
   },
   "virtual:nuxt:/home/runner/work/stud.io/stud.io/.nuxt/error-component.mjs": {
-    "file": "error-component-94eb2e7d.mjs",
+    "file": "error-component-87d6e6de.mjs",
     "src": "virtual:nuxt:/home/runner/work/stud.io/stud.io/.nuxt/error-component.mjs",
     "isDynamicEntry": true,
     "imports": [
-      "node_modules/.pnpm/nuxt@3.0.0-rc.6/node_modules/nuxt/dist/app/entry.mjs"
+      "node_modules/.pnpm/nuxt@3.0.0-rc.6_rollup@2.77.2+vite@2.9.14/node_modules/nuxt/dist/app/entry.mjs"
     ],
     "dynamicImports": [
       "node_modules/.pnpm/@nuxt+ui-templates@0.2.2/node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
@@ -23,22 +23,22 @@
     ]
   },
   "node_modules/.pnpm/@nuxt+ui-templates@0.2.2/node_modules/@nuxt/ui-templates/dist/templates/error-404.vue": {
-    "file": "error-404-ff5d56cb.mjs",
+    "file": "error-404-951a7cd4.mjs",
     "src": "node_modules/.pnpm/@nuxt+ui-templates@0.2.2/node_modules/@nuxt/ui-templates/dist/templates/error-404.vue",
     "isDynamicEntry": true,
     "imports": [
-      "node_modules/.pnpm/nuxt@3.0.0-rc.6/node_modules/nuxt/dist/app/entry.mjs"
+      "node_modules/.pnpm/nuxt@3.0.0-rc.6_rollup@2.77.2+vite@2.9.14/node_modules/nuxt/dist/app/entry.mjs"
     ],
     "css": [
       "error-404.7da92f09.css"
     ]
   },
   "node_modules/.pnpm/@nuxt+ui-templates@0.2.2/node_modules/@nuxt/ui-templates/dist/templates/error-500.vue": {
-    "file": "error-500-1534916b.mjs",
+    "file": "error-500-7acfe44c.mjs",
     "src": "node_modules/.pnpm/@nuxt+ui-templates@0.2.2/node_modules/@nuxt/ui-templates/dist/templates/error-500.vue",
     "isDynamicEntry": true,
     "imports": [
-      "node_modules/.pnpm/nuxt@3.0.0-rc.6/node_modules/nuxt/dist/app/entry.mjs"
+      "node_modules/.pnpm/nuxt@3.0.0-rc.6_rollup@2.77.2+vite@2.9.14/node_modules/nuxt/dist/app/entry.mjs"
     ],
     "css": [
       "error-500.918846c7.css"
