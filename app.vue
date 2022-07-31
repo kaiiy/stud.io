@@ -15,7 +15,7 @@ import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
 import { convertRad2Deg } from "@/assets/ts/math/angle"
 
 // ======== config ========
-const baseSize = 150 // todo 
+const baseSize = 100 // todo 
 const intervalMsec = 1000 // todo 
 
 // ======== state ========
@@ -107,7 +107,10 @@ const toggleSwitchState = () => {
 </script>
 
 <template>
-  <ModuleContainer :base-size="baseSize">
+  <!-- todo: marginTop  -->
+  <ModuleContainer :base-size="baseSize" :style="{
+    marginTop: String(baseSize * 2.5) + 'px'
+  }">
     <!-- circle module  -->
     <CircleMod :state="currentCircleState" :interval-msec="intervalMsec" :pot-rad="circlePotRad" :base-size="baseSize"
       :handle-add-water-into-pot="addWaterIntoPot" :handle-update-pot-rad="updateCirclePotRad"

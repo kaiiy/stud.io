@@ -3,6 +3,7 @@ import { getLongModSize } from "assets/ts/parts/get-size"
 import { heightPx, widthPx, leftPx, topPx, rightPx, fontSizePx, bottomPx } from "assets/ts/style/to-px"
 import { getLiquidSize } from "assets/ts/parts/liquid"
 import { COLOR, bgColor } from "@/assets/ts/style/color"
+import Container from "./long/container.vue"
 
 const props = defineProps<{
   baseSize: number,
@@ -32,22 +33,16 @@ const liquidWidth = computed<number>(() => getLiquidSize(modInnerWidth, props.li
     }"></div>
 
     <!-- container  -->
-    <svg class="absolute" :style="{
+    <Container class="absolute" :style="{
       ...heightPx(modHeight), ...widthPx(modWidth)
-    }" version="1.1" viewBox="0 0 113.77 26.458" xmlns="http://www.w3.org/2000/svg">
-      <g transform="translate(-1.5e-6 -116.42)">
-        <path
-          d="m2.1069 116.42c-1.1672 0-2.1069 1.18-2.1069 2.6458v21.167c0 1.4658 0.93966 2.6458 2.1069 2.6458h109.56c1.1672 0 2.1069-1.18 2.1069-2.6458v-21.167c0-1.4658-0.93966-2.6458-2.1069-2.6458zm8.4275 9.2604h92.702c1.7508 0 3.1603 1.7701 3.1603 3.9688s-1.4095 3.9688-3.1603 3.9688h-92.702c-1.7508 0-3.1603-1.7701-3.1603-3.9688s1.4095-3.9688 3.1603-3.9688z"
-          :fill="COLOR.LIGHT_RED" />
-      </g>
-    </svg>
+    }" :color="COLOR.LIGHT_RED" />
 
     <!-- num -->
-    <div class="absolute leading-none num-font pointer-events-none" :style="{
+    <div class="absolute leading-none num-font pointer-events-none select-none" :style="{
       ...leftPx(numHorizontalMargin), ...bottomPx(numVerticalMargin), ...fontSizePx(numSize),
       color: COLOR.DARK_RED,
     }">{{ minMum }}</div>
-    <div class="absolute leading-none num-font pointer-events-none" :style="{
+    <div class="absolute leading-none num-font pointer-events-none select-none" :style="{
       ...rightPx(numHorizontalMargin), ...topPx(numVerticalMargin), ...fontSizePx(numSize),
       color: COLOR.DARK_RED
     }">{{ maxNum }}</div>
@@ -56,7 +51,7 @@ const liquidWidth = computed<number>(() => getLiquidSize(modInnerWidth, props.li
 </template>
 
 <style scoped>
-/* for long num  */
+/* for num  */
 .num-font {
   font-family: 'Goldman', cursive;
 }
