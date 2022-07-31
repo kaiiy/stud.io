@@ -166,7 +166,7 @@ onMounted(() => {
     ...heightPx(modSize), ...widthPx(modSize)
   }">
     <!-- container  -->
-    <svg class="comp-default" :style="{
+    <svg class="absolute" :style="{
       ...heightPx(modSize), ...widthPx(modSize)
     }" version="1.1" viewBox="0 0 84.667 84.667" xmlns="http://www.w3.org/2000/svg">
       <path
@@ -175,7 +175,7 @@ onMounted(() => {
     </svg>
 
     <!-- valve  -->
-    <svg v-show="showValve" class="comp-default" :style="{
+    <svg v-show="showValve" class="absolute" :style="{
       ...heightPx(hvHeight), ...widthPx(hvWidth), ...leftPx(hvLeft), ...topPx(valveTop),
       ...transformOrigin(rotateOriginX, hvRotateOriginY), ...rotateOnly(valveAngle)
     }" version="1.1" viewBox="0 0 7.9375 35.057" xmlns="http://www.w3.org/2000/svg">
@@ -189,7 +189,7 @@ onMounted(() => {
     </svg>
 
     <!-- time  -->
-    <svg v-show="showTimer" class="comp-default" :style="{
+    <svg v-show="showTimer" class="absolute" :style="{
       ...heightPx(hvHeight), ...widthPx(hvWidth), ...leftPx(hvLeft), ...topPx(valveTop),
       ...transformOrigin(rotateOriginX, hvRotateOriginY), ...rotateOnly(timerAngle)
     }" version="1.1" viewBox="0 0 7.9375 35.057" xmlns="http://www.w3.org/2000/svg">
@@ -219,6 +219,3 @@ onMounted(() => {
     }"></div>
   </div>
 </template>
-
-<style src="@/assets/css/component.css" scoped>
-</style>

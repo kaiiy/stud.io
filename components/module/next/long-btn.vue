@@ -30,7 +30,7 @@ const colorList = computed(() => {
 
 <template>
   <div class="relative col-span-1 row-span-1">
-    <BtnBase @click="handleClick()" class="comp-default-click" :style="{
+    <BtnBase @click="handleClick()" class="absolute cursor-pointer" :style="{
       ...heightPx(modHeight), ...widthPx(modHeight)
     }" :base-color="COLOR.DARK_RED" :inner-color="COLOR.LIGHT_RED" />
 
@@ -42,6 +42,3 @@ const colorList = computed(() => {
     }" />
   </div>
 </template>
-
-<style src="@/assets/css/component.css" scoped>
-</style>

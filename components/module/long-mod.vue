@@ -26,13 +26,13 @@ const liquidWidth = computed<number>(() => getLiquidSize(modInnerWidth, props.li
     ...heightPx(modHeight), ...widthPx(modWidth)
   }">
     <!-- liquid  -->
-    <div class="comp-default" :style="{
+    <div class="absolute" :style="{
       ...heightPx(modInnerHeight), ...widthPx(liquidWidth),
       ...topPx(modInnerTop), ...leftPx(modInnerLeft), ...bgColor(COLOR.DARK_RED)
     }"></div>
 
     <!-- container  -->
-    <svg class="comp-default" :style="{
+    <svg class="absolute" :style="{
       ...heightPx(modHeight), ...widthPx(modWidth)
     }" version="1.1" viewBox="0 0 113.77 26.458" xmlns="http://www.w3.org/2000/svg">
       <g transform="translate(-1.5e-6 -116.42)">
@@ -43,11 +43,11 @@ const liquidWidth = computed<number>(() => getLiquidSize(modInnerWidth, props.li
     </svg>
 
     <!-- num -->
-    <div class="absolute leading-none num-font prohibit-mouse" :style="{
+    <div class="absolute leading-none num-font pointer-events-none" :style="{
       ...leftPx(numHorizontalMargin), ...bottomPx(numVerticalMargin), ...fontSizePx(numSize),
       color: COLOR.DARK_RED,
     }">{{ minMum }}</div>
-    <div class="absolute leading-none num-font prohibit-mouse" :style="{
+    <div class="absolute leading-none num-font pointer-events-none" :style="{
       ...rightPx(numHorizontalMargin), ...topPx(numVerticalMargin), ...fontSizePx(numSize),
       color: COLOR.DARK_RED
     }">{{ maxNum }}</div>
@@ -55,8 +55,6 @@ const liquidWidth = computed<number>(() => getLiquidSize(modInnerWidth, props.li
   </div>
 </template>
 
-<style src="@/assets/css/component.css" scoped>
-</style>
 <style scoped>
 /* for long num  */
 .num-font {
