@@ -11,7 +11,8 @@ import { hvAngleFromMouse } from "@/assets/ts/parts/circle/get-hv-angle"
 import { transformOrigin, rotateOnly } from "assets/ts/style/transform"
 import { getWaterMlFromValve } from "@/assets/ts/main/water"
 import { COLOR } from "@/assets/ts/style/color"
-import { MOUSE_AREA_ID, getMouseRelativePos, getCircleCenterPos, getMousePos } from "@/assets/ts/parts/circle/mouse"
+import { MOUSE_AREA_ID, getMouseRelativePos, getCircleCenterPos } from "@/assets/ts/parts/circle/mouse"
+import { getMousePos } from "@/assets/ts/parts/mouse"
 import { getPotRad } from "@/assets/ts/parts/circle/pot"
 import { getRemainingTime } from "@/assets/ts/main/timer"
 
@@ -144,7 +145,6 @@ const countTimer = (intervalMsec: number) => {
   const remainingTimeRate = remainingTimeSec.value / initRemainingTimeSec.value
   props.handleUpdateRemainingTimeRate(remainingTimeRate)
 }
-
 
 // ======== pot ========
 const potYRadiusPx = computed(() => circleRadius * Math.sin(props.potRad))
