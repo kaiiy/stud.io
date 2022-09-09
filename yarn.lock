@@ -6136,7 +6136,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nuxt@npm:^3.0.0-rc.9":
+"nuxt@npm:rc":
   version: 3.0.0-rc.9
   resolution: "nuxt@npm:3.0.0-rc.9"
   dependencies:
@@ -7242,7 +7242,7 @@ __metadata:
     "@swc/jest": ^0.2.22
     "@types/jest": ^29.0.0
     jest: ^29.0.2
-    nuxt: ^3.0.0-rc.9
+    nuxt: rc
     nuxt-windicss: ^2.5.1
   languageName: unknown
   linkType: soft
