@@ -17,7 +17,7 @@ const {
 } = coverModSize(props.baseSize)
 
 const mouseAreaPos = ref<Vec>({ x: 0, y: 0 })
-const coverDeg = ref(-90)
+const coverDeg = ref(-40)
 
 onMounted(() => {
   mouseAreaPos.value = getMousePos(AREA_ID)
