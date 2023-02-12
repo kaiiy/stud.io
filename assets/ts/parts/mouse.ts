@@ -13,3 +13,11 @@ export const getMousePos = (mouseId: string): Vec => {
   };
   return mousePos;
 };
+
+export const getMouseRelativePos = (
+  ev: MouseEvent,
+  mouseAreaPos: Vec
+): Vec => ({
+  x: ev.clientX - mouseAreaPos.x,
+  y: ev.clientY - mouseAreaPos.y,
+});
