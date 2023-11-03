@@ -2,7 +2,6 @@
 import { getNoodleSize } from "assets/ts/parts/get-size"
 import { heightPx, widthPx } from "assets/ts/style/to-px"
 import { baseLeftPx, baseTopPx } from "@/assets/ts/parts/middle/noodle"
-import { rotateDegOnly } from "~~/assets/ts/style/transform"
 import { COLOR } from "@/assets/ts/style/color"
 import Noodle from "./noodle.vue"
 
@@ -23,7 +22,7 @@ const noodleColor: string = COLOR.LIGHT_PURPLE
 
 <template>
   <div :style="{
-    ...topPx(1.2)
+    ...topPx(1.1)
   }">
     <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(0)

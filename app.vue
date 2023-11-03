@@ -18,8 +18,7 @@ import { convertRad2Deg } from "@/assets/ts/math/angle"
 const baseSize = 100 // todo 
 const intervalMsec = 1000 // todo 
 
-// ======== state ========
-// init: 0 
+// ======== state and state-handler ========
 const circleStateIdx = ref(0)
 const middleStateIdx = ref(0)
 const currentLongTypeIdx = ref(0)
@@ -59,8 +58,7 @@ const setNextLongType = () => { currentLongTypeIdx.value = (currentLongTypeIdx.v
 
 // long 
 const longVal = computed(() => {
-  let liquidRate: number, maxNum: number, minNum: number
-  liquidRate = maxNum = minNum = 0
+  let liquidRate = 0, maxNum = 0, minNum = 0
 
   const currentState = currentLongState.value
 
@@ -94,9 +92,7 @@ const longVal = computed(() => {
     minNum = 0
     // liquidRate = 20 todo
   }
-  return {
-    liquidRate, maxNum, minNum
-  }
+  return { liquidRate, maxNum, minNum }
 })
 
 // switch 
@@ -104,10 +100,20 @@ const toggleSwitchState = () => {
   if (switchState.value === STATE.SWITCH.OFF) switchState.value = STATE.SWITCH.ON
   else switchState.value = STATE.SWITCH.OFF
 }
+
+// Modal 
+const isOpen = ref(false)
+defineShortcuts({
+  escape: {
+    usingInput: true,
+    whenever: [isOpen],
+    handler: () => { isOpen.value = false }
+  }
+})
 </script>
 
 <template>
-  <!-- todo: marginTop  -->
+  <!-- TODO: marginTop  -->
   <ModuleContainer :base-size="baseSize" :style="{
     marginTop: String(baseSize * 2.5) + 'px'
   }">
@@ -143,4 +149,32 @@ const toggleSwitchState = () => {
   </div>
   <div>MIDDLE: {{ currentMiddleState }}</div>
   <div>LONG: {{ currentLongState }}</div>
+
+  <div>========</div>
+  <div>DEBUG</div>
+  <div>CIRCLE: {{ currentCircleState }}, POT: {{ convertRad2Deg(circlePotRad) }}, R_TIME: {{ circleRemainingTimeRate }},
+    {{ circleInitTimeSec }}
+  </div>
+  <div>MIDDLE: {{ currentMiddleState }}</div>
+  <div>LONG: {{ currentLongState }}</div>
+
+  <div class="absolute t-0 r-0">
+    おは
+  </div>
+  <!-- <div>
+    <UButton label="Open" @click="isOpen = true" />
+
+    <UModal v-model="isOpen">
+      <UCard>
+        <template #header>
+          <div class="flex items-center justify-between">
+            <h3 class="text-base font-semibold leading-6 text-gray-900">
+              Game Over!
+            </h3>
+          </div>
+        </template>
+        リロードしてください
+      </UCard>
+    </UModal>
+  </div> -->
 </template>

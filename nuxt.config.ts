@@ -51,8 +51,11 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ["nuxt-windicss"],
+  modules: ["nuxt-windicss", '@nuxt/ui'],
   typescript: {
     strict: true,
   },
+  colorMode: {
+    preference: 'light'
+  }
 });

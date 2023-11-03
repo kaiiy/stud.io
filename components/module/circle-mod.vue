@@ -73,17 +73,17 @@ const onClickMouseArea = (ev: MouseEvent) => {
     valveAngle.value = hvAngleFromMouse(mouseRelativePos, circleCenterPos)
     const valveAngleRate = convertAngle2Rate(valveAngle.value)
 
-    if (isOpenValve.value === false && valveAngleRate !== 0) {
+    if (!isOpenValve.value && valveAngleRate !== 0) {
       // open 
       addWaterTimer = window.setInterval(addWaterIntoPot, props.intervalMsec, valveAngleRate)
       isOpenValve.value = true
     }
-    else if (isOpenValve.value === true && valveAngleRate !== 0) {
+    else if (isOpenValve.value && valveAngleRate !== 0) {
       // change water volume 
       window.clearInterval(addWaterTimer)
       addWaterTimer = window.setInterval(addWaterIntoPot, props.intervalMsec, valveAngleRate)
     }
-    else if (isOpenValve.value === true && valveAngleRate === 0) {
+    else if (isOpenValve.value && valveAngleRate === 0) {
       // close 
       window.clearInterval(addWaterTimer)
       isOpenValve.value = false
@@ -98,7 +98,7 @@ const onClickMouseArea = (ev: MouseEvent) => {
 
     const isOpen = isOpenTimer.value
 
-    if (isOpen === false && timerRate !== 0) {
+    if (!isOpen && timerRate !== 0) {
       // set at first
       const remainingTime = getRemainingTime(timerRate)
       initRemainingTimeSec.value = remainingTimeSec.value = remainingTime
@@ -106,7 +106,7 @@ const onClickMouseArea = (ev: MouseEvent) => {
       pureTimer = window.setInterval(countTimer, props.intervalMsec, props.intervalMsec)
       isOpenTimer.value = true
     }
-    else if (isOpen === true && timerRate !== 0) {
+    else if (isOpen && timerRate !== 0) {
       // change water volume 
       const remainingTime = getRemainingTime(timerRate)
       initRemainingTimeSec.value = remainingTimeSec.value = remainingTime
@@ -114,7 +114,7 @@ const onClickMouseArea = (ev: MouseEvent) => {
       window.clearInterval(pureTimer)
       pureTimer = window.setInterval(countTimer, props.intervalMsec, props.intervalMsec)
     }
-    else if (isOpen === true && timerRate === 0) {
+    else if (isOpen && timerRate === 0) {
       // close 
       initRemainingTimeSec.value = remainingTimeSec.value = 0
       window.clearInterval(pureTimer)
