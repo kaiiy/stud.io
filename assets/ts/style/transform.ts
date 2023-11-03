@@ -1,10 +1,10 @@
 export const transformOrigin = (x: number, y: number) => ({
-  "transform-origin": `${x}px ${y}px`,
+	"transform-origin": `${x}px ${y}px`,
 });
 
 export const rotateOnly = (rad: number) => ({
-  transform: `rotate(${rad}rad)`,
+	transform: `rotate(${rad}rad)`,
 });
 export const rotateDegOnly = (deg: number) => ({
-  transform: `rotate(${deg}deg)`,
+	transform: `rotate(${deg}deg)`,
 });

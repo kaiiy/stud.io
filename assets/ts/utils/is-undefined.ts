@@ -1,1 +1,1 @@
-export const isUndefined = (obj: any) => obj === void 0;
+export const isUndefined = (obj: unknown) => obj === void 0;

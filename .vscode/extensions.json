@@ -1,3 +1,7 @@
 {
-  "recommendations": ["maptz.camelcasenavigation"]
+  "recommendations": [
+    "maptz.camelcasenavigation",
+    "vue.volar",
+    "biomejs.biome"
+  ]
 }

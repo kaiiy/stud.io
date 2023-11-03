@@ -6,7 +6,7 @@ import { marginBottomPx, widthPx, heightPx, bottomPx, leftPx } from "@/assets/ts
 import { rotateDegOnly, transformOrigin } from "@/assets/ts/style/transform"
 import { AREA_ID } from "@/assets/ts/parts/cover"
 import { getMousePos, getMouseRelativePos } from "@/assets/ts/parts/mouse"
-import { Vec } from "@/assets/ts/math/vec"
+import { type Vec } from "@/assets/ts/math/vec"
 import { calcMouseDeg } from "@/assets/ts/parts/cover"
 
 const props = defineProps<{
