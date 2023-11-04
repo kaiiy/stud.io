@@ -7,10 +7,12 @@ import { rotateDegOnly, transformOrigin } from "@/assets/ts/style/transform"
 import { AREA_ID } from "@/assets/ts/parts/cover"
 import { getMousePos, getMouseRelativePos } from "@/assets/ts/parts/mouse"
 import { type Vec } from "@/assets/ts/math/vec"
-import { calcMouseDeg } from "@/assets/ts/parts/cover"
+import { cvtToCoverDeg } from "@/assets/ts/parts/cover"
 
 const props = defineProps<{
   baseSize: number,
+  deg: number,
+  updateDeg: (deg: number) => void,
 }>();
 
 const {
@@ -18,20 +20,19 @@ const {
 } = coverModSize(props.baseSize)
 
 const mouseAreaPos = ref<Vec>({ x: 0, y: 0 })
-// -90 <= deg <= 0 
-const coverDeg = ref(-90)
 
 const onClickingMouseArea = (ev: MouseEvent) => {
   const mouseRelativePos = getMouseRelativePos(ev, mouseAreaPos.value)
 
   // set mouseDeg to coverDeg 
-  coverDeg.value = calcMouseDeg(mouseRelativePos, { x: modWidth, y: modWidth })
-  console.table(coverDeg.value)
+  const _deg = cvtToCoverDeg(mouseRelativePos, { x: modWidth, y: modWidth })
+  if (_deg < -90 || _deg > 0) throw new Error("invalid deg")
+  props.updateDeg(_deg)
 }
 
 onMounted(() => {
   mouseAreaPos.value = getMousePos(AREA_ID)
-  console.table(mouseAreaPos)
+  // console.table(mouseAreaPos)
 })
 </script>
 
@@ -44,7 +45,7 @@ onMounted(() => {
       ...widthPx(modWidth), ...heightPx(modWidth), ...leftPx(0), ...bottomPx(0)
     }">
       <RoundedLineSvg class="absolute" :style="{
-        ...transformOrigin(modHeight / 2, modHeight / 2), ...rotateDegOnly(coverDeg), ...leftPx(0), ...bottomPx(0)
+        ...transformOrigin(modHeight / 2, modHeight / 2), ...rotateDegOnly(props.deg), ...leftPx(0), ...bottomPx(0)
       }" :width-px="modWidth" :height-px="modHeight" :color="COLOR.LIGHT_PURPLE" />
     </div>
 

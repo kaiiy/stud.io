@@ -14,6 +14,7 @@ import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST, getCu
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
 import { convertRad2Deg } from "@/assets/ts/math/angle"
 
+
 // ======== config ========
 const baseSize = 100 // todo 
 const intervalMsec = 1000 // todo 
@@ -44,12 +45,29 @@ const updateCircleInitTimeSec = (newInitTime: number) => {
 // middle 
 const potWater = ref<number>(0)
 const potRate = computed<number>(() => potFillRate(potWater.value))
+const potCoverDeg = ref<number>(0)
 const cupWater = ref<number>(0)
 const cupRate = computed<number>(() => cupFillRate(cupWater.value))
+const cupCoverDeg = ref<number>(0)
+
 const middleRate = computed(() => {
-  if (currentMiddleState.value === STATE.MIDDLE.POT) return potRate.value
-  return cupRate.value
+  const state = currentMiddleState.value
+  if (state === STATE.MIDDLE.POT) return potRate.value
+  else if (state === STATE.MIDDLE.CUP) return cupRate.value
+  else throw new Error("middleRate: invalid state")
 })
+const coverDeg = computed(() => {
+  const state = currentMiddleState.value
+  if (state === STATE.MIDDLE.POT) return potCoverDeg.value
+  else if (state === STATE.MIDDLE.CUP) return cupCoverDeg.value
+  else throw new Error("CoverDeg: invalid state")
+})
+const updateCoverDeg = (newDeg: number) => {
+  const state = currentMiddleState.value
+  if (state === STATE.MIDDLE.POT) potCoverDeg.value = newDeg
+  else if (state === STATE.MIDDLE.CUP) cupCoverDeg.value = newDeg
+  else throw new Error("updateCoverDeg: invalid state")
+}
 
 // next btn
 const setNextCircleIdx = () => { circleStateIdx.value = (circleStateIdx.value + 1) % CIRCLE_STATE_LIST.length }
@@ -110,57 +128,61 @@ defineShortcuts({
     handler: () => { isOpen.value = false }
   }
 })
+
+// Game Err 
+const gameErr = ref("None")
+const throwGameErr = (msg: string) => {
+  gameErr.value = msg
+}
 </script>
 
 <template>
   <!-- TODO: marginTop  -->
-  <ModuleContainer :base-size="baseSize" :style="{
-    marginTop: String(baseSize * 2.5) + 'px'
-  }">
-    <!-- circle module  -->
-    <CircleMod :state="currentCircleState" :interval-msec="intervalMsec" :pot-rad="circlePotRad" :base-size="baseSize"
-      :handle-add-water-into-pot="addWaterIntoPot" :handle-update-pot-rad="updateCirclePotRad"
-      :handle-update-remaining-time-rate="updateCircleRemainingTimeRate"
-      :handle-update-init-time-sec="updateCircleInitTimeSec" />
+  <div class="flex">
+    <div class="w-1/2">
+      <ModuleContainer :base-size="baseSize" :style="{
+        marginTop: String(baseSize * 2.5) + 'px'
+      }">
+        <!-- circle module  -->
+        <CircleMod :state="currentCircleState" :interval-msec="intervalMsec" :pot-rad="circlePotRad" :base-size="baseSize"
+          :handle-add-water-into-pot="addWaterIntoPot" :handle-update-pot-rad="updateCirclePotRad"
+          :handle-update-remaining-time-rate="updateCircleRemainingTimeRate"
+          :handle-update-init-time-sec="updateCircleInitTimeSec" />
 
-    <!-- middle module  -->
-    <MiddleWrapper>
-      <CoverMod :base-size="baseSize" />
-      <MiddleMod :state="currentMiddleState" :liquid-rate="middleRate" :base-size="baseSize" />
-    </MiddleWrapper>
+        <!-- middle module  -->
+        <MiddleWrapper>
+          <CoverMod :deg="coverDeg" :update-deg="updateCoverDeg" :base-size="baseSize" />
+          <MiddleMod :state="currentMiddleState" :liquid-rate="middleRate" :base-size="baseSize" />
+        </MiddleWrapper>
 
-    <!-- next module  -->
-    <CircleBtn :state-idx="circleStateIdx" :handle-click="setNextCircleIdx" :base-size="baseSize" />
-    <LongBtn :type-idx="currentLongTypeIdx" :base-size="baseSize" :handle-click="setNextLongType" />
-    <MiddleBtn :state-idx="middleStateIdx" :base-size="baseSize" :handle-click="setNextMiddleIdx" />
+        <!-- next module  -->
+        <CircleBtn :state-idx="circleStateIdx" :handle-click="setNextCircleIdx" :base-size="baseSize" />
+        <LongBtn :type-idx="currentLongTypeIdx" :base-size="baseSize" :handle-click="setNextLongType" />
+        <MiddleBtn :state-idx="middleStateIdx" :base-size="baseSize" :handle-click="setNextMiddleIdx" />
 
-    <!-- long module  -->
-    <LongMod :liquid-rate="longVal.liquidRate" :max-num="longVal.maxNum" :min-mum="longVal.minNum"
-      :base-size="baseSize" />
+        <!-- long module  -->
+        <LongMod :liquid-rate="longVal.liquidRate" :max-num="longVal.maxNum" :min-mum="longVal.minNum"
+          :base-size="baseSize" />
 
-    <!-- switch  -->
-    <SwitchBtn :state="switchState" :handle-click="toggleSwitchState" :base-size="baseSize" />
-  </ModuleContainer>
+        <!-- switch  -->
+        <SwitchBtn :state="switchState" :handle-click="toggleSwitchState" :base-size="baseSize" />
+      </ModuleContainer>
+    </div>
+    <div class="w-1/2">
+      <div>========</div>
+      <div>DEBUG</div>
+      <div>CIRCLE: {{ currentCircleState }}, POT: {{ convertRad2Deg(circlePotRad) }}, R_TIME: {{ circleRemainingTimeRate
+      }},
+        {{ circleInitTimeSec }}
+      </div>
+      <div>MIDDLE: {{ currentMiddleState }}</div>
+      <div>LONG: {{ currentLongState }}</div>
 
-  <div>========</div>
-  <div>DEBUG</div>
-  <div>CIRCLE: {{ currentCircleState }}, POT: {{ convertRad2Deg(circlePotRad) }}, R_TIME: {{ circleRemainingTimeRate }},
-    {{ circleInitTimeSec }}
+      <div>========</div>
+      <div>ERR: {{ gameErr }}</div>
+    </div>
   </div>
-  <div>MIDDLE: {{ currentMiddleState }}</div>
-  <div>LONG: {{ currentLongState }}</div>
 
-  <div>========</div>
-  <div>DEBUG</div>
-  <div>CIRCLE: {{ currentCircleState }}, POT: {{ convertRad2Deg(circlePotRad) }}, R_TIME: {{ circleRemainingTimeRate }},
-    {{ circleInitTimeSec }}
-  </div>
-  <div>MIDDLE: {{ currentMiddleState }}</div>
-  <div>LONG: {{ currentLongState }}</div>
-
-  <div class="absolute t-0 r-0">
-    おは
-  </div>
   <!-- <div>
     <UButton label="Open" @click="isOpen = true" />
 
