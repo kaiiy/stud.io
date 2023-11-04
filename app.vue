@@ -35,16 +35,24 @@ const currentLongState = computed(() =>
 const circleInitTimeSec = ref(0) // init: 0
 const circleRemainingTimeRate = ref(1) //  0<=val<=1 (init: 1)
 const circlePotRad = ref(0) // init: 0
-const addWaterIntoPot = (waterVol: number) => { potWater.value += waterVol }
+const addWaterIntoPot = (waterVol: number) => {
+  if (potCoverDeg.value !== -90 && waterVol > 0) {
+    throwGameErr("Pot cover is not opened")
+    return
+  }
+  potWater.value += waterVol
+}
 const updateCirclePotRad = (newPotRad: number) => { circlePotRad.value = newPotRad }
 const updateCircleRemainingTimeRate = (newTimeRate: number) => { circleRemainingTimeRate.value = newTimeRate }
-const updateCircleInitTimeSec = (newInitTime: number) => {
-  circleInitTimeSec.value = Math.floor(newInitTime)
-}
+const updateCircleInitTimeSec = (newInitTime: number) => { circleInitTimeSec.value = Math.floor(newInitTime) }
 
 // middle 
 const potWater = ref<number>(0)
-const potRate = computed<number>(() => potFillRate(potWater.value))
+const potRate = computed<number>(() => {
+  const _rate = potFillRate(potWater.value)
+  if (_rate >= 1) throwGameErr("Overflowing water in the pot")
+  return _rate
+})
 const potCoverDeg = ref<number>(0)
 const cupWater = ref<number>(0)
 const cupRate = computed<number>(() => cupFillRate(cupWater.value))
@@ -99,16 +107,16 @@ const longVal = computed(() => {
     liquidRate = convertRad2Deg(circlePotRad.value) / (maxNum - minNum)
   }
   // pot: temperature (middle) 
-  if (currentState === STATE.MIDDLE.POT) {
+  else if (currentState === STATE.MIDDLE.POT) {
     maxNum = 100
     minNum = 0
-    // liquidRate = 20  todo
+    liquidRate = 20
   }
   // cup: temperature (middle) 
-  if (currentState === STATE.MIDDLE.CUP) {
+  else if (currentState === STATE.MIDDLE.CUP) {
     maxNum = 100
     minNum = 0
-    // liquidRate = 20 todo
+    liquidRate = 20
   }
   return { liquidRate, maxNum, minNum }
 })
@@ -177,6 +185,7 @@ const throwGameErr = (msg: string) => {
       </div>
       <div>MIDDLE: {{ currentMiddleState }}</div>
       <div>LONG: {{ currentLongState }}</div>
+      <div>POT_RATE: {{ potRate }}</div>
 
       <div>========</div>
       <div>ERR: {{ gameErr }}</div>

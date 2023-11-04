@@ -1,5 +1,5 @@
 import { convertRad2Deg } from "@/assets/ts/math/angle";
-import { Vec, diffVec, getAngle } from "@/assets/ts/math/vec";
+import { type Vec, diffVec, getAngle } from "@/assets/ts/math/vec";
 
 /**
  *
