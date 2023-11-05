@@ -13,6 +13,8 @@ import MiddleWrapper from "@/components/module/middle-wrapper.vue"
 import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST, getCurrentLongState } from "@/assets/ts/main/state"
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
 import { convertRad2Deg } from "@/assets/ts/math/angle"
+import { useNumberState } from "@/assets/states/base"
+import { useSwitchState } from "@/assets/states/switch"
 
 
 // ======== config ========
@@ -24,17 +26,16 @@ const circleStateIdx = ref(0)
 const middleStateIdx = ref(0)
 const currentLongTypeIdx = ref(0)
 
-const switchState = ref<string>(STATE.SWITCH.OFF)
-
 const currentCircleState = computed(() => CIRCLE_STATE_LIST[circleStateIdx.value])
 const currentMiddleState = computed(() => MIDDLE_STATE_LIST[middleStateIdx.value])
 const currentLongState = computed(() =>
   getCurrentLongState(currentLongTypeIdx.value, circleStateIdx.value, middleStateIdx.value))
 
 // circle
-const circleInitTimeSec = ref(0) // init: 0
-const circleRemainingTimeRate = ref(1) //  0<=val<=1 (init: 1)
-const circlePotRad = ref(0) // init: 0
+const [circleInitTimeSec, updateCircleInitTimeSec] = useNumberState(0)
+const [circlePotRad, updateCirclePotRad] = useNumberState(1)
+const [circleRemainingTimeRate, updateCircleRemainingTimeRate] = useNumberState(0)
+
 const addWaterIntoPot = (waterVol: number) => {
   if (potCoverDeg.value !== -90 && waterVol > 0) {
     throwGameErr("Pot cover is not opened")
@@ -42,9 +43,6 @@ const addWaterIntoPot = (waterVol: number) => {
   }
   potWater.value += waterVol
 }
-const updateCirclePotRad = (newPotRad: number) => { circlePotRad.value = newPotRad }
-const updateCircleRemainingTimeRate = (newTimeRate: number) => { circleRemainingTimeRate.value = newTimeRate }
-const updateCircleInitTimeSec = (newInitTime: number) => { circleInitTimeSec.value = Math.floor(newInitTime) }
 
 // middle 
 const potWater = ref<number>(0)
@@ -53,10 +51,11 @@ const potRate = computed<number>(() => {
   if (_rate >= 1) throwGameErr("Overflowing water in the pot")
   return _rate
 })
-const potCoverDeg = ref<number>(0)
+const [potCoverDeg] = useNumberState(0)
+const [cupCoverDeg] = useNumberState(0)
+
 const cupWater = ref<number>(0)
 const cupRate = computed<number>(() => cupFillRate(cupWater.value))
-const cupCoverDeg = ref<number>(0)
 
 const middleRate = computed(() => {
   const state = currentMiddleState.value
@@ -76,6 +75,10 @@ const updateCoverDeg = (newDeg: number) => {
   else if (state === STATE.MIDDLE.CUP) cupCoverDeg.value = newDeg
   else throw new Error("updateCoverDeg: invalid state")
 }
+
+// water temperature
+const [potTemperature, updatePotTemperature] = useNumberState(20)
+const [cupTemperature, updateCupTemperature] = useNumberState(20)
 
 // next btn
 const setNextCircleIdx = () => { circleStateIdx.value = (circleStateIdx.value + 1) % CIRCLE_STATE_LIST.length }
@@ -110,22 +113,24 @@ const longVal = computed(() => {
   else if (currentState === STATE.MIDDLE.POT) {
     maxNum = 100
     minNum = 0
-    liquidRate = 20
+    // TODO: 温度変化 
+    liquidRate = potTemperature.value / (maxNum - minNum)
   }
   // cup: temperature (middle) 
   else if (currentState === STATE.MIDDLE.CUP) {
     maxNum = 100
     minNum = 0
-    liquidRate = 20
+    // TODO: 温度変化 
+    liquidRate = cupTemperature.value / (maxNum - minNum)
   }
+  else throw new Error("longVal: invalid state")
+
+  console.assert(liquidRate >= 0 && liquidRate <= 1, "liquidRate is invalid")
   return { liquidRate, maxNum, minNum }
 })
 
 // switch 
-const toggleSwitchState = () => {
-  if (switchState.value === STATE.SWITCH.OFF) switchState.value = STATE.SWITCH.ON
-  else switchState.value = STATE.SWITCH.OFF
-}
+const [switchState, toggleSwitchState] = useSwitchState(STATE.SWITCH.OFF)
 
 // Modal 
 const isOpen = ref(false)
@@ -186,6 +191,7 @@ const throwGameErr = (msg: string) => {
       <div>MIDDLE: {{ currentMiddleState }}</div>
       <div>LONG: {{ currentLongState }}</div>
       <div>POT_RATE: {{ potRate }}</div>
+      <div>liquidRate: {{ longVal.liquidRate }}</div>
 
       <div>========</div>
       <div>ERR: {{ gameErr }}</div>
