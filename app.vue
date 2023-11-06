@@ -10,11 +10,12 @@ import SwitchBtn from "@/components/module/switch-btn.vue"
 import CoverMod from "@/components/module/cover-mod.vue"
 import MiddleWrapper from "@/components/module/middle-wrapper.vue"
 
-import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, LONG_BTN_STATE_LIST, getCurrentLongState } from "@/assets/ts/main/state"
+import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, getCurrentLongState } from "@/assets/ts/main/state"
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
 import { convertRad2Deg } from "@/assets/ts/math/angle"
 import { useNumberState } from "@/assets/states/base"
 import { useSwitchState } from "@/assets/states/switch"
+import { useCircleStateIdx, useMiddleStateIdx, useCurrentLongTypeIdx } from "@/assets/states/state-idx"
 
 
 // ======== config ========
@@ -22,12 +23,10 @@ const baseSize = 100 // todo
 const intervalMsec = 1000 // todo 
 
 // ======== state and state-handler ========
-const circleStateIdx = ref(0)
-const middleStateIdx = ref(0)
-const currentLongTypeIdx = ref(0)
+const [circleStateIdx, setNextCircleIdx, currentCircleState] = useCircleStateIdx(0)
+const [middleStateIdx, setNextMiddleIdx, currentMiddleState] = useMiddleStateIdx(0)
+const [currentLongTypeIdx, setNextLongType] = useCurrentLongTypeIdx(0)
 
-const currentCircleState = computed(() => CIRCLE_STATE_LIST[circleStateIdx.value])
-const currentMiddleState = computed(() => MIDDLE_STATE_LIST[middleStateIdx.value])
 const currentLongState = computed(() =>
   getCurrentLongState(currentLongTypeIdx.value, circleStateIdx.value, middleStateIdx.value))
 
@@ -79,11 +78,6 @@ const updateCoverDeg = (newDeg: number) => {
 // water temperature
 const [potTemperature, updatePotTemperature] = useNumberState(20)
 const [cupTemperature, updateCupTemperature] = useNumberState(20)
-
-// next btn
-const setNextCircleIdx = () => { circleStateIdx.value = (circleStateIdx.value + 1) % CIRCLE_STATE_LIST.length }
-const setNextMiddleIdx = () => { middleStateIdx.value = (middleStateIdx.value + 1) % MIDDLE_STATE_LIST.length }
-const setNextLongType = () => { currentLongTypeIdx.value = (currentLongTypeIdx.value + 1) % LONG_BTN_STATE_LIST.length }
 
 // long 
 const longVal = computed(() => {
