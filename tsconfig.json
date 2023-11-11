@@ -6,5 +6,9 @@
       "nuxt-windicss",
       "jest"
     ]
-  }
+  },
+  "include": [
+    ".nuxt/nuxt.d.ts",
+    "**/*"
+  ]
 }

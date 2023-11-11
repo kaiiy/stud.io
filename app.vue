@@ -10,7 +10,7 @@ import SwitchBtn from "@/components/module/switch-btn.vue"
 import CoverMod from "@/components/module/cover-mod.vue"
 import MiddleWrapper from "@/components/module/middle-wrapper.vue"
 
-import { STATE, CIRCLE_STATE_LIST, MIDDLE_STATE_LIST, getCurrentLongState } from "@/assets/ts/main/state"
+import { STATE, getCurrentLongState } from "@/assets/ts/main/state"
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
 import { convertRad2Deg } from "@/assets/ts/math/angle"
 import { useNumberState } from "@/assets/states/base"
@@ -193,19 +193,19 @@ const throwGameErr = (msg: string) => {
   </div>
 
   <!-- <div>
-    <UButton label="Open" @click="isOpen = true" />
+      <UButton label="Open" @click="isOpen = true" />
 
-    <UModal v-model="isOpen">
-      <UCard>
-        <template #header>
-          <div class="flex items-center justify-between">
-            <h3 class="text-base font-semibold leading-6 text-gray-900">
-              Game Over!
-            </h3>
-          </div>
-        </template>
-        リロードしてください
-      </UCard>
-    </UModal>
-  </div> -->
+      <UModal v-model="isOpen">
+        <UCard>
+          <template #header>
+            <div class="flex items-center justify-between">
+              <h3 class="text-base font-semibold leading-6 text-gray-900">
+                Game Over!
+              </h3>
+            </div>
+          </template>
+          リロードしてください
+        </UCard>
+      </UModal>
+    </div> -->
 </template>

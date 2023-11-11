@@ -46,16 +46,17 @@ export default defineNuxtConfig({
         },
         {
           rel: "stylesheet",
-          href: "https://fonts.googleapis.com/css2?family=Goldman&family=Share+Tech+Mono&display=swap",
+          href:
+            "https://fonts.googleapis.com/css2?family=Goldman&family=Share+Tech+Mono&display=swap",
         },
       ],
     },
   },
-  modules: ["nuxt-windicss", '@nuxt/ui'],
+  modules: ["nuxt-windicss", "@nuxt/ui"],
   typescript: {
     strict: true,
   },
   colorMode: {
-    preference: 'light'
-  }
+    preference: "light",
+  },
 });

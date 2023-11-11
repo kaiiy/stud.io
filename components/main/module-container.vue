@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { getModContainerSize, getModuleGap } from '~~/assets/ts/parts/get-size';
-import { heightPx, widthPx, gapPx } from "assets/ts/style/to-px"
+import { getModContainerSize, getModuleGap } from '@/assets/ts/parts/get-size';
+import { heightPx, widthPx, gapPx } from "@/assets/ts/style/to-px"
 
 const props = defineProps<{
   baseSize: number,
