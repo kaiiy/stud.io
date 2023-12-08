@@ -30,20 +30,26 @@ const [currentLongTypeIdx, setNextLongType] = useCurrentLongTypeIdx(0)
 const currentLongState = computed(() =>
   getCurrentLongState(currentLongTypeIdx.value, circleStateIdx.value, middleStateIdx.value))
 
-// circle
+// Game Error 
+const gameErr = ref("None")
+const throwGameErr = (msg: string) => {
+  gameErr.value = msg
+}
+
+// Circle
 const [circleInitTimeSec, updateCircleInitTimeSec] = useNumberState(0)
 const [circlePotRad, updateCirclePotRad] = useNumberState(1)
 const [circleRemainingTimeRate, updateCircleRemainingTimeRate] = useNumberState(0)
 
 const addWaterIntoPot = (waterVol: number) => {
-  if (potCoverDeg.value !== -90 && waterVol > 0) {
+  if (potCoverDeg.value > -45 && waterVol > 0) {
     throwGameErr("Pot cover is not opened")
     return
   }
   potWater.value += waterVol
 }
 
-// middle 
+// Middle 
 const potWater = ref<number>(0)
 const potRate = computed<number>(() => {
   const _rate = potFillRate(potWater.value)
@@ -136,11 +142,6 @@ defineShortcuts({
   }
 })
 
-// Game Err 
-const gameErr = ref("None")
-const throwGameErr = (msg: string) => {
-  gameErr.value = msg
-}
 </script>
 
 <template>

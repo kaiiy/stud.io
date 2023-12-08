@@ -13,11 +13,11 @@ export const rightPx = (value: number) => ({ right: toPx(value) });
 // margin
 export const marginRightPx = (value: number) => ({ marginRight: toPx(value) });
 export const marginBottomPx = (value: number) => ({
-	marginBottom: toPx(value),
+  marginBottom: toPx(value),
 });
 export const marginTopPx = (value: number) => ({ marginTop: toPx(value) });
 export const marginLeftPx = (value: number) => ({
-	marginLeft: toPx(value),
+  marginLeft: toPx(value),
 });
 
 // gap

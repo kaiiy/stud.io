@@ -41,12 +41,10 @@
 #F9DF80
 ```
 
-
 # 参考画像
 
 ![](./img/hue.jpg)
 
 http://hue360.herokuapp.com
 
-設定: Munsell, 30, 7, ON, #FFFFFF(brightness)
-BaseColor: `#F8DAD5`
+設定: Munsell, 30, 7, ON, #FFFFFF(brightness) BaseColor: `#F8DAD5`

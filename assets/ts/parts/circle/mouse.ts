@@ -3,6 +3,6 @@ import { type Vec } from "@/assets/ts/math/vec";
 export const MOUSE_AREA_ID = "mouse_area_id";
 
 export const getCircleCenterPos = (RectSize: number): Vec => ({
-	x: RectSize / 2,
-	y: RectSize / 2,
+  x: RectSize / 2,
+  y: RectSize / 2,
 });
