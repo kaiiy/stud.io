@@ -11,7 +11,6 @@ import Game from "@/components/main/game.vue"
         <p>Created by kaiiy</p>
       </div>
     </div>
-    <!-- Game Start ボタン（中央配置） -->
     <button
       class="mt-12 px-6 py-3 text-2xl font-bold text-white bg-blue-500 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
       Game Start
