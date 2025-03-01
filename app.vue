@@ -152,8 +152,8 @@ defineShortcuts({
         marginTop: String(baseSize * 2.5) + 'px'
       }">
         <!-- circle module  -->
-        <CircleMod :state="currentCircleState" :interval-msec="intervalMsec" :pot-rad="circlePotRad" :base-size="baseSize"
-          :handle-add-water-into-pot="addWaterIntoPot" :handle-update-pot-rad="updateCirclePotRad"
+        <CircleMod :state="currentCircleState" :interval-msec="intervalMsec" :pot-rad="circlePotRad"
+          :base-size="baseSize" :handle-add-water-into-pot="addWaterIntoPot" :handle-update-pot-rad="updateCirclePotRad"
           :handle-update-remaining-time-rate="updateCircleRemainingTimeRate"
           :handle-update-init-time-sec="updateCircleInitTimeSec" />
 
@@ -180,7 +180,7 @@ defineShortcuts({
       <div>========</div>
       <div>DEBUG</div>
       <div>CIRCLE: {{ currentCircleState }}, POT: {{ convertRad2Deg(circlePotRad) }}, R_TIME: {{ circleRemainingTimeRate
-      }},
+        }},
         {{ circleInitTimeSec }}
       </div>
       <div>MIDDLE: {{ currentMiddleState }}</div>
@@ -205,8 +205,8 @@ defineShortcuts({
               </h3>
             </div>
           </template>
-          リロードしてください
-        </UCard>
-      </UModal>
-    </div> -->
+リロードしてください
+</UCard>
+</UModal>
+</div> -->
 </template>
