@@ -10,10 +10,12 @@ import SwitchBtn from "@/components/module/switch-btn.vue"
 import CoverMod from "@/components/module/cover-mod.vue"
 import MiddleWrapper from "@/components/module/middle-wrapper.vue"
 
+import InfoDialog from "@/components/main/info-dialog.vue"
+
 import { STATE, getCurrentLongState } from "@/assets/ts/main/state"
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
 import { convertRad2Deg } from "@/assets/ts/math/angle"
-import { useNumberState } from "@/assets/states/base"
+import { useNumberState, useBooleanState } from "@/assets/states/base"
 import { useSwitchState } from "@/assets/states/switch"
 import { useCircleStateIdx, useMiddleStateIdx, useCurrentLongTypeIdx } from "@/assets/states/state-idx"
 
@@ -34,6 +36,13 @@ const currentLongState = computed(() =>
 const gameErr = ref("None")
 const throwGameErr = (msg: string) => {
   gameErr.value = msg
+}
+const [isOpenDialog, setIsOpenDialog] = useBooleanState(true)
+const openDialog = () => {
+  setIsOpenDialog(true)
+}
+const closeDialog = () => {
+  setIsOpenDialog(false)
 }
 
 // Circle
@@ -145,6 +154,7 @@ defineShortcuts({
 </script>
 
 <template>
+  <InfoDialog :isOpen="isOpenDialog" :closeDialog="closeDialog" />
   <!-- TODO: marginTop  -->
   <div class="flex">
     <div class="w-1/2">
@@ -180,7 +190,7 @@ defineShortcuts({
       <div>========</div>
       <div>DEBUG</div>
       <div>CIRCLE: {{ currentCircleState }}, POT: {{ convertRad2Deg(circlePotRad) }}, R_TIME: {{ circleRemainingTimeRate
-        }},
+      }},
         {{ circleInitTimeSec }}
       </div>
       <div>MIDDLE: {{ currentMiddleState }}</div>

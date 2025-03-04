@@ -12,7 +12,7 @@ const startGame = () => {
 </script>
 
 <template>
-  <div v-show="!hasStarted" class="flex flex-col items-center justify-center h-screen">
+  <div v-if="!hasStarted" class="flex flex-col items-center justify-center h-screen">
     <div class="text-left">
       <div class="flex items-end">
         <BtnBase @click="startGame" class="cursor-pointer hover-bright" :style="{
@@ -31,7 +31,7 @@ const startGame = () => {
     </div>
   </div>
 
-  <Game v-show="hasStarted" />
+  <Game v-if="hasStarted" />
 </template>
 
 <style scoped>
@@ -49,6 +49,6 @@ const startGame = () => {
 }
 
 .hover-bright:hover {
-  filter: brightness(1.1);
+  filter: brightness(0.9);
 }
 </style>

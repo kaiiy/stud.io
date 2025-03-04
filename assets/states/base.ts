@@ -22,4 +22,15 @@ const useStringState = (
   return [state, updateState];
 };
 
-export { useNumberState, useStringState };
+const useBooleanState = (
+  initValue: boolean,
+): [globalThis.Ref<boolean>, (newState: boolean) => void] => {
+  const state = ref(initValue);
+  const updateState = (newState: boolean) => {
+    state.value = newState;
+  };
+
+  return [state, updateState];
+};
+
+export { useBooleanState, useNumberState, useStringState };

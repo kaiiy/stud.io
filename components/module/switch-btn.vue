@@ -5,6 +5,7 @@ import CircleSvg from "@/components/shapes/circle-svg.vue"
 import { COLOR } from "@/assets/ts/style/color"
 import { STATE } from "@/assets/ts/main/state"
 import SwitchBase from "./switch/base.vue"
+
 const props = defineProps<{
   state: string,
   baseSize: number,
@@ -19,7 +20,7 @@ const circleColor = computed(() => {
   if (props.state === STATE.SWITCH.OFF) return COLOR.WHITE
   return COLOR.DARK_PURPLE
 })
-</script> 
+</script>
 
 <template>
   <div class="relative col-span-1 row-span-1">
