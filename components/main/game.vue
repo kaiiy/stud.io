@@ -15,8 +15,7 @@ import InfoDialog from "@/components/main/info-dialog.vue"
 import { STATE, getCurrentLongState } from "@/assets/ts/main/state"
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water"
 import { convertRad2Deg } from "@/assets/ts/math/angle"
-import { useNumberState, useBooleanState } from "@/assets/states/base"
-import { useSwitchState } from "@/assets/states/switch"
+import { useNumberState, useBooleanState, useStringState } from "@/assets/states/base"
 import { useCircleStateIdx, useMiddleStateIdx, useCurrentLongTypeIdx } from "@/assets/states/state-idx"
 
 
@@ -127,7 +126,7 @@ const longVal = computed(() => {
   else if (currentState === STATE.MIDDLE.POT) {
     maxNum = 100
     minNum = 0
-    // TODO: 温度変化 
+    // TODO: 温度変化 (2分で線形変化させる)
     liquidRate = potTemperature.value / (maxNum - minNum)
   }
   // cup: temperature (middle) 
@@ -144,7 +143,13 @@ const longVal = computed(() => {
 })
 
 // switch 
-const [switchState, toggleSwitchState] = useSwitchState(STATE.SWITCH.OFF)
+const [switchState, updateSwitchState] = useStringState(STATE.SWITCH.OFF)
+
+const toggleSwitchState = () => {
+  if (switchState.value === STATE.SWITCH.OFF) updateSwitchState(STATE.SWITCH.ON)
+  else if (switchState.value === STATE.SWITCH.ON) updateSwitchState(STATE.SWITCH.OFF)
+  else throw new Error("toggleSwitchState: invalid state")
+}
 
 // Modal 
 const isOpen = ref(false)
@@ -202,6 +207,7 @@ defineShortcuts({
       <div>MIDDLE: {{ currentMiddleState }}</div>
       <div>LONG: {{ currentLongState }}</div>
       <div>POT_RATE: {{ potRate }}</div>
+      <div>POT_WATER: {{ potWater }}</div>
       <div>liquidRate: {{ longVal.liquidRate }}</div>
 
       <div>========</div>
