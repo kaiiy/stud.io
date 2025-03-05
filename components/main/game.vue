@@ -32,17 +32,17 @@ const [currentLongTypeIdx, setNextLongType] = useCurrentLongTypeIdx(0)
 const currentLongState = computed(() =>
   getCurrentLongState(currentLongTypeIdx.value, circleStateIdx.value, middleStateIdx.value))
 
-// Game Error 
+// ゲームエラー
 const gameErr = ref("None")
 const throwGameErr = (msg: string) => {
   gameErr.value = msg
 }
-const [isOpenDialog, setIsOpenDialog] = useBooleanState(true)
-const openDialog = () => {
+// ダイアログ
+const [isOpenDialog, setIsOpenDialog] = useBooleanState(false)
+const message = ref("")
+const openDialog = (newMessage: string) => {
+  message.value = newMessage
   setIsOpenDialog(true)
-}
-const closeDialog = () => {
-  setIsOpenDialog(false)
 }
 
 // Circle
@@ -50,9 +50,11 @@ const [circleInitTimeSec, updateCircleInitTimeSec] = useNumberState(0)
 const [circlePotRad, updateCirclePotRad] = useNumberState(1)
 const [circleRemainingTimeRate, updateCircleRemainingTimeRate] = useNumberState(0)
 
+// waterVol: 今入れようとしている水の量
 const addWaterIntoPot = (waterVol: number) => {
-  if (potCoverDeg.value > -45 && waterVol > 0) {
-    throwGameErr("Pot cover is not opened")
+  if (potCoverDeg.value > -30 && waterVol > 0) {
+    throwGameErr("フタが空いていないため、水がこぼれた")
+    openDialog("床が水浸しになってしまいました。最初からやり直してください。")
     return
   }
   potWater.value += waterVol
@@ -62,7 +64,10 @@ const addWaterIntoPot = (waterVol: number) => {
 const potWater = ref<number>(0)
 const potRate = computed<number>(() => {
   const _rate = potFillRate(potWater.value)
-  if (_rate >= 1) throwGameErr("Overflowing water in the pot")
+  if (_rate >= 1) {
+    throwGameErr("ポットの容量オーバー")
+    openDialog("床が水浸しになってしまいました。最初からやり直してください。")
+  }
   return _rate
 })
 const [potCoverDeg] = useNumberState(0)
@@ -154,7 +159,8 @@ defineShortcuts({
 </script>
 
 <template>
-  <InfoDialog :isOpen="isOpenDialog" :closeDialog="closeDialog" />
+  <InfoDialog :isOpen="isOpenDialog" :message="message" />
+
   <!-- TODO: marginTop  -->
   <div class="flex">
     <div class="w-1/2">
@@ -202,21 +208,4 @@ defineShortcuts({
       <div>ERR: {{ gameErr }}</div>
     </div>
   </div>
-
-  <!-- <div>
-      <UButton label="Open" @click="isOpen = true" />
-
-      <UModal v-model="isOpen">
-        <UCard>
-          <template #header>
-            <div class="flex items-center justify-between">
-              <h3 class="text-base font-semibold leading-6 text-gray-900">
-                Game Over!
-              </h3>
-            </div>
-          </template>
-リロードしてください
-</UCard>
-</UModal>
-</div> -->
 </template>

@@ -9,17 +9,41 @@ const hasStarted = ref(false)
 const startGame = () => {
   hasStarted.value = true
 }
+
+
+const windowWidth = ref(window.innerWidth);
+
+const updateWidth = (): void => {
+  windowWidth.value = window.innerWidth;
+};
+
+onMounted((): void => {
+  window.addEventListener('resize', updateWidth);
+});
+
+onUnmounted((): void => {
+  window.removeEventListener('resize', updateWidth);
+});
+
+const btnSize = computed(() => {
+  if (windowWidth.value < 640) {
+    return { height: '100px', width: '100px' };
+  } else if (windowWidth.value < 1024) {
+    return { height: '150px', width: '150px' };
+  } else {
+    return { height: '176px', width: '176px' };
+  }
+});
 </script>
 
 <template>
   <div v-if="!hasStarted" class="flex flex-col items-center justify-center h-screen">
     <div class="text-left">
       <div class="flex items-end">
-        <BtnBase @click="startGame" class="cursor-pointer hover-bright" :style="{
-          ...heightPx(176), ...widthPx(176)
-        }" :base-color="COLOR.DARK_PURPLE" :inner-color="COLOR.LIGHT_PURPLE" />
+        <BtnBase @click="startGame" class="cursor-pointer hover-bright" :style="btnSize" :base-color="COLOR.DARK_PURPLE"
+          :inner-color="COLOR.LIGHT_PURPLE" />
         <div class="ml-8">
-          <p class="font-noto-mono text-9xl">
+          <p class="font-noto-mono text-5xl sm:text-7xl md:text-9xl">
             stud.io
           </p>
           <div class="font-noto-jp text-2xl flex items-center">

@@ -3,31 +3,31 @@ import { useBooleanState } from "@/assets/states/base"
 
 const props = defineProps<{
   isOpen: boolean,
-  closeDialog: () => void,
+  message: string
 }>();
 
-
+const reloadPage = () => {
+  window.location.reload();
+}
 </script>
 
 
 <template>
-  <div v-show="isOpen"
-    class="bg-white top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 fixed shadow-lg rounded-lg z-50 w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-[60vw] xl:w-[50vw] ">
-    <div>
-      <button @onClick="closeDialog()" class="absolute right-4 top-4">
-        <IoMdClose class="w-10 h-10" />
-      </button>
-    </div>
-    <div class="flex items-center pl-4 pt-4">
-      <MdOutlineKeyboardDoubleArrowRight size={45} class="inline-block align-middle" />
-      <span class="text-3xl ml-2">ERROR</span>
-    </div>
-    <div>
-      <div
-        class="flex justify-center items-center w-full h-full px-8 py-20 sm:px-16 sm:py-20 md:px-16 md:py-24 xl:px-24 xl:py-36">
-        床が水浸しになっています。最初からやり直してください。
+  <div v-show="isOpen" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div class="bg-white rounded-lg shadow-xl w-[90vw] sm:w-[80vw] md:w-[70vw] lg:w-[60vw] xl:w-[50vw]">
+      <div class="bg-gradient-to-r from-red-500 to-pink-500 rounded-t-lg px-4 py-4 flex items-center">
+        <Icon name="prime:angle-double-right" size="45" class="text-white" />
+        <span class="text-3xl font-bold text-white ml-2">ERROR</span>
+      </div>
+      <div class="px-8 py-20 sm:px-16 sm:py-20 md:px-16 md:py-24 xl:px-24 xl:py-36 text-center text-gray-700">
+        {{ message }}
+      </div>
+      <div class="flex justify-center pb-4">
+        <button @click="reloadPage"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-6 rounded-full shadow-lg transition duration-200 ease-in-out">
+          リロードする
+        </button>
       </div>
     </div>
   </div>
-
 </template>
