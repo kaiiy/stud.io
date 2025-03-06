@@ -52,7 +52,7 @@ const [circlePotRad, updateCirclePotRad] = useNumberState(0)
 
 // waterVol: 今入れようとしている水の量
 const addWaterIntoPot = (waterVol: number) => {
-  if (potCoverDeg.value > -30 && waterVol > 0) {
+  if (potCoverDeg.value > -45 && waterVol > 0) {
     throwGameErr("フタが空いていないため、水がこぼれた")
     openDialog("床が水浸しになってしまいました。最初からやり直してください。")
     return
@@ -147,8 +147,11 @@ const longVal = computed(() => {
 
 const updateCirclePotRadWithSwitch = (newRad: number) => {
   updateCirclePotRad(newRad)
-  window.clearInterval(raiseTemperatureTimer)
-  updateSwitchState(STATE.SWITCH.OFF)
+  if (newRad > 0) {
+    window.clearInterval(raiseTemperatureTimer)
+    updateSwitchState(STATE.SWITCH.OFF)
+  }
+
 }
 
 // switch 
@@ -173,8 +176,14 @@ const raiseTemperature = () => {
 const toggleSwitchState = () => {
   // スイッチオン
   if (switchState.value === STATE.SWITCH.OFF) {
-    updateSwitchState(STATE.SWITCH.ON)
-    raiseTemperatureTimer = window.setInterval(raiseTemperature, intervalMsec)
+    // フタが閉まっていたら、スイッチオン
+    if (potCoverDeg.value > -30) {
+      updateSwitchState(STATE.SWITCH.ON)
+      raiseTemperatureTimer = window.setInterval(raiseTemperature, intervalMsec)
+    } else {
+      throwGameErr("フタが開いていないため、沸騰しません")
+      openDialog("フタを閉めてから電源を入れてください。")
+    }
   }
   // スイッチオフ 
   else if (switchState.value === STATE.SWITCH.ON) {
@@ -183,17 +192,6 @@ const toggleSwitchState = () => {
   }
   else throw new Error("toggleSwitchState: invalid state")
 }
-
-// Modal 
-const isOpen = ref(false)
-defineShortcuts({
-  escape: {
-    usingInput: true,
-    whenever: [isOpen],
-    handler: () => { isOpen.value = false }
-  }
-})
-
 </script>
 
 <template>
@@ -234,16 +232,7 @@ defineShortcuts({
     <div class="w-1/2">
       <div>========</div>
       <div>DEBUG</div>
-      <div>CIRCLE: {{ currentCircleState }}, POT: {{ convertRad2Deg(circlePotRad) }}, R_TIME: {{ circleRemainingTimeRate
-      }},
-        {{ circleInitTimeSec }}
-      </div>
-      <div>MIDDLE: {{ currentMiddleState }}</div>
-      <div>LONG: {{ currentLongState }}</div>
-      <div>POT_RATE: {{ potRate }}</div>
-      <div>POT_WATER: {{ potWater }}</div>
-      <div>liquidRate: {{ longVal.liquidRate }}</div>
-
+      <div>{{ potCoverDeg }}</div>
       <div>========</div>
       <div>ERR: {{ gameErr }}</div>
     </div>
