@@ -26,7 +26,7 @@ const props = defineProps<{
   intervalMsec: number,
   potRad: number,
   handleAddWaterIntoPot: (waterVol: number) => void, // type?
-  handleUpdatePotRad: Function, // type?
+  handleUpdatePotRad: (newRad: number) => void, // type?
   handleUpdateRemainingTimeRate: Function // type?
   handleUpdateInitTimeSec: Function // type?
 }>();

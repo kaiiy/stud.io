@@ -46,8 +46,9 @@ const openDialog = (newMessage: string) => {
 
 // Circle
 const [circleInitTimeSec, updateCircleInitTimeSec] = useNumberState(0)
-const [circlePotRad, updateCirclePotRad] = useNumberState(1)
 const [circleRemainingTimeRate, updateCircleRemainingTimeRate] = useNumberState(0)
+const [circlePotRad, updateCirclePotRad] = useNumberState(0)
+
 
 // waterVol: 今入れようとしている水の量
 const addWaterIntoPot = (waterVol: number) => {
@@ -95,8 +96,11 @@ const updateCoverDeg = (newDeg: number) => {
 }
 
 // water temperature
-const [potTemperature, updatePotTemperature] = useNumberState(20)
-const [cupTemperature, updateCupTemperature] = useNumberState(20)
+const WATER_INIT_TEMPERATURE = 20
+const MAX_TEMPERATURE = 100
+
+const [potTemperature, updatePotTemperature] = useNumberState(WATER_INIT_TEMPERATURE)
+const [cupTemperature, updateCupTemperature] = useNumberState(WATER_INIT_TEMPERATURE)
 
 // long 
 const longVal = computed(() => {
@@ -106,9 +110,9 @@ const longVal = computed(() => {
 
   // valve: water temperature (circle) 
   if (currentState === STATE.CIRCLE.VALVE) {
-    maxNum = 100
+    maxNum = MAX_TEMPERATURE
     minNum = 0
-    liquidRate = 20 / (maxNum - minNum)
+    liquidRate = WATER_INIT_TEMPERATURE / (maxNum - minNum)
   }
   // time: remaining time rate (circle) 
   else if (currentState === STATE.CIRCLE.TIME) {
@@ -124,14 +128,13 @@ const longVal = computed(() => {
   }
   // pot: temperature (middle) 
   else if (currentState === STATE.MIDDLE.POT) {
-    maxNum = 100
+    maxNum = MAX_TEMPERATURE
     minNum = 0
-    // TODO: 温度変化 (2分で線形変化させる)
     liquidRate = potTemperature.value / (maxNum - minNum)
   }
   // cup: temperature (middle) 
   else if (currentState === STATE.MIDDLE.CUP) {
-    maxNum = 100
+    maxNum = MAX_TEMPERATURE
     minNum = 0
     // TODO: 温度変化 
     liquidRate = cupTemperature.value / (maxNum - minNum)
@@ -142,12 +145,42 @@ const longVal = computed(() => {
   return { liquidRate, maxNum, minNum }
 })
 
+const updateCirclePotRadWithSwitch = (newRad: number) => {
+  updateCirclePotRad(newRad)
+  window.clearInterval(raiseTemperatureTimer)
+  updateSwitchState(STATE.SWITCH.OFF)
+}
+
 // switch 
 const [switchState, updateSwitchState] = useStringState(STATE.SWITCH.OFF)
 
+let raiseTemperatureTimer: number;
+
+const raiseTemperature = () => {
+  // 空焚き 
+  if (potWater.value <= 0) {
+    throwGameErr("空焚き")
+    openDialog("空焚きは危険です。最初からやり直してください。")
+  }
+  // 沸騰100度で2分間(最大容量の場合)で沸騰させる
+  updatePotTemperature(potTemperature.value + (MAX_TEMPERATURE - WATER_INIT_TEMPERATURE) * intervalMsec / (2 * potRate.value * 60 * 1000))
+  // 100度を超えたら100度に固定 
+  if (potTemperature.value >= MAX_TEMPERATURE) {
+    updatePotTemperature(MAX_TEMPERATURE)
+  }
+}
+
 const toggleSwitchState = () => {
-  if (switchState.value === STATE.SWITCH.OFF) updateSwitchState(STATE.SWITCH.ON)
-  else if (switchState.value === STATE.SWITCH.ON) updateSwitchState(STATE.SWITCH.OFF)
+  // スイッチオン
+  if (switchState.value === STATE.SWITCH.OFF) {
+    updateSwitchState(STATE.SWITCH.ON)
+    raiseTemperatureTimer = window.setInterval(raiseTemperature, intervalMsec)
+  }
+  // スイッチオフ 
+  else if (switchState.value === STATE.SWITCH.ON) {
+    window.clearInterval(raiseTemperatureTimer)
+    updateSwitchState(STATE.SWITCH.OFF)
+  }
   else throw new Error("toggleSwitchState: invalid state")
 }
 
@@ -174,7 +207,8 @@ defineShortcuts({
       }">
         <!-- circle module  -->
         <CircleMod :state="currentCircleState" :interval-msec="intervalMsec" :pot-rad="circlePotRad"
-          :base-size="baseSize" :handle-add-water-into-pot="addWaterIntoPot" :handle-update-pot-rad="updateCirclePotRad"
+          :base-size="baseSize" :handle-add-water-into-pot="addWaterIntoPot"
+          :handle-update-pot-rad="updateCirclePotRadWithSwitch"
           :handle-update-remaining-time-rate="updateCircleRemainingTimeRate"
           :handle-update-init-time-sec="updateCircleInitTimeSec" />
 
