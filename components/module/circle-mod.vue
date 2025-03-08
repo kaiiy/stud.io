@@ -29,6 +29,7 @@ const props = defineProps<{
   handleUpdatePotRad: (newRad: number) => void,
   handleUpdateRemainingTimeRate: Function // type?
   handleUpdateInitTimeSec: Function // type?
+  handleAddPotWaterIntoCup: (waterMl: number) => void
 }>();
 
 // style 
@@ -125,7 +126,9 @@ const onClickMouseArea = (ev: MouseEvent) => {
   }
   // pot 
   else if (props.state === STATE.CIRCLE.POT) {
+    // from 0 to pi/2
     const potRad = getPotRad((mouseRelativePos.y - circleCenterPos.y) / Math.sqrt(circleRadius ** 2 - (mouseRelativePos.x - circleCenterPos.x) ** 2))
+    // console.log(potRad)
     props.handleUpdatePotRad(potRad)
   }
   else { throw new Error() }

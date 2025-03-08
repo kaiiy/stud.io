@@ -22,7 +22,7 @@ const noodleColor: string = COLOR.LIGHT_PURPLE
 
 <template>
   <div :style="{
-    ...topPx(1.1)
+    ...topPx(1.4)
   }">
     <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(0)
@@ -48,11 +48,11 @@ const noodleColor: string = COLOR.LIGHT_PURPLE
     <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(1.4)
     }" :color="noodleColor" />
-    <Noodle :style="{
+    <!-- <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(1.6)
     }" :color="noodleColor" />
     <Noodle :style="{
       ...heightPx(noodleHeight), ...widthPx(NoodleWidth), ...leftPx(0), ...topPx(1.8)
-    }" :color="noodleColor" />
+    }" :color="noodleColor" /> -->
   </div>
 </template>

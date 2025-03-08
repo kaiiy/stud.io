@@ -62,8 +62,20 @@ const addWaterIntoPot = (waterVol: number) => {
   potTemperature.value = (waterVol * WATER_INIT_TEMPERATURE + potTemperature.value * potWater.value) / (potWater.value + waterVol)
 }
 
-const addPotWaterIntoCup = () => {
-  // TODO: ポットからカップに水を移す 
+const addPotWaterIntoCup = (waterMl: number) => {
+  if (cupCoverDeg.value > -45 && waterMl > 0) {
+    throwGameErr("カップのフタが空いていない")
+    openDialog("床が水浸しになってしまいました。最初からやり直してください。")
+    return
+  }
+  // ポットのフタが空いてない 
+  if (potCoverDeg.value === 0) {
+    return
+  }
+
+  potWater.value -= waterMl
+  cupWater.value += waterMl
+  cupTemperature.value = (waterMl * potTemperature.value + cupWater.value * cupTemperature.value) / (waterMl + cupWater.value)
 }
 
 // Middle 
@@ -208,13 +220,12 @@ const toggleSwitchState = () => {
           :base-size="baseSize" :handle-add-water-into-pot="addWaterIntoPot"
           :handle-update-pot-rad="updateCirclePotRadWithSwitch"
           :handle-update-remaining-time-rate="updateCircleRemainingTimeRate"
-          :handle-update-init-time-sec="updateCircleInitTimeSec" />
+          :handle-update-init-time-sec="updateCircleInitTimeSec" :handle-add-pot-water-into-cup="addPotWaterIntoCup" />
 
         <!-- middle module  -->
         <MiddleWrapper>
           <CoverMod :deg="coverDeg" :update-deg="updateCoverDeg" :base-size="baseSize" />
-          <MiddleMod :state="currentMiddleState" :liquid-rate="middleRate" :base-size="baseSize"
-            :handle-add-pot-water-into-cup="addPotWaterIntoCup" />
+          <MiddleMod :state="currentMiddleState" :liquid-rate="middleRate" :base-size="baseSize" />
         </MiddleWrapper>
 
         <!-- next module  -->
