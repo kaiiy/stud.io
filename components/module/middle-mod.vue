@@ -11,6 +11,7 @@ const props = defineProps<{
     baseSize: number,
     liquidRate: number,
     state: string
+    handleAddPotWaterIntoCup: () => void
 }>();
 
 const {

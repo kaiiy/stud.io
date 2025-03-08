@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useBooleanState } from "@/assets/states/base"
-
 const props = defineProps<{
   isOpen: boolean,
   message: string
@@ -10,7 +8,6 @@ const reloadPage = () => {
   window.location.reload();
 }
 </script>
-
 
 <template>
   <div v-show="isOpen" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">

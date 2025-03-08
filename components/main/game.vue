@@ -58,6 +58,12 @@ const addWaterIntoPot = (waterVol: number) => {
     return
   }
   potWater.value += waterVol
+  // 温度変化の実装 
+  potTemperature.value = (waterVol * WATER_INIT_TEMPERATURE + potTemperature.value * potWater.value) / (potWater.value + waterVol)
+}
+
+const addPotWaterIntoCup = () => {
+  // TODO: ポットからカップに水を移す 
 }
 
 // Middle 
@@ -176,14 +182,8 @@ const raiseTemperature = () => {
 const toggleSwitchState = () => {
   // スイッチオン
   if (switchState.value === STATE.SWITCH.OFF) {
-    // フタが閉まっていたら、スイッチオン
-    if (potCoverDeg.value > -30) {
-      updateSwitchState(STATE.SWITCH.ON)
-      raiseTemperatureTimer = window.setInterval(raiseTemperature, intervalMsec)
-    } else {
-      throwGameErr("フタが開いていないため、沸騰しません")
-      openDialog("フタを閉めてから電源を入れてください。")
-    }
+    updateSwitchState(STATE.SWITCH.ON)
+    raiseTemperatureTimer = window.setInterval(raiseTemperature, intervalMsec)
   }
   // スイッチオフ 
   else if (switchState.value === STATE.SWITCH.ON) {
@@ -213,7 +213,8 @@ const toggleSwitchState = () => {
         <!-- middle module  -->
         <MiddleWrapper>
           <CoverMod :deg="coverDeg" :update-deg="updateCoverDeg" :base-size="baseSize" />
-          <MiddleMod :state="currentMiddleState" :liquid-rate="middleRate" :base-size="baseSize" />
+          <MiddleMod :state="currentMiddleState" :liquid-rate="middleRate" :base-size="baseSize"
+            :handle-add-pot-water-into-cup="addPotWaterIntoCup" />
         </MiddleWrapper>
 
         <!-- next module  -->
