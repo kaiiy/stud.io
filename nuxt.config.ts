@@ -47,13 +47,11 @@ export default defineNuxtConfig({
         },
         {
           rel: "stylesheet",
-          href:
-            "https://fonts.googleapis.com/css2?family=Goldman&family=Share+Tech+Mono&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Goldman&family=Share+Tech+Mono&display=swap",
         },
         {
           rel: "stylesheet",
-          href:
-            "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+Mono:wght@100..900&display=swap",
+          href: "https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans+Mono:wght@100..900&display=swap",
         },
       ],
     },

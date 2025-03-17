@@ -1,15 +1,20 @@
 <script setup lang="ts">
 defineProps<{
-  color: string,
+  color: string;
 }>();
 </script>
 
 <template>
-  <svg version="1.1" viewBox="0 0 113.77 26.458" xmlns="http://www.w3.org/2000/svg">
+  <svg
+    version="1.1"
+    viewBox="0 0 113.77 26.458"
+    xmlns="http://www.w3.org/2000/svg"
+  >
     <g transform="translate(-1.5e-6 -116.42)">
       <path
         d="m2.1069 116.42c-1.1672 0-2.1069 1.18-2.1069 2.6458v21.167c0 1.4658 0.93966 2.6458 2.1069 2.6458h109.56c1.1672 0 2.1069-1.18 2.1069-2.6458v-21.167c0-1.4658-0.93966-2.6458-2.1069-2.6458zm8.4275 9.2604h92.702c1.7508 0 3.1603 1.7701 3.1603 3.9688s-1.4095 3.9688-3.1603 3.9688h-92.702c-1.7508 0-3.1603-1.7701-3.1603-3.9688s1.4095-3.9688 3.1603-3.9688z"
-        :fill="color" />
+        :fill="color"
+      />
     </g>
   </svg>
 </template>

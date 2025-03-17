@@ -2,13 +2,7 @@
   // https://v3.nuxtjs.org/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "types": [
-      "nuxt-windicss",
-      "jest"
-    ]
+    "types": ["nuxt-windicss", "jest"]
   },
-  "include": [
-    ".nuxt/nuxt.d.ts",
-    "**/*"
-  ]
+  "include": [".nuxt/nuxt.d.ts", "**/*"]
 }
