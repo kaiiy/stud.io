@@ -15,6 +15,9 @@ import InfoDialog from "@/components/main/info-dialog.vue";
 
 // Variables & Functions
 import {
+  circleStateIdx,
+  currentCircleState,
+  setNextCircleIdx,
   circleInitTimeSec,
   circlePotRad,
   circleRemainingTimeRate,
@@ -31,24 +34,19 @@ import {
 import { STATE, getCurrentLongState } from "@/assets/ts/main/state";
 import { potFillRate, cupFillRate } from "@/assets/ts/main/water";
 import { convertRad2Deg } from "@/assets/ts/math/angle";
+import { useNumberState, useBooleanState } from "~/assets/ts/states/base";
 import {
-  useNumberState,
-  useBooleanState,
-  useStringState,
-} from "@/assets/states/base";
-import {
-  useCircleStateIdx,
   useMiddleStateIdx,
   useCurrentLongTypeIdx,
-} from "@/assets/states/state-idx";
+} from "~/assets/ts/states/state-idx";
 
 // ======== config ========
+// 描画サイズ単位
 const baseSize = 100; // todo
+// 描画フレーム間隔
 const intervalMsec = 1000; // todo
 
 // ======== state and state-handler ========
-const [circleStateIdx, setNextCircleIdx, currentCircleState] =
-  useCircleStateIdx(0);
 const [middleStateIdx, setNextMiddleIdx, currentMiddleState] =
   useMiddleStateIdx(0);
 const [currentLongTypeIdx, setNextLongType] = useCurrentLongTypeIdx(0);
@@ -57,8 +55,8 @@ const currentLongState = computed(() =>
   getCurrentLongState(
     currentLongTypeIdx.value,
     circleStateIdx.value,
-    middleStateIdx.value,
-  ),
+    middleStateIdx.value
+  )
 );
 
 // ゲームエラー
@@ -114,10 +112,10 @@ const WATER_INIT_TEMPERATURE = 20;
 const MAX_TEMPERATURE = 100;
 
 const [potTemperature, updatePotTemperature] = useNumberState(
-  WATER_INIT_TEMPERATURE,
+  WATER_INIT_TEMPERATURE
 );
 const [cupTemperature, updateCupTemperature] = useNumberState(
-  WATER_INIT_TEMPERATURE,
+  WATER_INIT_TEMPERATURE
 );
 
 // waterVol: 今入れようとしている水の量
@@ -132,7 +130,7 @@ const addWaterIntoPot = (waterVol: number) => {
   updatePotTemperature(
     (waterVol * WATER_INIT_TEMPERATURE +
       potTemperature.value * potWater.value) /
-      (potWater.value + waterVol),
+      (potWater.value + waterVol)
   );
 };
 
@@ -151,7 +149,7 @@ const addPotWaterIntoCup = (waterMl: number) => {
   updateCupWater(cupWater.value + waterMl);
   updateCupTemperature(
     (waterMl * potTemperature.value + cupWater.value * cupTemperature.value) /
-      (waterMl + cupWater.value),
+      (waterMl + cupWater.value)
   );
 };
 
@@ -219,7 +217,7 @@ const raiseTemperature = () => {
   updatePotTemperature(
     potTemperature.value +
       ((MAX_TEMPERATURE - WATER_INIT_TEMPERATURE) * intervalMsec) /
-        (2 * potRate.value * 60 * 1000),
+        (2 * potRate.value * 60 * 1000)
   );
   // 100度を超えたら100度に固定
   if (potTemperature.value >= MAX_TEMPERATURE) {

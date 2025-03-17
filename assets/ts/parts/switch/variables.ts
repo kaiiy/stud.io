@@ -1,4 +1,4 @@
-import { useStringState } from "@/assets/states/base";
+import { useStringState } from "~/assets/ts/states/base";
 import { STATE } from "@/assets/ts/main/state";
 
 // Switch Mod

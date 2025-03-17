@@ -1,4 +1,4 @@
-import { useNumberState } from "@/assets/states/base";
+import { useNumberState } from "~/assets/ts/states/base";
 import {
   CIRCLE_STATE_LIST,
   LONG_BTN_STATE_LIST,
@@ -12,6 +12,7 @@ const useStateIdx = (initVal: number, length: number) => {
   return [idx, nextIdx] as const;
 };
 
+// index と indexに対応する状態名 のどちらも提供
 const useCircleStateIdx = (initVal: number) => {
   const [idx, nextIdx] = useStateIdx(initVal, CIRCLE_STATE_LIST.length);
   const currentState = computed(() => CIRCLE_STATE_LIST[idx.value]);
