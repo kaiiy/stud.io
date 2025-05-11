@@ -49,9 +49,13 @@ const btnSize = computed(() => {
           :base-color="COLOR.DARK_PURPLE"
           :inner-color="COLOR.LIGHT_PURPLE"
         />
-        <div class="ml-8">
-          <p class="font-noto-mono text-5xl sm:text-7xl md:text-9xl">stud.io</p>
-          <div class="font-noto-jp text-2xl flex items-center">
+        <div class="ml-10">
+          <p
+            class="font-noto-mono text-5xl sm:text-7xl md:text-9xl text-gray-700"
+          >
+            stud.io
+          </p>
+          <div class="font-noto-jp text-2xl flex items-center text-gray-700">
             <Icon name="prime:angle-double-right" size="48" />
             <p>Created by kaiiy</p>
           </div>

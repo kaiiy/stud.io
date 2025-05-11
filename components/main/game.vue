@@ -169,7 +169,7 @@ const longVal = computed(() => {
   }
   // time: remaining time rate (circle)
   else if (currentState === STATE.CIRCLE.TIME) {
-    maxNum = circleInitTimeSec.value;
+    maxNum = Math.floor(circleInitTimeSec.value);
     minNum = 0;
     liquidRate = circleRemainingTimeRate.value;
   }
@@ -314,7 +314,8 @@ const toggleSwitchState = () => {
     <div class="w-1/2">
       <div>========</div>
       <div>DEBUG</div>
-      <div>{{ potCoverDeg }}</div>
+      <div>potCoverDeg: {{ potCoverDeg }}</div>
+      <div>potTemperature: {{ potTemperature }}</div>
       <div>========</div>
       <div>ERR: {{ gameErr }}</div>
     </div>
