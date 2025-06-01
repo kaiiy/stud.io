@@ -6,7 +6,7 @@ export const AREA_ID = "COVER_AREA";
 /***
  * @returns -90 <= deg <= 0
  */
-export const cvtToCoverDeg = (pos: Vec, size: Vec) => {
+export const toCoverDeg = (pos: Vec, size: Vec) => {
   const rad = pos.x === 0 ? Math.PI : -Math.atan((size.y - pos.y) / pos.x);
   const deg = convertRad2Deg(rad);
 

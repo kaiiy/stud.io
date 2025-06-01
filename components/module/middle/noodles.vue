@@ -14,10 +14,10 @@ const topPx = (value: number) => baseTopPx(value, props.baseSize);
 const leftPx = (value: number) => baseLeftPx(value + leftBase, props.baseSize);
 
 const { height: noodleHeight, width: NoodleWidth } = getNoodleSize(
-  props.baseSize,
+  props.baseSize
 );
 
-const noodleColor: string = COLOR.LIGHT_PURPLE;
+const noodleColor: string = COLOR.DARK_PURPLE;
 </script>
 
 <template>

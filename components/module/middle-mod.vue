@@ -9,7 +9,7 @@ import {
 } from "assets/ts/style/to-px";
 import { getLiquidSize, getLiquidTop } from "assets/ts/parts/liquid";
 import { COLOR, bgColor } from "@/assets/ts/style/color";
-import { STATE } from "@/assets/ts/main/state";
+import { STATE, type MiddleState } from "@/assets/ts/main/state";
 import Noodles from "./middle/noodles.vue";
 import Container from "./middle/container.vue";
 import LiquidLine from "./middle/liquid-line.vue";
@@ -17,7 +17,7 @@ import LiquidLine from "./middle/liquid-line.vue";
 const props = defineProps<{
   baseSize: number;
   liquidRate: number;
-  state: string;
+  state: MiddleState;
 }>();
 
 const {
@@ -61,6 +61,17 @@ const showCupComponents = computed(() => props.state === STATE.MIDDLE.CUP);
       }"
     ></div>
 
+    <!-- liquid line (cup)  -->
+    <LiquidLine
+      class="absolute"
+      v-show="showCupComponents"
+      :style="{
+        ...strokeWidthPx(0.05 * baseSize),
+        ...topPx(1 * baseSize),
+      }"
+      :color="COLOR.DARK_PURPLE"
+    />
+
     <!-- noodles (cup) -->
     <Noodles
       class="absolute"
@@ -77,11 +88,5 @@ const showCupComponents = computed(() => props.state === STATE.MIDDLE.CUP);
       }"
       :color="COLOR.LIGHT_PURPLE"
     />
-
-    <!-- liquid line (cup)  -->
-    <!-- <LiquidLine class="absolute" v-show="showCupComponents" :style="{
-            ...strokeWidthPx(0.05 * baseSize),
-            ...topPx(1 * baseSize)
-        }" :color="COLOR.LIGHT_PURPLE" /> -->
   </div>
 </template>

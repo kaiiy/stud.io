@@ -16,7 +16,7 @@ export const STATE = {
     ON: "switch-on",
     OFF: "switch-off",
   },
-};
+} as const;
 
 export const CIRCLE_STATE_LIST = [
   STATE.CIRCLE.VALVE,
@@ -24,6 +24,7 @@ export const CIRCLE_STATE_LIST = [
   STATE.CIRCLE.POT,
 ];
 export const MIDDLE_STATE_LIST = [STATE.MIDDLE.POT, STATE.MIDDLE.CUP];
+export type MiddleState = typeof MIDDLE_STATE_LIST[number];
 export const LONG_BTN_STATE_LIST = [
   STATE.LONG_BTN.CIRCLE,
   STATE.LONG_BTN.MIDDLE,

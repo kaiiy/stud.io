@@ -91,20 +91,17 @@ const cupRate = computed<number>(() => cupFillRate(cupWater.value));
 const middleRate = computed(() => {
   const state = currentMiddleState.value;
   if (state === STATE.MIDDLE.POT) return potRate.value;
-  else if (state === STATE.MIDDLE.CUP) return cupRate.value;
-  else throw new Error("middleRate: invalid state");
+  return cupRate.value;
 });
 const coverDeg = computed(() => {
   const state = currentMiddleState.value;
   if (state === STATE.MIDDLE.POT) return potCoverDeg.value;
-  else if (state === STATE.MIDDLE.CUP) return cupCoverDeg.value;
-  else throw new Error("CoverDeg: invalid state");
+  return cupCoverDeg.value;
 });
 const updateCoverDeg = (newDeg: number) => {
   const state = currentMiddleState.value;
   if (state === STATE.MIDDLE.POT) potCoverDeg.value = newDeg;
-  else if (state === STATE.MIDDLE.CUP) cupCoverDeg.value = newDeg;
-  else throw new Error("updateCoverDeg: invalid state");
+  else cupCoverDeg.value = newDeg;
 };
 
 // water temperature
@@ -267,6 +264,7 @@ const toggleSwitchState = () => {
         <!-- middle module  -->
         <MiddleWrapper>
           <CoverMod
+            :state="currentMiddleState"
             :deg="coverDeg"
             :update-deg="updateCoverDeg"
             :base-size="baseSize"

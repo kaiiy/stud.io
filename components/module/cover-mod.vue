@@ -13,11 +13,13 @@ import { rotateDegOnly, transformOrigin } from "@/assets/ts/style/transform";
 import { AREA_ID } from "@/assets/ts/parts/cover";
 import { getMousePos, getMouseRelativePos } from "@/assets/ts/parts/mouse";
 import { type Vec } from "@/assets/ts/math/vec";
-import { cvtToCoverDeg } from "@/assets/ts/parts/cover";
+import { toCoverDeg } from "@/assets/ts/parts/cover";
+import { STATE, type MiddleState } from "@/assets/ts/main/state";
 
 const props = defineProps<{
   baseSize: number;
   deg: number;
+  state: MiddleState; // TODO: stateによって表示するフタを切り替える
   updateDeg: (deg: number) => void;
 }>();
 
@@ -29,7 +31,7 @@ const onClickingMouseArea = (ev: MouseEvent) => {
   const mouseRelativePos = getMouseRelativePos(ev, mouseAreaPos.value);
 
   // set mouseDeg to coverDeg
-  const _deg = cvtToCoverDeg(mouseRelativePos, { x: modWidth, y: modWidth });
+  const _deg = toCoverDeg(mouseRelativePos, { x: modWidth, y: modWidth });
   if (_deg < -90 || _deg > 0) throw new Error("invalid deg");
   props.updateDeg(_deg);
 };
@@ -61,6 +63,7 @@ onMounted(() => {
       }"
     >
       <RoundedLineSvg
+        v-show="props.state === STATE.MIDDLE.POT"
         class="absolute"
         :style="{
           ...transformOrigin(modHeight / 2, modHeight / 2),
