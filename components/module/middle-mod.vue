@@ -62,15 +62,15 @@ const showCupComponents = computed(() => props.state === STATE.MIDDLE.CUP);
     ></div>
 
     <!-- liquid line (cup)  -->
-    <LiquidLine
+    <!-- <LiquidLine
       class="absolute"
       v-show="showCupComponents"
       :style="{
-        ...strokeWidthPx(0.05 * baseSize),
+        ...strokeWidthPx(0.08 * baseSize),
         ...topPx(1 * baseSize),
       }"
-      :color="COLOR.DARK_PURPLE"
-    />
+      :color="COLOR.LIGHT_PURPLE"
+    /> -->
 
     <!-- noodles (cup) -->
     <Noodles

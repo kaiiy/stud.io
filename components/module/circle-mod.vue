@@ -84,7 +84,12 @@ const onClickMouseArea = (ev: MouseEvent) => {
 
   // valve
   if (props.state === STATE.CIRCLE.VALVE) {
-    valveAngle.value = hvAngleFromMouse(mouseRelativePos, circleCenterPos);
+    const IS_TIMER = false;
+    valveAngle.value = hvAngleFromMouse(
+      mouseRelativePos,
+      circleCenterPos,
+      IS_TIMER
+    );
     const valveAngleRate = convertAngle2Rate(valveAngle.value);
 
     if (!isOpenValve.value && valveAngleRate !== 0) {
@@ -92,7 +97,7 @@ const onClickMouseArea = (ev: MouseEvent) => {
       addWaterTimer = window.setInterval(
         addWaterIntoPot,
         props.intervalMsec,
-        valveAngleRate,
+        valveAngleRate
       );
       isOpenValve.value = true;
     } else if (isOpenValve.value && valveAngleRate !== 0) {
@@ -101,7 +106,7 @@ const onClickMouseArea = (ev: MouseEvent) => {
       addWaterTimer = window.setInterval(
         addWaterIntoPot,
         props.intervalMsec,
-        valveAngleRate,
+        valveAngleRate
       );
     } else if (isOpenValve.value && valveAngleRate === 0) {
       // close
@@ -113,7 +118,12 @@ const onClickMouseArea = (ev: MouseEvent) => {
   }
   // timer
   else if (props.state === STATE.CIRCLE.TIME) {
-    timerAngle.value = hvAngleFromMouse(mouseRelativePos, circleCenterPos);
+    const IS_TIMER = true;
+    timerAngle.value = hvAngleFromMouse(
+      mouseRelativePos,
+      circleCenterPos,
+      IS_TIMER
+    );
     const timerRate = convertAngle2Rate(timerAngle.value);
 
     const isOpen = isOpenTimer.value;
@@ -126,7 +136,7 @@ const onClickMouseArea = (ev: MouseEvent) => {
       pureTimer = window.setInterval(
         countTimer,
         props.intervalMsec,
-        props.intervalMsec,
+        props.intervalMsec
       );
       isOpenTimer.value = true;
     } else if (isOpen && timerRate !== 0) {
@@ -138,7 +148,7 @@ const onClickMouseArea = (ev: MouseEvent) => {
       pureTimer = window.setInterval(
         countTimer,
         props.intervalMsec,
-        props.intervalMsec,
+        props.intervalMsec
       );
     } else if (isOpen && timerRate === 0) {
       // close
@@ -155,10 +165,10 @@ const onClickMouseArea = (ev: MouseEvent) => {
     const potRad = getPotRad(
       (mouseRelativePos.y - circleCenterPos.y) /
         Math.sqrt(
-          circleRadius ** 2 - (mouseRelativePos.x - circleCenterPos.x) ** 2,
-        ),
+          circleRadius ** 2 - (mouseRelativePos.x - circleCenterPos.x) ** 2
+        )
     );
-    // console.log(potRad)
+    // console.log(potRad);
     props.handleUpdatePotRad(potRad);
   } else {
     throw new Error();

@@ -75,6 +75,20 @@ onMounted(() => {
         :height-px="modHeight"
         :color="COLOR.LIGHT_PURPLE"
       />
+      <!-- TODO: カップの開く動作 -->
+      <RoundedLineSvg
+        v-show="props.state === STATE.MIDDLE.CUP"
+        class="absolute"
+        :style="{
+          ...transformOrigin(modHeight / 2, modHeight / 2),
+          ...rotateDegOnly(props.deg),
+          ...leftPx(0),
+          ...bottomPx(0),
+        }"
+        :width-px="modWidth"
+        :height-px="modHeight"
+        :color="COLOR.LIGHT_PURPLE"
+      />
     </div>
   </div>
 </template>

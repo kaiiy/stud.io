@@ -1,5 +1,5 @@
 // corresponding to 2 * PI
-const MAX_TIME_SEC = 600;
+const MAX_TIME_SEC = 360;
 
 export const getRemainingTime = (timerRate: number) => {
   if (timerRate < 0 || timerRate > 1) throw new Error();

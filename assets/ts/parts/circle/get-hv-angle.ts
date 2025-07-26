@@ -1,4 +1,4 @@
-import { convertRad2Deg } from "@/assets/ts/math/angle";
+import { convertDeg2Rad, convertRad2Deg } from "@/assets/ts/math/angle";
 import { diffVec, getAngle, type Vec } from "@/assets/ts/math/vec";
 
 /**
@@ -24,8 +24,22 @@ const hvAngle = (circleCenter: Vec, mousePos: Vec) => {
 const adjustHvAngle = (actualHvAngleRad: number) => {
   const hvAngleDeg = convertRad2Deg(actualHvAngleRad);
 
-  if (0 <= hvAngleDeg && hvAngleDeg <= 7) return 0;
-  if (353 <= hvAngleDeg && hvAngleDeg <= 360) return 0;
+  const BUFFER_ANGLE_DEG = 7;
+  if (0 <= hvAngleDeg && hvAngleDeg <= BUFFER_ANGLE_DEG) return 0;
+  if (360 - BUFFER_ANGLE_DEG <= hvAngleDeg && hvAngleDeg <= 360) return 0;
+
+  return actualHvAngleRad;
+};
+
+const adjustHvAngleForTimer = (actualHvAngleRad: number) => {
+  const hvAngleDeg = convertRad2Deg(actualHvAngleRad);
+  const BUFFER_ANGLE_DEG = 30;
+  const TARGET_ANGLE_DEG = 180;
+
+  if (
+    TARGET_ANGLE_DEG - BUFFER_ANGLE_DEG <= hvAngleDeg &&
+    hvAngleDeg <= TARGET_ANGLE_DEG + BUFFER_ANGLE_DEG
+  ) return convertDeg2Rad(TARGET_ANGLE_DEG);
 
   return actualHvAngleRad;
 };
@@ -33,9 +47,14 @@ const adjustHvAngle = (actualHvAngleRad: number) => {
 export const hvAngleFromMouse = (
   mouseRelativePos: Vec,
   circleCenter: Vec,
+  isTimer: boolean,
 ): number => {
   const actualHvAngleVal = hvAngle(circleCenter, mouseRelativePos);
   const hvAngleVal = adjustHvAngle(actualHvAngleVal);
+
+  if (isTimer) {
+    return adjustHvAngleForTimer(hvAngleVal);
+  }
 
   return hvAngleVal;
 };
