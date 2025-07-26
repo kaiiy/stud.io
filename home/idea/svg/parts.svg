@@ -7,7 +7,7 @@
    viewBox="0 0 210 297"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
    sodipodi:docname="parts.svg"
    inkscape:export-filename="\\wsl.localhost\Ubuntu-20.04\home\tomo\site\materials\home\view.png"
    inkscape:export-xdpi="200"
@@ -26,13 +26,13 @@
      inkscape:pagecheckerboard="1"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="1.1476306"
-     inkscape:cx="274.91425"
-     inkscape:cy="263.15088"
-     inkscape:window-width="1920"
-     inkscape:window-height="1009"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
+     inkscape:zoom="1.6229948"
+     inkscape:cx="1150.0345"
+     inkscape:cy="134.93574"
+     inkscape:window-width="2504"
+     inkscape:window-height="1387"
+     inkscape:window-x="1920"
+     inkscape:window-y="25"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1"
      showguides="true"
@@ -511,13 +511,27 @@
        inkscape:export-filename="..\..\assets\img\parts\middle.png"
        inkscape:export-xdpi="191.99997"
        inkscape:export-ydpi="191.99997" />
+    <path
+       id="rect1131-9"
+       style="fill:#e1daee;stroke-width:1.28777;stroke-linecap:round"
+       d="m 340.27509,-1.0187415 c -1.11959,0 -2.02107,0.85954897 -2.02107,1.92706197 V 105.53336 c 0,1.06751 0.90148,1.92706 2.02107,1.92706 h 51.52036 c 1.11958,0 2.02107,-0.85955 2.02107,-1.92706 V 0.90832047 c 0,-1.067513 -0.90149,-1.92706197 -2.02107,-1.92706197 z m 25.76018,8.829699 c 5.13027,0 9.26042,3.9380445 9.26042,8.8296995 V 89.80102 c 0,4.89166 -4.13015,8.82971 -9.26042,8.82971 -5.13028,0 -9.26042,-3.93805 -9.26042,-8.82971 V 16.640657 c 0,-4.891655 4.13014,-8.8296995 9.26042,-8.8296995 z"
+       inkscape:export-filename="..\..\assets\img\parts\middle.png"
+       inkscape:export-xdpi="191.99997"
+       inkscape:export-ydpi="191.99997" />
+    <path
+       id="rect1131-3"
+       style="fill:#e1daee;stroke-width:1.28777;stroke-linecap:round"
+       d="m 248.08356,-27.78125 c -1.11959,0 -2.02106,0.859549 -2.02106,1.927062 V 78.770853 c 0,1.06751 0.90147,1.92706 2.02106,1.92706 h 51.52037 c 1.11958,0 2.02107,-0.85955 2.02107,-1.92706 V -25.854188 c 0,-1.067513 -0.90149,-1.927062 -2.02107,-1.927062 z m 25.76019,8.829699 c 5.13027,0 9.26042,3.938045 9.26042,8.8297 v 73.160364 c 0,4.89166 -4.13015,8.82971 -9.26042,8.82971 -5.13028,0 -9.26042,-3.93805 -9.26042,-8.82971 v -73.160364 c 0,-4.891655 4.13014,-8.8297 9.26042,-8.8297 z"
+       inkscape:export-filename="..\..\assets\img\parts\middle.png"
+       inkscape:export-xdpi="191.99997"
+       inkscape:export-ydpi="191.99997" />
     <rect
-       style="fill:#ac98cd;fill-opacity:1;stroke:none;stroke-width:0.989782;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       style="fill:#ac98cd;fill-opacity:1;stroke:none;stroke-width:1.19221;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="rect1681-0"
-       width="18.520834"
+       width="26.870983"
        height="95.25"
-       x="251.14784"
-       y="9.2758512"
+       x="264.17068"
+       y="-17.197922"
        ry="9.260417" />
     <path
        sodipodi:type="star"
@@ -593,8 +607,7 @@
     <path
        id="rect923"
        style="fill:#e1daee;stroke-width:0;stroke-linecap:round;paint-order:fill markers stroke"
-       d="M 557.24219 -363.73828 L 593.49219 -60.345703 L 688.62109 -60.646484 L 783.75 -60.345703 L 820 -363.73828 L 688.62109 -363.73828 L 557.24219 -363.73828 z "
-       transform="scale(0.26458333)" />
+       d="m 149.87619,-68.981426 6.8923,80.272618 18.08707,-0.07958 18.08707,0.07958 6.8923,-80.272618 h -24.97937 z" />
     <rect
        id="rect9244"
        width="211.66667"
@@ -625,8 +638,8 @@
        inkscape:export-xdpi="200"
        inkscape:export-ydpi="200"><tspan
          x="1201.2793"
-         y="169.70703"
-         id="tspan3056">stud.io</tspan></text>
+         y="171.08225"
+         id="tspan1">stud.io</tspan></text>
     <rect
        style="fill:#000000;stroke-width:0;stroke-linecap:round;paint-order:fill markers stroke;fill-opacity:1"
        id="rect235"
